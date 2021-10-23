@@ -19,10 +19,20 @@
         (() => {
             document.cookie = "SameSite=None; Secure"
             const btns = document.querySelectorAll('button');
+            const paragraphs = document.querySelectorAll('p');
+
             if (btns.length > 0) {
                 btns.forEach(btn => {
                     btn.addEventListener("mouseover", (event) => {
                         event.target.setAttribute("title", document.querySelector("button.innerText p").innerText);
+                    });
+                });
+            }
+
+            if (paragraphs.length > 0 && paragraphs[0].title !== null) {
+                paragraphs.map((paragraph) => {
+                    paragraph.addEventListener("mouseover", (event) => {
+                        event.target.setAttribute("title", document.querySelector("p.innerText p").innerText);
                     });
                 });
             }
