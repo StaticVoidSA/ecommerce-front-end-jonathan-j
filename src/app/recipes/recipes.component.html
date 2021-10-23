@@ -1,0 +1,29 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <div *ngIf="connected === true">
+            <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+            <div *ngIf="isLoading === false">
+                <div class="row">
+                    <img class="imageBanner" src="../../assets/images/recipes-banner.jpg">
+                    <p class="bannerLabel">Shoppable recipes, now served!</p>
+                    <p class="bannerText">Simply find the recipe you like, click “Add to cart” under the individual items listed on the recipe page and we’ll bring them right to your door.</p>
+                </div>
+                <mat-grid-list cols="4" rowHeight="fit">
+                    <div *ngFor="let recipe of recipes">
+                        <mat-grid-tile>
+                            <img class="recipeImage" [src]="recipe.recipeImage">
+                            <div class="textBlock" [routerLink]="['/recipe-detail', recipe.recipeID]">
+                                <p>{{recipe.title}}</p>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                </mat-grid-list>
+            </div>
+        </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+</div>

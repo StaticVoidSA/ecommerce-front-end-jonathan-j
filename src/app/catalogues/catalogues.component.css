@@ -1,0 +1,55 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.gridImage {
+  width: 220px;
+  height: 280px;
+  object-fit: cover;
+}
+
+.textBlock {
+  text-align: center;
+  position: absolute;
+  font-size: 28px;
+  font-weight: 400;
+  background-color: white;
+  opacity: 0;
+  color: #505050;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 160px;
+  width: 275px;
+  height: 100%;
+}
+
+.textBlock:hover {
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.textBlock:focus {
+  outline: none;
+  border: none;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

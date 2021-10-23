@@ -1,0 +1,37 @@
+<div class="header">
+    <mat-toolbar color="primary" style="height:35px;">
+        <div class="col-md-8 col-md-offset-2">
+            <div fxHide.gt-xs>
+                <button class="city" mat-button [matMenuTriggerFor]="menu">YOUR REGION: <u>{{ userLocation.Country | uppercase }}</u></button>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item name="country" value="Free State">FREE STATE</button>
+                    <button mat-menu-item name="country" value="Eastern Cape">EASTERN CAPE</button>
+                    <button mat-menu-item name="country" value="Gauteng">GAUTENG</button>
+                    <button mat-menu-item name="country" value="Kwazulu Natal">KWAZULU NATAL</button>
+                    <button mat-menu-item name="country" value="Western Cape">WESTERN CAPE</button>
+                </mat-menu>
+            </div>
+            <div fxHide.xs>
+                <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px; margin-left: -190px" mat-button [matMenuTriggerFor]="menu">
+                <a>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u>  <span class="caret"></span></a>
+            </button>
+                <mat-menu #menu="matMenu" class="menuItems" *ngFor="let location of locations">
+                    <button class="location-button" mat-menu-item (click)="onLocationChanged(location)" name="country">{{location}}</button>
+                </mat-menu>
+            </div>
+            <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs style="text-align: center; padding-top: 8px;">
+                <div style="margin-right: -370px;">
+                    <ul fxLayout class="navigation-items" fxLayoutGap="10px">
+                        <li *ngIf="authRespData.loggedIn === false"><a style="font-size: 12px;" routerLink="/login" routerLinkActive="active"><u>LOG IN</u></a></li>
+                        <span *ngIf="authRespData.loggedIn === false"> | </span>
+                        <li *ngIf="authRespData.loggedIn === false"><a style="font-size: 12px; margin-right: 200px;" routerLink="/signup" routerLinkActive="active"><u>SIGN UP</u></a></li>
+                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px; margin-right: 20px; cursor: pointer;" routerLink="/edit-products">Products</a></li>
+                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px; margin-right: 20px; cursor: pointer;" (click)="onNavigateUsers()">Users</a></li>
+                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 14px; margin-right: 20px;" routerLink="/">Welcome {{ authRespData.userName }}</a></li>
+                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 12px; margin-right: 200px;" routerLink="/" routerLinkActive="active" (click)="onLogout()"><u>LOG OUT</u></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </mat-toolbar>
+</div>

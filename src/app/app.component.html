@@ -1,0 +1,19 @@
+<mat-sidenav-container>
+    <mat-sidenav-content>
+        <app-header fxHide.xs></app-header>
+    </mat-sidenav-content>
+</mat-sidenav-container>
+<div class="container" style="background-color: white;">
+    <div class="row">
+        <div class="col-xs-12">
+            <main>
+                <router-outlet></router-outlet>
+            </main>
+        </div>
+    </div>
+</div>
+<footer>
+    <div style="width: 100%;">
+        <app-footer fxHide.xs></app-footer>
+    </div>
+</footer>

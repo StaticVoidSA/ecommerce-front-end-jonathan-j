@@ -1,0 +1,11 @@
+.mainDiv {
+    margin-top: 35px;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}

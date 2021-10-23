@@ -1,0 +1,44 @@
+<div class="main-div">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <div *ngIf="connected === true">
+            <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+            <div *ngIf="isLoading === false">
+                <div class="col-md-8 col-md-offset-2">
+                    <form #updateAddressForm="ngForm" (ngSubmit)="onUpdate()">
+                        <div id="address-data" ngModelGroup="addressData" #addressData="ngModelGroup">
+                            <h3>Edit Address: {{addressNickName}} </h3>
+                            <div class="update-address-container">
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td id="item-title">Address Name</td>
+                                            <td id="item-value"><input name="addressNickName"
+                                                    [(ngModel)]="addressNickName" type="text"
+                                                    value="{{addressNickName}}" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="item-title">Physical Address</td>
+                                            <td id="item-value"><input name="userAddress" [(ngModel)]="userAddress"
+                                                    type="text" value="{{userAddress}}" required /></td>
+                                        </tr>
+                                        <tr>
+                                            <td id="item-title">Default Address</td>
+                                            <td id="item-value"><input name="isDefault" [(ngModel)]="isDefault"
+                                                    type="text" value="{{isDefault}}" required /></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <button type="submit" class="update-button">Update</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="warning-container" *ngIf="connected === false">
+            <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+            <h3>CHECK YOUR INTERNET CONNECTION</h3>
+        </div>
+    </div>
+</div>

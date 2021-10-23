@@ -1,0 +1,34 @@
+.mat-select {
+    font-size: 14px;
+}
+
+.select-heading {
+    font-size: 24px;
+}
+
+.dialog-heading {
+    font-size: 24px;
+}
+
+.main-Heading {
+    font-size: 32px;
+}
+
+.mat-dialog-title {
+    text-align: center;
+}
+
+.mat-option {
+    margin-top: 20px;
+}
+
+.mat-button {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ::ng-deep .mat-dialog-content, .mat-dialog-title, .mat-form-field, .mat-dialog-actions, .select-heading, .mat-select, .mat-option, .mat-dialog {
+    background-color: white;
+    color: black;
+} */

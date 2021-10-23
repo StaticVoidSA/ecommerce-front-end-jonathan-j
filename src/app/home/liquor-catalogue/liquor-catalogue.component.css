@@ -1,0 +1,66 @@
+.mainDiv {
+    margin-top: 35px;
+}
+
+.catalogueImage {
+    width: 250px;
+    height: 250px;
+}
+
+.imageLabel {
+    position: absolute;
+    margin-top: 300px;
+    font-size: 24px;
+    font-weight: 300;
+    text-align: center;
+}
+
+.mat-grid-tile {
+    border: 1px solid lightgrey;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mat-grid-tile:hover {
+    cursor: pointer;
+}
+
+.mat-grid-tile:focus {
+    outline: none;
+    text-decoration: none;
+}
+
+.mat-grid-list {
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.bannerImage {
+    margin-top: 20px;
+    width: 100% !important;
+    height: 200px;
+    object-fit: cover;
+}
+
+.wineImage {
+    margin-top: 15px;
+    width: 100%;
+    height: 300px;
+}
+
+.heading {
+    font-weight: 200;
+    text-align: center;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}

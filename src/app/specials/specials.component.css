@@ -1,0 +1,217 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.container {
+  margin-top: 30px;
+  margin-right: 5px;
+  width: 650px;
+  height: 520px;
+  border: 1px solid lightgrey;
+}
+
+.heading {
+  text-align: center;
+  font-size: 38px;
+  font-weight: 400;
+  color: #b9154a;
+}
+
+.image {
+  object-fit: cover;
+  width: 150px;
+  height: 180px;
+  padding: 10px 5px;
+  text-align: center;
+  float: right;
+}
+
+.myImages {
+  transition: transform 0.5s;
+}
+
+.myImages:hover {
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+.image:focus,
+.myImages:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.title {
+  padding-left: auto;
+  padding-right: auto;
+  text-align: center;
+  position: relative;
+  font-size: 18px;
+  font-weight: 300;
+  color: #575757;
+  margin-top: 40px;
+}
+
+.titleContainer {
+  height: 260px;
+  text-align: center;
+}
+
+.old-price,
+.price {
+  clear: both;
+  position: relative;
+  float: none;
+  padding-left: auto;
+  padding-right: auto;
+  text-align: center;
+  position: relative;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.price {
+  color: red;
+  margin-right: 5px;
+}
+
+.old-price {
+  color: #575757;
+  text-decoration: line-through;
+}
+
+.badge {
+  background-color: red;
+  color: white;
+}
+
+#circle {
+  width: 50px;
+  height: 50px;
+  background: red;
+  -moz-border-radius: 50px;
+  -webkit-border-radius: 50px;
+  border-radius: 50px;
+  color: white;
+  vertical-align: middle;
+  text-align: center;
+  padding: auto;
+  font-size: 12px;
+  padding-top: 8px;
+  margin-top: 10px;
+}
+
+.price-container {
+  margin-top: 50px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.title-heading {
+  margin-top: 20px;
+  margin-bottom: -10px;
+  position: relative;
+  text-align: center;
+  color: #b9154a;
+}
+
+.addToCart {
+  background-color: #b9154a;
+  width: 50px;
+  height: 40px;
+  color: white;
+  border-style: none;
+  margin-left: 6px;
+  margin-right: 6px;
+  margin-top: 3px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  font-weight: 100;
+  font-family: Roboto;
+  vertical-align: center;
+  text-align: center;
+}
+
+.addToCart:focus {
+  outline: none;
+  border-style: none;
+}
+
+.addToFavorites {
+  background-color: #3374b6;
+  width: 50px;
+  height: 40px;
+  color: white;
+  border-style: none;
+  margin-left: auto;
+  margin-right: 6px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  font-weight: 100;
+  font-family: Roboto;
+  vertical-align: center;
+  text-align: center;
+}
+
+.addToList {
+  width: 50px;
+  height: 40px;
+  color: white;
+  border-style: none;
+  background-color: #13357a;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 5px;
+  font-weight: 100;
+  font-family: Roboto;
+  vertical-align: center;
+  text-align: center;
+}
+
+.buttonsContainer {
+  margin-top: 15px;
+}
+
+.addToFavorites:focus,
+.addToList:focus {
+  outline: none;
+  border-style: none;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+.priceLabel {
+  font-weight: 300;
+  font-size: 18px;
+  margin-right: 15px;
+}
+
+.container-heading {
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 40px;
+  color: #b9154a;
+  font-weight: 400;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

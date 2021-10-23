@@ -1,0 +1,64 @@
+.divMain {
+  margin-top: 35px;
+}
+
+.no-items {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.list-heading {
+  color: #b9144a;
+  text-align: center;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+table {
+  margin-top: 60px;
+  margin-bottom: 120px;
+  width: 100%;
+}
+
+table,
+tr,
+th,
+td {
+  padding: 10px 50px 10px 15px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table,
+thead,
+th {
+  border: 1px solid #b3b3b3;
+}
+
+.icon:hover {
+  cursor: pointer;
+}
+
+.link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

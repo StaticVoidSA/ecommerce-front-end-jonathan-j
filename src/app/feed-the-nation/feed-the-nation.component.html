@@ -1,0 +1,45 @@
+<div class="mainDiv">
+   <div class="col-xs-12">
+      <app-navbar></app-navbar>
+      <div *ngIf="connected === true">
+         <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+         <div *ngIf="isLoading === false">
+            <h3 class="main-heading">Pick n Pay partners with customers to help vulnerable communities</h3>
+            <img src="assets/Feed_The_Nation/banner.jpg" class="banner-image" />
+            <p class="sub-heading">With the hunger crisis rising during the national lockdown, Pick n Pay has launched
+               the
+               Feed the Nation campaign which has already helped more than 1.2 million South Africans.</p>
+            <p class="sub-heading">Last week, Daily Maverick reported on the increasing hunger crisis in South Africa
+               and
+               that communities are desperate for food. The pandemic is sending hunger surging around the world and
+               developed countries such as the US are also battling to feed starving, newly unemployed people.</p>
+            <p class="sub-heading">In an attempt to help communities struggling to feed themselves, Pick n Pay has
+               launched
+               a relief fund to provide food and basic hygiene essentials to the most vulnerable during the lockdown
+               period.</p>
+            <p class="sub-heading">All cash donations will go directly to Joint Aid Management (JAM) and FoodForward SA,
+               with a focus on children and shelters. Collectively, they work with organisations throughout South Africa
+               and feed more than 500,000 people daily. The Feed the Nation campaign is also supporting Afrika Tikkun as
+               a
+               main beneficiary.</p>
+            <p class="sub-heading">Suzanne Ackerman-Berman, transformation director of Pick n Pay, says the company felt
+               it
+               had a responsibility to the communities it serves:</p>
+            <p class="sub-heading">“Part of our company ethos is that doing good is good business. We looked at the
+               situation and saw that people are going hungry, kids are not getting food, and schools have closed. ”</p>
+            <p class="sub-heading">Ackerman-Berman says the company, the Ackerman family and the executives started by
+               putting in their own funds before the campaign had even been made public.</p>
+            <p class="sub-heading">The Feed the Nation campaign also encourages customers to make a R21 donation either
+               online or at an in-store tillpoint. This small donation can provide someone with a daily, nutritious meal
+               for a week.</p>
+            <p class="sub-heading">So far, the campaign has helped feed more than 1.2 million people. In addition to the
+               R21 donation, customers and companies can buy food hampers with pricing points ranging from R250 to R800.
+            </p>
+         </div>
+      </div>
+   </div>
+   <div class="warning-container" *ngIf="connected === false">
+      <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+      <h3>CHECK YOUR INTERNET CONNECTION</h3>
+   </div>
+</div>

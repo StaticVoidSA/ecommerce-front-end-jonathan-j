@@ -1,0 +1,22 @@
+<div class="mainDiv">
+  <div class="col-xs-12">
+    <app-navbar></app-navbar>
+    <div *ngIf="connected === true">
+      <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+      <div *ngIf="isLoading === false">
+        <div *ngIf="addresses.length > 0">
+          <!-- TODO: Display Addresses || Add Addresses  || CheckoutItem -->
+          <p *ngFor="let address of addresses">{{address.userAddress}}</p>
+        </div>
+        <div *ngIf="addresses.length === 0">
+          <!-- TODO: Add Address -->
+          <p>You have no addresses!</p>
+        </div>
+      </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+      <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+      <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+  </div>
+</div>

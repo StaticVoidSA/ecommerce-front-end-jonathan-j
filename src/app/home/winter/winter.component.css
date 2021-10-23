@@ -1,0 +1,24 @@
+.mainDiv {
+    margin-top: 35px;
+}
+
+.winterBanner {
+    width: 100%;
+}
+
+.label1 {
+    margin-top: 20px;
+    font-size: 28px;
+    font-family: Roboto;
+    color: #808285;
+    text-align: center;
+    font-weight: 300;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}

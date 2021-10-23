@@ -1,0 +1,26 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="isLoading === false">
+          <h1 class="heading">Wine & Liquor</h1>
+          <img class="wineImage" src="../../../assets/Liquor_Catalogue/wine-banner-3.jpg">
+          <img class="bannerImage" src="../../../assets/Liquor_Catalogue/lockdown-banner.jpg">
+        </div>
+
+    </div>
+    <div class="col-xs-12" style="margin-top: 30px;" *ngIf="isLoading === false">
+        <mat-grid-list cols="3" rowHeight="2:2">
+            <mat-grid-tile [routerLink]="['/shop', 'Red_Wine']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/red-wine.jpg"><label class="imageLabel">Red Wine</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'White_Wine']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/white-wine.jpg"><label class="imageLabel">White Wine</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Rose_Wine']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/rose.jpg"><label class="imageLabel">Rose Wine</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Box_Wine']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/box-wine.jpg"><label class="imageLabel">Box Wine</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Spirits']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/spirits.jpg"><label class="imageLabel">Spirits</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Ciders_&_Coolers']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/ciders.jpg"><label class="imageLabel">Ciders & coolers</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Beer']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/beer.jpg"><label class="imageLabel">Beer</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Liqueurs']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/liquers.jpg"><label class="imageLabel">Liqueurs</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Mixers']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/mixers.jpg"><label class="imageLabel">Mixers</label></mat-grid-tile>
+            <mat-grid-tile [routerLink]="['/shop', 'Non_Alchoholic_Beverages']"><img class="catalogueImage" src="../../../assets/Liquor_Catalogue/Non-alchoholic.jpg"><label class="imageLabel">Non Alchoholic Beverages</label></mat-grid-tile>
+        </mat-grid-list>
+    </div>
+</div>

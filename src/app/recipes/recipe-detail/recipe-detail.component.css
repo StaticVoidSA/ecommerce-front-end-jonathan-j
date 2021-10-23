@@ -1,0 +1,121 @@
+.mainDiv {
+    margin-top: 35px;
+    width: auto;
+    height: max-content;
+}
+
+.mat-spinner {
+    position: relative;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 50%;
+    margin-top: 25%;
+}
+
+.recipeImage {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    margin-top: 3px;
+    margin-bottom: 50px;
+}
+
+.recipeTitle {
+    margin-left: 145px;
+    margin-right: auto;
+    font-weight: 400;
+    color: #575757;
+    margin-top: 0px;
+}
+
+.ingredientImage {
+    border: none;
+    width: 25px;
+    height: 25px;
+    object-fit: cover;
+}
+
+.listTitle {
+    margin-top: 40px;
+    margin-left: 150px;
+    color: #575757;
+    font-weight: 300;
+    text-decoration: underline;
+}
+
+.items {
+    text-align: left;
+    font-size: 18px;
+    color: #575757;
+    font-weight: 300;
+    margin-left: 120px;
+    margin-top: 20px;
+}
+
+.cartButton {
+    margin-top: 60px;
+    margin-left: 20px;
+    text-align: center;
+    width: 150px;
+    height: 39px;
+    position: relative;
+    background-color: #b9154a;
+    color: white;
+    font-weight: 200;
+    border: none;
+    outline: none;
+    position: relative;
+    padding-bottom: auto;
+    padding-top: auto;
+}
+
+.cartButton:focus {
+    outline: none;
+    border: none;
+}
+
+.mat-icon {
+    vertical-align: bottom;
+}
+
+.favoriteButton {
+    background-color: #3374b6;
+    color: white;
+    border: none;
+    outline: none;
+    width: 200px;
+    height: 39px;
+    margin-left: 10px;
+    position: relative;
+    text-align: center;
+}
+
+.favoriteButton:focus {
+    outline: none;
+    border: none;
+}
+
+.ingredientsColumn {
+    height: auto;
+}
+
+.item_area {
+    margin-top: 50px;
+}
+
+.warning-container {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+.warning-image {
+    margin-top: 0px;
+    width: 300px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.button-container {
+    text-align: center;
+}

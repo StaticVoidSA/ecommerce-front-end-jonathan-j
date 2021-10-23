@@ -1,0 +1,27 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.imageDiv {
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 30px;
+  margin-bottom: 120px;
+  text-align: center;
+  object-fit: cover;
+}
+
+.link:focus {
+  outline: none;
+  border: none;
+  border-style: none;
+}
+
+.link:hover {
+  cursor: pointer;
+}
+
+.link {
+  font-weight: 300;
+  font-size: 18px;
+}

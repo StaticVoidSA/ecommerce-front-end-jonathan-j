@@ -1,0 +1,104 @@
+.mainDiv {
+    margin-top: 80px;
+    margin-right: auto;
+    margin-left: auto;
+    align-content: center;
+}
+
+table, tr, td {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    margin-right: auto;
+    margin-left: auto;
+    border: none;
+    padding: 4px 0px;
+    width: 100%;
+}
+
+tr, td {
+  font-weight: 200;
+  border-bottom: 1px solid #575757c2;
+  color: #464545dc;
+}
+
+thead,
+th {
+  font-weight: 400;
+  color: #464545dc;
+}
+
+tr:nth-child(even) {
+  background-image: linear-gradient(to right,  #d4d1d1a1, #fafafaad);
+}
+
+input[type="text"], input[type="number"], #title {
+    width: 600px;
+    border: none;
+    color: #464545dc;
+    background-color: transparent;
+    text-align: center;
+    padding-right: auto;
+    padding-left: auto;
+}
+
+input[type="text"]:focus, input[type="number"]:focus {
+    width: 600px;
+    border: none;
+    border-style: none;
+    text-decoration: none;
+    outline: none;
+}
+
+input[type="number"]:hover, input[type="text"] {
+    cursor: pointer;
+}
+
+button {
+    font-size: 12px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.heading {
+  color: #B9154A;
+  text-align: center;
+  margin-top: 40px;
+  margin-left: 100px;
+  margin-right: auto;
+  font-family: Roboto;
+  position: relative;
+}
+
+.title {
+    font-weight: 500;
+    padding: 5px;
+}
+
+.price-input {
+  width: 70px;
+  padding: auto auto;
+  color: #464545dc;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

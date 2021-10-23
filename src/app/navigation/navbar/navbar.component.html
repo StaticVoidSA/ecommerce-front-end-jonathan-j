@@ -1,0 +1,177 @@
+<!-- Desktop Layout -->
+<div class="mainDiv" fxHide.xs>
+    <div class="row" style="align-content: center;">
+        <div style="position: float;">
+            <form #searchitemsForm="ngForm" (ngSubmit)="onSearchSubmit(searchitemsForm)" autocomplete="off">
+                <img alt="Rick 'n Ray Image" src="../../../assets/onlineshopping_logo.png" class="bannerImage" routerLink="/" width="157px;" height="36px" style="object-fit: cover; float: left; margin-top: 10px;">
+                <span class="myDiv" style="float: left;">
+                  <input #searchItem="ngModel" class="inputSearch" ngModel type="text"  name="searchItem" id="searchItem" placeholder="I'm looking for" />
+                  <button title="Search Online" type="submit" class="searchButton" name="searchButton" aria-label="Center Align"><span class="glyphicon glyphicon-search"></span></button>
+                </span>
+            </form>
+            <span class="favoritesContainer">
+                <a id="btnFavorites" class="favorites" style="font-family: Roboto;" (click)="onFavoritesNav()"><span style="padding-top: 21px;" id="glyph__icon" class="glyphicon glyphicon-heart-empty"></span>FAVORITES</a>
+            </span>
+            <span>
+                <a class="shoppingLists" style="font-family: Roboto;" (click)="onShoppingListsNav()"><span id="glyph__icon" class="glyphicon glyphicon-th-list"></span>SHOPPING LISTS</a>
+            </span>
+            <div class="myIcons">
+                <mat-icon style="margin-right: 10px; padding-top: 4px;" (click)="onDeliveriesNav()">local_shipping_outlined</mat-icon>
+                <mat-icon [matBadge]="cartCount" matBadgeColor="primary" style="margin-left: 10px; margin-right: 5px;" (click)="onCartNav()">shopping_cart<span class="cdk-visually-hidden"></span></mat-icon>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div ngFlexLayout>
+            <p mat-button [matMenuTriggerFor]="menu" class="tabAnchor">SHOP BY AILSE</p>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [matMenuTriggerFor]="FreshFood">Fresh Food</button>
+                <button mat-menu-item [matMenuTriggerFor]="FoodCupboard">Food Cupboard</button>
+                <button mat-menu-item [matMenuTriggerFor]="FrozenFood">Frozen Food</button>
+                <button mat-menu-item [matMenuTriggerFor]="ConvienienceMeals">Convienience Meals</button>
+                <button mat-menu-item [matMenuTriggerFor]="Beverages">Beverages</button>
+                <button mat-menu-item [matMenuTriggerFor]="HealthandBeauty">Health & Beauty</button>
+                <button mat-menu-item [matMenuTriggerFor]="Baby">Baby</button>
+                <button mat-menu-item [matMenuTriggerFor]="HouseHoldCleaning">House Hold Cleaning</button>
+                <button mat-menu-item [matMenuTriggerFor]="ElectronicsandOffice">Electronics & Office</button>
+                <button mat-menu-item [matMenuTriggerFor]="HomeandOutdoor">Home & Outdoor</button>
+                <button mat-menu-item [matMenuTriggerFor]="Liquor">Liquor</button>
+            </mat-menu>
+            <mat-menu #FreshFood>
+                <button mat-menu-item [routerLink]="['/shop', 'Bakery']">Bakery</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Butter_&_Margarine']">Butter & Margarine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Cheese']">Cheese</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Eggs']">Eggs</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Fruit']">Fruit</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Meat_&_Poultry']">Meat & Poultry</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Milk_&_Cream']">Milk & Cream</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Prepared_Meats']">Prepared Meats</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Salads_&_Fresh_Herbs']">Salads & Fresh Herbs</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Vegetables']">Vegetables</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Yoghurt']">Yoghurt</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Biltong_&_Droewors']">Biltong & Dry Wors</button>
+            </mat-menu>
+            <mat-menu #FoodCupboard>
+                <button mat-menu-item [routerLink]="['/shop', 'Baking_Ingredients']">Baking Ingredients</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Beans_&_Pulses_&_Lentils']">Beans, Pulses & Lentils</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Biscuits_&_Crackers']">Biscuits & Crackers</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Breakfast_Cereals_&_Bars']">Breakfast Cereals & Bars</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Canned_Food_&_Packets']">Canned Food & Packets</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Chocolates_&_Sweets']">Chocolates & Sweets</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Chips_&_Dips']">Chips & Dips</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Condiments_&_Salads']">Condiments & Salads</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Dried_Snacks_&_Fruits_&_Nuts']">Dried Snacks, Fruits & Nuts</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Jams_&_Spreads']">Jams & Spreads</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Long_Life_Milk']">Long Life Milk</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Oil_&_Vinegar']">Oil & Vinegar</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Pasta_&_Noodles']">Pasta & Noodles</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Rice_&_Grains_&_Maize']">Rice, Grains & Maize</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Sauces_&_Dressings']">Sauces & Dressings</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Sugars_&_Sweeteners']">Sugars & Sweeteners</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Health_&_Protein_&_Energy_Bars']">Health, Protein & Energy Bars</button>
+            </mat-menu>
+            <mat-menu #FrozenFood>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Chips_&_Potatoes']">Frozen Chips & Potatoes</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Confectionary']">Frozen Confectionary</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Fish_&_Seafood']">Frozen Fish & Seafood</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Fruit']">Frozen Fruit</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Meals']">Frozen Meals</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Meat']">Frozen Meat</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Pies']">Frozen Pies</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Pizza']">Frozen Pizza</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Poultry']">Frozen Poultry</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Ready_Meals']">Frozen Ready Meals</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Vegetables']">Frozen Vegatables</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Frozen_Vegetarian']">Frozen Vegetarian</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Ice_Creams_&_Desserts']">Ice Creams & Desserts</button>
+            </mat-menu>
+            <mat-menu #ConvienienceMeals>
+                <button mat-menu-item [routerLink]="['/shop', 'Deli_&_Party_Snacks_&_Dips']">Deli, Party Snacks & Dips</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Desserts']">Desserts</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Meals']">Meals</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Quiches_&_Pies']">Quiches & Pies</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Soups']">Soups</button>
+            </mat-menu>
+            <mat-menu #Beverages>
+                <button mat-menu-item [routerLink]="['/shop', 'Bottled_Water']">Bottled Water</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Coffee_&_Tea_&_Creamers']">Coffee, Tea & Creamers</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Cold_Drinks']">Cold Drinks</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Hot_Chocolate_&_Malt_Drinks']">Hot Chocolate & Malt Drinks</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Juice']">Juice</button>
+            </mat-menu>
+            <mat-menu #HealthandBeauty>
+                <button mat-menu-item [routerLink]="['/shop', 'Bath_Shower_&_Soap']">Bath, Shower & Soap</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Body_&_Facial_Care']">Body & Facial Care</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Deodorant']">Deodorant</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Feminine_Care']">Feminine Care</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Foot_Care_&_Hosiery']">Foot Care & Hoisery</button>
+            </mat-menu>
+            <mat-menu #Baby>
+                <button mat-menu-item [routerLink]="['/shop', 'Baby_&_Toddler_Health_Care']">Baby & Toddler Health Care</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Baby_Bathing_&_Toiletries']">Baby Bathing & Toiletries</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Baby_Bottles_&_Treats']">Baby Bottles & Treats</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Baby_Creams_&_Lotions_&_Glycerine']">Baby Creams, Lotions & Glycerine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Baby_Essentials']">Baby Essentials</button>
+            </mat-menu>
+            <mat-menu #HouseHoldCleaning>
+                <button mat-menu-item [routerLink]="['/shop', 'Air_Freshener']">Air Freshener</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Bathroom_Cleaners']">Bathroom Clearners</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Brooms_&_Mops']">Brooms & Mops</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Cleaning_Accessories']">Cleaning Accessories</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Dishwashing']">Dishwashing</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Bleach']">Bleach</button>
+            </mat-menu>
+            <mat-menu #ElectronicsandOffice>
+                <button mat-menu-item [routerLink]="['/shop', 'Batteries']">Batteries</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Computing_Accessories']">Computing Accessories</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Stationary']">Stationary</button>
+            </mat-menu>
+            <mat-menu #HomeandOutdoor>
+                <button mat-menu-item [routerLink]="['/shop', 'Braai_&_Camping']">Braai & Camping</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Car_Care_&_Cleaning']">Car Care & Cleaning</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Kitchen_&_Dining']">Kitchen & Dining</button>
+                <button mat-menu-item [routerLink]="['/shop', 'DIY']">DIY</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Party_Accessories']">Party Accessories</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Large_Applicances']">Large Applicances</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Electrical_&_Lighting']">Electrical & Lighting</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Sports']">Sports</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Swimming_Pool']">Swimming Pool</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Pets']">Pets</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Small_Appliances']">Small Applicances</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Toys']">Toys</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Home_Decor']">Home decor</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Christmas']">Christmas</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Garden_&_Patio']">Garden & Patio</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Luggage']">Luggage</button>
+            </mat-menu>
+            <mat-menu #Liquor>
+                <button mat-menu-item [routerLink]="['/shop', 'Beer']">Beer</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Red_Wine']">Red Wine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'White_Wine']">White Wine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Box_Wine']">Box Wine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Rose_Wine']">Rose Wine</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Spirits']">Spirits</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Liqueurs']">Liqueurs</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Mixers']">Mixers</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Ciders_&_Coolers']">Ciders & Coolers</button>
+                <button mat-menu-item [routerLink]="['/shop', 'Non_Alchoholic_Beverages']">Non Alchoholic Beverages</button>
+            </mat-menu>
+            <p class="tabAnchor" routerLink="/specials">SPECIALS</p>
+            <p class="tabAnchor" routerLink="/recipes">SHOP INGREDIENTS</p>
+            <p class="tabAnchor" routerLink="/feedthenation">FEED THE NATION</p>
+            <p class="tabAnchor" routerLink="/smartshopper">SMART SHOPPER</p>
+            <p class="tabAnchor" routerLink="/catalogues">IN-STORE CATALOGUES</p>
+        </div>
+    </div>
+    <div class="row">
+        <div style="margin-top: -30px;" class="col-xs-12">
+            <hr/>
+        </div>
+    </div>
+</div>
+<!-- Mobile Layout -->
+<div fxHide.gt-xs>
+    <div class="mobile__navbar">
+
+    </div>
+</div>

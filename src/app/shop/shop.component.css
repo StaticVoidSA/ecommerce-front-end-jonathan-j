@@ -1,0 +1,227 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.itemImage {
+  width: 130px;
+  height: 130px;
+  margin-top: 10px;
+  margin: 10px 15px;
+  padding-top: 0px;
+  padding-bottom: 5px;
+  cursor: pointer;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.itemImage:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+.itemImage:hover {
+  transform: scale(1.25);
+}
+
+.item {
+  border: 1px solid lightgrey;
+  box-shadow: 0px 3px 4px #ccc;
+  width: 176px;
+  height: 410px;
+  text-align: center;
+  margin: 5px;
+  margin-top: 20px;
+  padding-top: 30px;
+}
+
+.mat-grid-tile-footer {
+  width: 176px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #505050;
+}
+
+.mat-grid-tile-header {
+  width: 176px;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #505050;
+}
+
+.itemQuantity {
+  padding: 0px 10px;
+  margin-top: -20px;
+  font-size: 14px;
+  font-family: "Roboto";
+  color: #505050;
+  text-align: left;
+}
+
+.itemTitle {
+  margin-top: 10px;
+  padding: 5px 12px 25px 12px;
+  font-size: 14px;
+  font-family: "Roboto";
+  color: #505050;
+  text-align: left;
+  height: 70px;
+}
+
+.itemPrice {
+  padding: 7px 12px;
+  margin-top: 10px;
+  font-weight: 400;
+  font-size: 18px;
+  font-family: "Roboto";
+  color: #505050;
+  text-align: left;
+}
+
+.addButton {
+  padding: 0px 15px, 20px, 15px;
+  height: 39px;
+  width: 154px;
+  background-color: #b9154a;
+  color: white;
+  font-weight: 500;
+  border-style: none;
+  margin-top: 0px;
+}
+
+.addButton:focus {
+  text-decoration: none;
+  outline: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.matGrid {
+  display: flex;
+  margin-top: 20px;
+}
+
+.filterHeader {
+  padding: 15px;
+  border: 1px solid lightgrey;
+  width: 200px;
+  margin-bottom: 50px;
+  color: #505050;
+  box-shadow: 0px 3px 4px #ccc;
+}
+
+.filterContent {
+  position: relative;
+  color: black;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+.items {
+  margin-top: -45px;
+  padding: 15px;
+  border: 1px solid lightgrey;
+  width: 200px;
+  margin-bottom: 50px;
+  color: #505050;
+  box-shadow: 0px 3px 4px #ccc;
+}
+
+.items:hover {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+  cursor: pointer;
+}
+
+.favoritesButton {
+  background-color: #3374b6;
+  width: 75px;
+  float: left;
+  height: 39px;
+  color: white;
+  font-weight: 300;
+  margin-top: 5px;
+  margin-left: 10px;
+  text-align: center;
+  border: none;
+  outline: none;
+  padding-top: 5px;
+}
+
+.favoritesButton:focus {
+  border: none;
+  outline: none;
+}
+
+.listButton {
+  position: relative;
+  display: inline-block;
+  margin-top: 5px;
+  margin-left: -5px;
+  width: 75px;
+  height: 39px;
+  color: white;
+  background-color: #13357a;
+  border: none;
+  outline: none;
+}
+
+.mat-dialog-container,
+.backdropBackgroud {
+  background-color: white;
+  color: black;
+}
+
+.mat-list-option {
+  color: black;
+}
+
+.filter-label {
+  margin-left: 15px;
+  vertical-align: middle;
+  font-weight: 400;
+  color: #575757;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}
+
+.mat-paginator { 
+  background-image: linear-gradient(to left, rgb(224, 224, 224), #fcfbfb); 
+  color: #575757;
+  margin: 25px;
+}
+
+/* .ui-paginator {
+  background-color: transparent;
+  border-color: transparent;
+  color: #575757;
+  cursor: pointer;
+  z-index:2;
+  margin-top: 25px;
+} */
+
+.mat-radio-button ~ .mat-radio-button {
+  color: #575757;
+}

@@ -1,0 +1,51 @@
+<!-- Greater than mobile devices -->
+<div class="div-main">
+    <div class="col-xs-12">
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div class="mainDiv" *ngIf="isLoading === false">
+            <div fxHide.xs>
+                <div class="banner">
+                    <img class="bannerImage" src="../../../assets/onlineshopping_logo.png" width="157px;" height="36px" style="object-fit: cover; margin-top: 10px; margin-left: -15px;" (click)="onHomeNav()">
+                    <label style="margin-top: 20px; color: #575757; font-weight: 400; font-size: 16px;" fxFlex fxLayout fxLayoutAlign="flex-end">Don't have an account? </label>
+                    <a (click)="onSignupNav()" style="margin-top: 20px; cursor: pointer; margin-left: 8px; font-size: 16px;"><u><b>Sign up</b></u></a>
+                </div>
+                <div style="margin-top: 70px; margin-left: 60px;">
+                    <div class="col-xs-12">
+                        <div class="col-md-6 col-md-offset-3">
+                            <h1 style="font-size: 20px; color: #575757;"><b>LOG IN</b></h1>
+                            <p style="font-size: 16px; color: #575757; margin-top: 15px;">Registered on our website or app?</p>
+                            <p style="font-size: 16px; color: #575757;">Use your same login details here.</p>
+                        </div>
+                        <div class="col-md-6 col-md-offset-3" style="margin-top: 15px;">
+                            <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="onLogin(loginForm)">
+                                <div>
+                                    <label class="inputLabel">Email address / username</label><br />
+                                    <input name="email" id="email" ngModel role="presentation" email class="userInput" type="email" minlength="5" required>
+                                </div>
+                                <div style="display:flexbox;">
+                                    <label class="inputLabel" style="margin-top: 15px;">Password</label>
+                                    <show-hide-password size="lg" btnStyle="primary" [btnOutline]="true" style="display:inline-flexbox; z-index: 0;">
+                                        <input name="password" id="password" role="presentation" ngModel password class="userInput" type="password" minlength="6" required>
+                                        <label style="font-size: 12px; color: #3374B5;">Show/Hide</label>
+                                    </show-hide-password>
+                                </div>
+                                <br />
+                                <div class="button__container">
+                                    <a style="margin-top: 15px; margin-left: -8px; font-size: 16px; cursor: pointer;" (click)="onNavForgetPassword()"><u><b>Forgot Password?</b></u></a><br />
+                                    <button class="submitButton" mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+                                </div>
+                            </form>
+                            <br /><br /><br /><br />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Mobile Layout -->
+<div fxHide.gt-xs>
+    <div class="mobile__navbar">
+
+    </div>
+</div>

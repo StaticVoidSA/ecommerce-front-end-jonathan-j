@@ -1,0 +1,239 @@
+<div class="mainDiv">
+  <div class="col-xs-12">
+    <app-navbar></app-navbar>
+    <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+    <div *ngIf="connected === true">
+      <div class="col-xs-12" *ngIf="isLoading === false">
+        <h2 class="heading">SPECIALS</h2>
+        <div class="gridLayout">
+          <div class="col-md-12">
+            <mat-grid-list cols="5" rowHeight="1.2:3.2">
+              <!-- Bakery -->
+              <div>
+                <mat-grid-tile *ngFor="let bakery of bakerySpecials">
+                  <div class="container">
+                    <div class="myImages" [routerLink]="['/product-detail', bakery.barcode]">
+                      <label class="discount" id="circle">Save R{{bakery.discount}}</label>
+                      <img class="image" [src]="bakery.uri" alt="{{bakery.title}}" />
+                    </div>
+                    <div class="titleContainer">
+                      <label class="title">{{bakery.title}}</label>
+                    </div>
+                    <div class="price-container" style="position: relative;">
+                      <div>
+                        <label class="priceLabel">Was</label>
+                        <label class="old-price">R{{bakery.oldPrice | number:'1.2-2'}}</label>
+                      </div>
+                      <div>
+                        <label class="priceLabel">Now </label>
+                        <label class="price">R{{bakery.price | number:'1.2-2'}}</label>
+                      </div>
+                    </div>
+                    <div class="buttonsContainer">
+                      <button title="Add to Cart" class="addToCart" type="button"
+                        (click)="onAddToCart(bakery.title, bakery.barcode, bakery.brand, 1, bakery.price, bakery.productID)">
+                        <mat-icon>add_shopping_cart</mat-icon>
+                      </button>
+                      <button title="Add to Favorites" class="addToFavorites" type="button"
+                        (click)="onAddToFavorites(bakery.productID, bakery.title, bakery.description, bakery.brand, bakery.quantity, bakery.uri, bakery.price, bakery.barcode)">
+                        <mat-icon>favorite_border</mat-icon>
+                      </button>
+                      <button title="Add to List" class="addToList" type="button"
+                        (click)="onAddToShoppingList(bakery.title, bakery.brand, bakery.barcode, bakery.quantity, bakery.price)">
+                        <mat-icon>list</mat-icon>
+                      </button>
+                    </div>
+                  </div>
+                </mat-grid-tile>
+              </div>
+              <!-- Fruit -->
+              <mat-grid-tile *ngFor="let fruit of fruitSpecials">
+                <div class="container">
+                  <div class="myImages" [routerLink]="['/product-detail', fruit.barcode]">
+                    <label class="discount" id="circle">Save R{{fruit.discount}}</label>
+                    <img class="image" [src]="fruit.uri" alt="{{fruit.title}}" />
+                  </div>
+                  <div class="titleContainer">
+                    <label class="title">{{fruit.title}}</label>
+                  </div>
+                  <div class="price-container" style="position: relative;">
+                    <div>
+                      <label class="priceLabel">Was</label>
+                      <label class="old-price">R{{fruit.oldPrice | number:'1.2-2'}}</label>
+                    </div>
+                    <div>
+                      <label class="priceLabel">Now </label>
+                      <label class="price">R{{fruit.price | number:'1.2-2'}}</label>
+                    </div>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button title="Add to Cart" class="addToCart" type="button"
+                      (click)="onAddToCart(fruit.title, fruit.barcode, fruit.brand, 1, fruit.price, fruit.productID)">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button title="Add to Favorites" class="addToFavorites" type="button"
+                      (click)="onAddToFavorites(fruit.productID, fruit.title, fruit.description, fruit.brand, fruit.quantity, fruit.uri, fruit.price, fruit.barcode)">
+                      <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button title="Add to List" class="addToList" type="button"
+                      (click)="onAddToShoppingList(fruit.title, fruit.brand, fruit.barcode, fruit.quantity, fruit.price)">
+                      <mat-icon>list</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <!-- Juice -->
+              <mat-grid-tile *ngFor="let juice of juiceSpecials">
+                <div class="container">
+                  <div class="myImages" [routerLink]="['/product-detail', juice.barcode]">
+                    <label class="discount" id="circle">Save R{{juice.discount}}</label>
+                    <img class="image" [src]="juice.uri" alt="{{juice.title}}" />
+                  </div>
+                  <div class="titleContainer">
+                    <label class="title">{{juice.title}}</label>
+                  </div>
+                  <div class="price-container" style="position: relative;">
+                    <div>
+                      <label class="priceLabel">Was</label>
+                      <label class="old-price">R{{juice.oldPrice | number:'1.2-2'}}</label>
+                    </div>
+                    <div>
+                      <label class="priceLabel">Now </label>
+                      <label class="price">R{{juice.price | number:'1.2-2'}}</label>
+                    </div>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button title="Add to Cart" class="addToCart" type="button"
+                      (click)="onAddToCart(juice.title, juice.barcode, juice.brand, 1, juice.price, juice.productID)">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button title="Add to Favorites" class="addToFavorites" type="button"
+                      (click)="onAddToFavorites(juice.productID, juice.title, juice.description, juice.brand, juice.quantity, juice.uri, juice.price, juice.barcode)">
+                      <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button title="Add to List" class="addToList" type="button"
+                      (click)="onAddToShoppingList(juice.title, juice.brand, juice.barcode, juice.quantity, juice.price)">
+                      <mat-icon>list</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <!-- Meals -->
+              <mat-grid-tile *ngFor="let meals of mealsSpecials">
+                <div class="container">
+                  <div class="myImages" [routerLink]="['/product-detail', meals.barcode]">
+                    <label class="discount" id="circle">Save R{{meals.discount}}</label>
+                    <img class="image" [src]="meals.uri" alt="{{meals.title}}" />
+                  </div>
+                  <div class="titleContainer">
+                    <label class="title">{{meals.title}}</label>
+                  </div>
+                  <div class="price-container" style="position: relative;">
+                    <div>
+                      <label class="priceLabel">Was</label>
+                      <label class="old-price">R{{meals.oldPrice | number:'1.2-2'}}</label>
+                    </div>
+                    <div>
+                      <label class="priceLabel">Now </label>
+                      <label class="price">R{{meals.price | number:'1.2-2'}}</label>
+                    </div>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button title="Add to Cart" class="addToCart" type="button"
+                      (click)="onAddToCart(meals.title, meals.barcode, meals.brand, 1, meals.price, meals.productID)">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button title="Add to Favorites" class="addToFavorites" type="button"
+                      (click)="onAddToFavorites(meals.productID, meals.title, meals.description, meals.brand, meals.quantity, meals.uri, meals.price, meals.barcode)">
+                      <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button title="Add to List" class="addToList" type="button"
+                      (click)="onAddToShoppingList(meals.title, meals.brand, meals.barcode, meals.quantity, meals.price)">
+                      <mat-icon>list</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <!-- Pets -->
+              <mat-grid-tile *ngFor="let pet of petsSpecials">
+                <div class="container">
+                  <div class="myImages" [routerLink]="['/product-detail', pet.barcode]">
+                    <label class="discount" id="circle">Save R{{pet.discount}}</label>
+                    <img class="image" [src]="pet.uri" alt="{{pet.title}}" />
+                  </div>
+                  <div class="titleContainer">
+                    <label class="title">{{pet.title}}</label>
+                  </div>
+                  <div class="price-container" style="position: relative;">
+                    <div>
+                      <label class="priceLabel">Was</label>
+                      <label class="old-price">R{{pet.oldPrice | number:'1.2-2'}}</label>
+                    </div>
+                    <div>
+                      <label class="priceLabel">Now </label>
+                      <label class="price">R{{pet.price | number:'1.2-2'}}</label>
+                    </div>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button title="Add to Cart" class="addToCart" type="button"
+                      (click)="onAddToCart(pet.title, pet.barcode, pet.brand, 1, pet.price, pet.productID)">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button title="Add to Favorites" class="addToFavorites" type="button"
+                      (click)="onAddToFavorites(pet.productID, pet.title, pet.description, pet.brand, pet.quantity, pet.uri, pet.price, pet.barcode)">
+                      <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button title="Add to List" class="addToList" type="button"
+                      (click)="onAddToShoppingList(pet.title, pet.brand, pet.barcode, pet.quantity, pet.price)">
+                      <mat-icon>list</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-grid-tile>
+              <!-- Sports -->
+              <mat-grid-tile *ngFor="let sport of sportsSpecials">
+                <div class="container">
+                  <div class="myImages" [routerLink]="['/product-detail', sport.barcode]">
+                    <label class="discount" id="circle">Save R{{sport.discount}}</label>
+                    <img class="image" [src]="sport.uri" alt="{{sport.title}}" />
+                  </div>
+                  <div class="titleContainer">
+                    <label class="title">{{sport.title}}</label>
+                  </div>
+                  <div class="price-container" style="position: relative;">
+                    <div>
+                      <label class="priceLabel">Was</label>
+                      <label class="old-price">R{{sport.oldPrice | number:'1.2-2'}}</label>
+                    </div>
+                    <div>
+                      <label class="priceLabel">Now </label>
+                      <label class="price">R{{sport.price | number:'1.2-2'}}</label>
+                    </div>
+                  </div>
+                  <div class="buttonsContainer">
+                    <button title="Add to Cart" class="addToCart" type="button"
+                      (click)="onAddToCart(sport.title, sport.barcode, sport.brand, 1, sport.price, sport.productID)">
+                      <mat-icon>add_shopping_cart</mat-icon>
+                    </button>
+                    <button title="Add to Favorites" class="addToFavorites" type="button"
+                      (click)="onAddToFavorites(sport.productID, sport.title, sport.description, sport.brand, sport.quantity, sport.uri, sport.price, sport.barcode)">
+                      <mat-icon>favorite_border</mat-icon>
+                    </button>
+                    <button title="Add to List" class="addToList" type="button"
+                      (click)="onAddToShoppingList(sport.title, sport.brand, sport.barcode, sport.quantity, sport.price)">
+                      <mat-icon>list</mat-icon>
+                    </button>
+                  </div>
+                </div>
+              </mat-grid-tile>
+            </mat-grid-list>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+      <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+      <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,43 @@
+.divFooter {
+    height: 250px;
+    width: auto;
+    background-color: #B61A4C;
+    bottom: 0px;
+    position: fixed;
+    clear: both;
+    position: relative;
+    margin-top: 30px;
+}
+
+.footer-image {
+    height: auto;
+    width: auto;
+}
+
+.footerArea {
+    margin-top: 50px;
+    margin-left: 50px;
+}
+
+.footerLabels {
+    font-size: 16px;
+    color: #FFFFFF;
+    display: inline;
+    font-weight: lighter;
+}
+
+.specialsLink {
+    float: right;
+    color: #FFFFFF;
+    border: 1px solid #FFFFFF;
+    text-align: center;
+    padding: 5px 15px 0px;
+}
+
+.footerLabels:hover {
+    cursor: pointer;
+}
+
+.specialsLink:hover {
+    cursor: pointer;
+}

@@ -1,0 +1,70 @@
+table,
+tr {
+    border: 1px solid lightgrey;
+    color: #575757;
+    padding: 4px 0px;
+    width: auto;
+}
+
+input {
+    width: 272px;
+    border: 0.5px solid lightgrey;
+    padding: 6px 10px;
+}
+
+.title {
+    width: 233px;
+    font-size: 12px;
+}
+
+label {
+    padding: 6px 10px;
+}
+
+button {
+    font-size: 12px;
+}
+
+label {
+    font-size: 12px;
+}
+
+textarea {
+    width: 505px;
+    height: 176px;
+    border: 1px solid lightgrey;
+    scroll-behavior: auto;
+    color: #575757;
+    font-size: 11px;
+    resize: none;
+    padding: 5px 5px;
+    margin-left: 8px;
+    text-align: left;
+}
+
+textarea:focus {
+    text-decoration: none;
+    outline: none;
+}
+
+.bannerImage:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"]:hover {
+    cursor: pointer;
+}
+
+input[type="checkbox"] {
+    width: 150px;
+    text-align: center;
+}
+
+.container {
+    margin-top: 42px;
+}
+
+input:focus {
+    text-decoration: none;
+    outline: none;
+}

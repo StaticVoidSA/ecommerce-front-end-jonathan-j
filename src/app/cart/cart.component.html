@@ -1,0 +1,63 @@
+<div class="divMain">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <div [hidden]="connected === false">
+            <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+            <div *ngIf="isLoading === false;">
+                <div>
+                    <h4 class="cart-heading">{{user.userName | uppercase}}'S CART ITEMS</h4>
+                </div>
+                <div style="margin-top: 40px;">
+                    <table style="margin-top: 30px;" class="productTable" id="grad">
+                        <thead>
+                            <tr>
+                                <th>Product Title</th>
+                                <th>Brand</th>
+                                <th>Amount</th>
+                                <th colspan="3">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let item of items">
+                                <td class="linkLabel" (click)="onNavProductDetail(item.barcode)">{{item.title}}</td>
+                                <td class="linkLabel" (click)="onNavBrand(item.brand)">{{item.brand}}</td>
+                                <td><input class="cart-input" type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"></td>
+                                <td>R{{item.price * item.quantity | number:'1.2-2'}}</td>
+                                <td>
+                                    <mat-icon id="removeProduct" (click)="removeProduct(item.userID, item.cartItemID)" title="Remove Product">remove_shopping_cart</mat-icon>
+                                </td>
+                                <td>
+                                    <mat-icon id="updateProduct" (click)="updateProduct(item.userID, item.cartItemID, item.quantity)" title="Update Product">cached</mat-icon>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table class="priceTable" id="grad">
+                        <thead>
+                            <tr>
+                                <th>Total Items</th>
+                                <th>Total Price</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="totals-row">
+                                <td>{{totalItems}}</td>
+                                <td>R{{totalPrice | number:'1.2-2'}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div #paypal class="paypal"></div>
+        </div>
+        <div class="warning-container" *ngIf="connected === false">
+            <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+            <h3>CHECK YOUR INTERNET CONNECTION</h3>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector('mat-icon').addEventListener("mouseover", (e) => {
+        e.target.setAttribute("title", document.querySelector(".mat-icon.innerText p").innerText);
+    });
+</script>

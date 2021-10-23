@@ -1,0 +1,64 @@
+.mainDiv {
+    margin-top: 35px;
+}
+
+table {
+    width: 100%;
+}
+
+.mat-table {
+    margin-top: 50px;
+}
+
+.paginator {
+    margin-bottom: 100px;
+    color: #464545dc;
+    background-color: #8b8b8ba1;
+    box-shadow: 1px 2px 4px 4px rgba(228, 227, 227, 0.87);
+}
+
+.productsHeader {
+    margin-top: 80px;
+    text-align: center;
+    margin-right: auto;
+    margin-left: auto;
+    font-family: Roboto;
+    color: #B9154A;
+}
+
+.mat-spinner {
+    position: relative;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 50%;
+    margin-top: 25%;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icon-column {
+    width: 70px;
+}
+
+tr {
+    border-bottom: 1px solid #575757c2;
+    color: #464545dc;
+    background-color: #FFFFFF;
+}
+
+thead,
+th {
+    font-weight: 400;
+    color: #464545dc;
+}
+
+td {
+    font-weight: 200;
+    color: #464545dc;
+}
+
+tr:nth-child(even) {
+    background-image: linear-gradient(to right, #d4d1d1a1, #fafafaad);
+}

@@ -1,0 +1,40 @@
+.mainDiv {
+    margin-top: 35px;
+}
+
+.covidBanner {
+    width: 100%;
+}
+
+.bannerText {
+    margin-top: 40px;
+    text-align: center;
+    color: #808285;
+    font-size: 30px;
+    font-family: Roboto;
+}
+
+.questionsLink {
+    font-size: 45px;
+    background-color: #808285;
+    color: white;
+    text-align: center;
+    width: 100%;
+    margin-top: 20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.questionsLink:focus {
+  outline: none;
+  border: none;
+  text-decoration: none;
+}
+
+a {
+    color: #B9145A;
+}
+
+a:hover {
+    color: #337AB7;
+}

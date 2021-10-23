@@ -1,0 +1,46 @@
+<div class="mainDiv">
+  <div class="col-xs-12">
+    <app-navbar></app-navbar>
+    <div *ngIf="connected === true">
+      <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+      <div *ngIf="isLoading === false">
+        <ngu-carousel #myCarousel [inputs]="carouselConfig" [dataSource]="carouselItems">
+          <div *nguCarouselDef="let item;" class="item">
+            <div class="tile"><img class="item-image" [src]="item" /></div>
+          </div>
+          <button NguCarouselNext class="rightRs">></button>
+          <button NguCarouselPrev class="leftRs"><</button>
+              <ul class="myPoint" NguCarouselPoint>
+                <li *ngFor="let j of myCarousel.pointNumbers;" [class.active]="j==myCarousel.activePoint"
+                  (click)="myCarousel.moveTo(j)"></li>
+              </ul>
+        </ngu-carousel>
+        <div class="heading">
+          <p>Why Join Smart Shopper?</p>
+        </div>
+        <div class="paragraph">
+          <p>As a Smart Shopper you earn points every time you swipe your Smart Shopper card! Points can be spent on
+            anything you like and are just one of the ways we save you money. Another way we reward Smart Shoppers is
+            with
+            personalised discounts every two weeks which are automatically loaded to your Smart Shopper card, as long as
+            we have contact details for you and you have opted in to the Smart Shopper programme. You can use your
+            discounts in-store, and also online when you link your Smart Shopper card to your online profile.</p>
+        </div>
+        <div class="heading">
+          <p style="margin-top: 30px;">How to claim your Smart Shopper Points and Personalised Discounts</p>
+        </div>
+        <div class="paragraph">
+          <p>Earn Smart Shopper points with each purchase when you swipe your card or virtually "swipe" with the Pick n
+            Pay mobile app. Your personalised discounts are automatically loaded onto your Smart Shopper card every two
+            weeks, and you can view your discounts on the Pick n Pay mobile app or your biweekly mailer. Make sure that
+            you have added contact info to your Smart Shopper profile for us to be able to automatically load your
+            discounts.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="warning-container" *ngIf="connected === false">
+    <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+    <h3>CHECK YOUR INTERNET CONNECTION</h3>
+  </div>
+</div>

@@ -1,0 +1,71 @@
+.bannerImage:hover {
+    cursor: pointer;
+}
+
+.submitButton {
+    border-radius: 5px;
+    background: #00375D;
+    padding: 0px;
+    width: 115px;
+    height: 50px;
+    color: #FFFFFF;
+    outline: none;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+.submitButton:disabled,
+.submitButton[disabled] {
+    margin-right: auto;
+    background-color: #575757;
+    color: aliceblue;
+    border-radius: 5px;
+    padding: 0px;
+    width: 115px;
+    height: 50px;
+    outline: none;
+    text-align: center;
+    font-size: 15px;
+    margin-top: 15px;
+}
+
+input {
+    padding: 0px 10px;
+}
+
+.inputLabel {
+    font-size: 16px;
+    color: #575757;
+}
+
+.userInput {
+    width: 422px;
+    height: 47px;
+    border: 1px solid lightgrey;
+    margin-top: 15px;
+}
+
+.mainDiv {
+    width: auto;
+    height: max-content;
+    margin-top: 42px;
+}
+
+.userInput:focus {
+    outline: none;
+    text-decoration: none;
+    border: 1px solid lightgrey;
+}
+
+.mat-spinner {
+    position: relative;
+    margin-left: 50%;
+    margin-right: 50%;
+    margin-bottom: 50%;
+    margin-top: 25%;
+}
+.button__container {
+    margin-left: 33%;
+    margin-top: -25px;
+}

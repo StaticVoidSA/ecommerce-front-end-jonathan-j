@@ -1,0 +1,23 @@
+.mainDiv {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.backButton {
+  margin-top: 20px;
+  background-color: #B9154A;
+  text-align: center;
+  color:white;
+  margin-bottom: 40px;
+}
+
+.image404 {
+  margin-top: 60px;
+}
+
+button {
+  border: none;
+  outline: none;
+  border-style: none;
+  width: 120px;
+}

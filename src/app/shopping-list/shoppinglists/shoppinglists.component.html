@@ -1,0 +1,49 @@
+<div class="divMain">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="connected === true">
+            <div *ngIf="isLoading === false">
+                <div class="no-items" *ngIf="items.length === 0">
+                    <img style="margin-top: -40px;" src="../../../assets/images/no-cart-items3.jpg" width="450px"
+                        height="400px" style=" object-fit: cover;" />
+                    <h3 style="margin-top: -20px;">Oops... You have no items in your shopping list</h3>
+                </div>
+                <div *ngIf="items.length > 0">
+                    <h3 class="list-heading">{{user.userName}}'s {{listName}} List</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Brand</th>
+                                <th>Barcode</th>
+                                <th colspan="3">Price</th>
+                            </tr>
+                        </thead>
+                        <tbody *ngFor="let item of items">
+                            <tr>
+                                <td class="link" (click)="onNavBarcode(item.barcode)">{{item.title}}</td>
+                                <td class="link" (click)="onNavBarcode(item.barcode)">{{item.brand}}</td>
+                                <td class="link" (click)="onNavBarcode(item.barcode)">{{item.barcode}}</td>
+                                <td>{{item.price}}</td>
+                                <td>
+                                    <mat-icon (click)="onDeleteFromList(item.shoppingListID, item.itemID)" class="icon"
+                                        id="removeButton" title="Remove From List">remove_circle_outline</mat-icon>
+                                </td>
+                                <td>
+                                    <mat-icon
+                                        (click)="onAddToCart(item.title, item.barcode, item.brand, item.quantity, item.price, item.productID)"
+                                        class="icon" id="addButton" title="Add To Cart">add_shopping_cart</mat-icon>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="warning-container" *ngIf="connected === false">
+            <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png"/>
+            <h3>CHECK YOUR INTERNET CONNECTION</h3>
+        </div>
+    </div>
+</div>

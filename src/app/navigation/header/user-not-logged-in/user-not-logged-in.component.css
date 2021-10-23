@@ -1,0 +1,14 @@
+.mainDiv {
+  margin-top: 35px;
+  text-align: center;
+}
+
+.userImage {
+  border: none;
+  margin-top: 50px;
+}
+
+a {
+  color: #505050;
+  font-weight: 500;
+}

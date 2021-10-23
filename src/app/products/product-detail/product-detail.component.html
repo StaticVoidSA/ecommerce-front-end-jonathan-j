@@ -1,0 +1,63 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="connected === true">
+            <div *ngIf="isLoading === false">
+                <div class="col-md-5">
+                    <div class="imageDiv">
+                        <mat-card>
+                            <img class="itemImage" mat-card-image [src]="product.uri">
+                        </mat-card>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <mat-card>
+                        <mat-card-title>{{ product.title }}</mat-card-title>
+                        <mat-card-content>
+                            <label class="itemBrand">
+                                <h5>Brand:</h5> {{ product.brand }}
+                            </label><br />
+                            <label class="itemDescription">
+                                <h5>Description:</h5> {{ product.description }}
+                            </label><br />
+                            <label class="itemUsage">
+                                <h5>Usage:</h5> {{ product.usage }}
+                            </label><br />
+                            <label class="itemBarcode">
+                                <h5>Barcode:</h5> {{ product.barcode }}
+                            </label><br />
+                            <label class="itemPrice">R{{ product.price }}</label><br />
+                        </mat-card-content>
+                        <mat-card-actions>
+                            <button title="Add To Cart" class="addCartButton"
+                                (click)="onAddToCart(product.title, product.barcode, product.brand, 1, product.price, product.productID)">
+                                <mat-icon>add_shopping_cart</mat-icon> ADD TO TROLLEY
+                            </button>
+                            <button title="Add To Favorites" class="favoritesButton"
+                                (click)="onAddToFavorites(product.productID, product.title, product.description, product.brand, product.quantity, product.uri, product.price, product.barcode)">
+                                <mat-icon>favorite_border</mat-icon> ADD TO FAVORITES
+                            </button>
+                            <button title="Add To List" class="addToListButton"
+                                (click)="onAddToList(product.title, product.brand, product.barcode, 1, product.price)">
+                                <mat-icon>list</mat-icon> ADD TO LIST
+                            </button>
+                        </mat-card-actions>
+                    </mat-card>
+                </div>
+                <div class="col-md-2">
+                    <!-- TODO: Display suggested products -->
+                </div>
+            </div>
+        </div>
+        <div class="warning-container" *ngIf="connected === false">
+            <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+            <h3>CHECK YOUR INTERNET CONNECTION</h3>
+        </div>
+    </div>
+</div>
+<script>
+    document.querySelector('.mat-icon').addEventListener("mouseover", (e) => {
+        e.target.setAttribute("title", document.querySelector(".mat-icon.innerText p").innerText);
+    });
+</script>

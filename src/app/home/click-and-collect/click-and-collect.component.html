@@ -1,0 +1,52 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="isLoading === false" class="col-md-10 col-md-offset-1">
+            <!-- Items Present -->
+            <div *ngIf="collectionItems.length > 0" class="collection-items__container">
+                <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+                    <!-- Title Column -->
+                    <ng-container matColumnDef="title">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Title </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.title }} </td>
+                    </ng-container>
+                    <!-- Brand Column -->
+                    <ng-container matColumnDef="brand">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Brand </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.brand }} </td>
+                    </ng-container>
+                    <!-- Quantity Column -->
+                    <ng-container matColumnDef="quantity">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Quantity </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.quantity }} </td>
+                    </ng-container>
+                    <!-- Selected Store Column -->
+                    <ng-container matColumnDef="selectedShop">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Selected Store </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.selectedShop }} </td>
+                    </ng-container>
+                    <!-- Collection Date Column -->
+                    <ng-container matColumnDef="selectedCollectionDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Collection Date </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.selectedCollectionDate }} </td>
+                    </ng-container>
+                    <!-- Transaction Date Column -->
+                    <ng-container matColumnDef="transactionDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Purchase Date </th>
+                        <td mat-cell *matCellDef="let element"> {{ element.transactionDate }} </td>
+                    </ng-container>
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                </table>
+                <mat-paginator id="paginator" class="paginator" [pageSizeOptions]="[5, 10, 20, 30, 40, 50]"></mat-paginator>
+            </div>
+            <!-- No Items Present -->
+            <div class="no-paid-items-container" *ngIf="collectionItems.length <= 0">
+                <img class="no-paid-items-image" alt="No Items For Collection" src="../../assets/images/no-cart-items1.png">
+                <h2>You have no items for collection</h2>
+                <p>Please continue to shop and checkout the items in your cart</p>
+            </div>
+        </div>
+    </div>
+</div>

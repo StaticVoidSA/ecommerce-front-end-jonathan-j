@@ -1,0 +1,136 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.mat-card {
+  background-color: white;
+  color: #505050;
+  margin-bottom: 50px;
+}
+
+.mat-card-image {
+  border: none;
+  outline: none;
+  height: 600px;
+  width: 100%;
+}
+
+.itemImage {
+  padding: none;
+  height: 405px;
+  text-align: center;
+  object-fit: cover;
+  width: stretch;
+}
+
+.addCartButton {
+  background-color: #b9154a;
+  width: 415px;
+  height: 39px;
+  color: white;
+  border-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
+  font-weight: 400;
+  font-family: Roboto;
+}
+
+.mat-card-title {
+  font-size: 30px;
+  font-family: Roboto;
+  font-weight: 400;
+  margin-bottom: 10px;
+}
+
+.itemPrice {
+  font-size: 26px;
+  color: #ff0000;
+}
+
+.itemDescription {
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-weight: 200;
+}
+
+.itemBrand {
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-weight: 200;
+}
+
+.itemUsage {
+  font-size: 16px;
+  padding-bottom: 5px;
+  font-weight: 100;
+}
+
+.itemBarcode {
+  font-size: 16px;
+  padding-bottom: 30px;
+  font-weight: 100;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+button:focus {
+  outline: none;
+  border-style: none;
+  border: none;
+}
+
+.mat-icon {
+  text-align: center;
+  vertical-align: bottom;
+}
+
+.favoritesButton {
+  margin-top: 5px;
+  background-color: #3374b6;
+  width: 415px;
+  height: 39px;
+  color: white;
+  border-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
+  font-weight: 400;
+  font-family: Roboto;
+}
+
+.addToListButton {
+  margin-top: 5px;
+  background-color: #13357a;
+  width: 415px;
+  height: 39px;
+  color: white;
+  border-style: none;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: auto;
+  padding-right: auto;
+  font-weight: 400;
+  font-family: Roboto;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

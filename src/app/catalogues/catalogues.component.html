@@ -1,0 +1,23 @@
+<div class="mainDiv">
+  <div class="col-xs-12">
+    <app-navbar></app-navbar>
+  </div>
+  <div class="col-md-12" *ngIf="connected === true">
+    <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+    <div *ngIf="isLoading === false;">
+      <h1 style="text-align: center;">Catalogues</h1>
+      <mat-grid-list cols="3" rowHeight="2:2">
+        <div *ngFor="let category of categories">
+          <mat-grid-tile>
+            <img class="gridImage" [src]="category.uri">
+            <label class="textBlock" [routerLink]="['/products', category.url]">{{category.name}}</label>
+          </mat-grid-tile>
+        </div>
+      </mat-grid-list>
+    </div>
+  </div>
+  <div class="warning-container" *ngIf="connected === false">
+    <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+    <h3>CHECK YOUR INTERNET CONNECTION</h3>
+  </div>
+</div>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Rick 'n Ray Online Shopping</title>
+    <base href="/">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="icon" type="image/icon" href="./assets/favicon/favicon.ico" />
+    <script type="text/javascript" src="https://www.paypal.com/sdk/js?client-id=AUTNKy-4T43d8jSTUov_B2_iNeYB_mxi8PkVKVHesEqY_ytV24l3lgOklVvICzNWaJxwjCfMyCKopUoB" defer></script>
+</head>
+
+<body>
+    <app-root></app-root>
+    <script>
+        (() => {
+            document.cookie = "SameSite=None; Secure"
+            const btns = document.querySelectorAll('button');
+            if (btns.length > 0) {
+                btns.forEach(btn => {
+                    btn.addEventListener("mouseover", (event) => {
+                        event.target.setAttribute("title", document.querySelector("button.innerText p").innerText);
+                    });
+                });
+            }
+        })();
+    </script>
+    <noscript>Please Enable Javascript</noscript>
+</body>
+
+</html>

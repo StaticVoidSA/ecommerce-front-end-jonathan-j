@@ -1,0 +1,32 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="connected === true">
+            <div class="col-md-6" *ngIf="isLoading === false">
+                <img class="recipeImage" [src]="recipes[0].recipeImage">
+            </div>
+            <div class="ingredientsColumn">
+                <div class="col-md-6" class="item_area" *ngIf="isLoading === false">
+                    <h1 class="recipeTitle">{{recipes[0].recipeTitle}}</h1>
+                    <h3 class="listTitle">Ingredients:</h3><br />
+                    <ul class="items">
+                        <li *ngFor="let item of recipes">{{item.ingredientTitle}}</li>
+                    </ul>
+                    <div class="button-container">
+                        <button id="cartButton" title="Add To Cart" class="cartButton" type="button" (click)="onAddToCart()">
+                            <mat-icon>add_shopping_cart</mat-icon> ADD TO CART
+                        </button>
+                        <button id="favoriteButton" title="Add To Favorites" class="favoriteButton" type="button" (click)="onAddToFavorites()">
+                            <mat-icon>favorite_border</mat-icon> ADD TO FAVORITES
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+</div>

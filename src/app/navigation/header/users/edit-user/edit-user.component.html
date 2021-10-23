@@ -1,0 +1,33 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+      <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div class="col-md-8 col-md-offset-2" *ngIf="isLoading === false">
+            <h3 class="heading">{{user.firstName | uppercase}} {{user.surname | uppercase}}</h3>
+            <form #userForm="ngForm" (ngSubmit)="onSubmit()">
+                <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+                    <table id="grad" class="users-table">
+                        <tbody>
+                            <tr id="grad">
+                                <td for="firstName" class="title">First Name</td>
+                                <td><input name="firstName" [(ngModel)]="user.firstName" type="text" value="{{ user.firstName }}"/></td>
+                            </tr>
+                            <tr id="grad">
+                                <td for="surname" class="title">Last Name</td>
+                                <td><input name="surname" [(ngModel)]="user.surname" type="text" value="{{ user.surname }}"/></td>
+                            </tr>
+                            <tr id="grad">
+                                <td for="email" class="title">Email</td>
+                                <td><input name="email" [(ngModel)]="user.email" type="text" value="{{ user.email }}"/></td>
+                            </tr>
+                            <tr id="grad">
+                                <td for="userRole" class="title">User Role</td>
+                                <td><input name="userRole" [(ngModel)]="user.userRole" type="text" value="{{ user.userRole }}"/></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button id="grad" class="update-button" mat-raised-button color="primary" type="submit">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

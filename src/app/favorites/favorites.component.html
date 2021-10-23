@@ -1,0 +1,57 @@
+<div class="divMain">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+    </div>
+    <div *ngIf="connected === true">
+        <div *ngIf="isLoading === false">
+            <span>
+                <h2 class="userHeader">{{user.userName}}'s Favorites</h2>
+            </span>
+            <table class="favoritesTable">
+                <thead>
+                    <tr>
+                        <th class="title" colspan="2">Title</th>
+                        <th>Brand</th>
+                        <th>Barcode</th>
+                        <th>Quantity</th>
+                        <th colspan="3">Price</th>
+                    </tr>
+                </thead>
+                <tbody *ngFor="let favorite of favorites">
+                    <tr>
+                        <td>
+                            <img class="itemImage" (click)="onNavProductDetail(favorite.barcode)" [src]="favorite.uri"
+                                width="50px" height="50px" />
+                        </td>
+                        <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.title}}</td>
+                        <td class="linkLabel" (click)="onNavBrand(favorite.brand)">{{favorite.brand}}</td>
+                        <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.barcode}}</td>
+                        <td>{{favorite.quantity}}</td>
+                        <td>{{favorite.price}}</td>
+                        <td>
+                            <mat-icon class="removeProduct" title="Remove from Favorites"
+                                (click)="onRemoveFromFavorites(favorite.id, favorite.favID)">remove_circle_outline
+                            </mat-icon>
+                        </td>
+                        <td>
+                            <mat-icon class="addToCart" title="Add to Shopping Cart"
+                                (click)="onAddToCart(favorite.title, favorite.barcode, favorite.brand, 1, favorite.price, favorite.productID)">
+                                add_shopping_cart
+                            </mat-icon>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+</div>
+<script>
+    document.querySelector('mat-icon').addEventListener("mouseover", (e) => {
+        e.target.setAttribute("title", document.querySelector("mat-icon.innerText p").innerText);
+    });
+</script>

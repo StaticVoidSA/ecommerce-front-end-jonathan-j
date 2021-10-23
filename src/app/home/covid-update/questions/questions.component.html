@@ -1,0 +1,251 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <img src="../../../../assets/images/header_faq.gif" style="width: 100%;">
+        <p class="myLabel"><b>QUESTIONS</b> ABOUT <b>COVID-19</b></p>
+        <mat-accordion class="mat-accordion">
+            <mat-expansion-panel class="expansion-panel"
+                                 (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT IS COVID-19?">WHAT IS COVID-19?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+              <p class="expansion-content">Human coronaviruses are common throughout the world.
+                The name corona refers to a crown because these viruses have crown-like spikes on their surface when viewed under an electron microscope.
+                There are many different coronaviruses identified in animals but only a small number of these can cause disease in humans.</p>
+              <p class="expansion-content">Some coronaviruses such as 229E, NL63, OC43 and HKU1 are common causes of illness, including respiratory illness, in humans throughout the world.
+                Sometimes coronaviruses infecting animals can evolve to cause disease in humans and become a new (novel) coronavirus for humans.
+                Examples of this are the Middle East Respiratory Syndrome Coronavirus (MERS-CoV), first reported from Saudi Arabia in 2012, and the Severe Acute Respiratory Syndrome Coronavirus (SARS-CoV), first recognized in China in 2002.
+              </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHO IS AT MOST RISK?">WHO IS AT MOST RISK?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">People who have been in contact with a confirmed case of COVID-19 are at an increased risk of infection and disease.
+                  In addition, healthcare workers have an increased risk of acquiring infection in the workplace.
+                  The elderly and individuals with co-morbidities, such as heart disease (including high blood pressure),
+                  chronic respiratory diseases, cancer patients, endocrine diseases (such as diabetes),
+                  have been found to be at a higher risk of severe illness and mortality associated with COVID-19.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="HOW IS COVID-19 TRANSMITTED?">HOW IS COVID-19 TRANSMITTED?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">Transmission of the virus is via respiratory droplets, similar to how influenza and other respiratory pathogens spread.
+                    When a person infected with COVID-19 coughs or sneezes, they release droplets of infected fluid.
+                    Larger droplets fall on nearby surfaces for example tables, counters in shops, seats in cars/taxi etc.
+                    If you touch these surfaces the virus may transfer to your hands, then to mouth, nose or eyes when you touch your face.
+                    People may also be infected by breathing in droplets if standing with 1m of infected person.
+                    You cannot become infected through your skin.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="HOW IS COVID-19 DIAGNOSED?">HOW IS COVID-19 DIAGNOSED?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">COVID-19 is diagnosed by a laboratory test, polymerase chain reaction (PCR) molecular test,
+                    on a respiratory tract sample (e.g. sample from nose, throat or chest). This test detects the SARS-CoV-2 genetic material.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT ARE THE SIGNS AND SYMPTOMS OF COVID-19?">WHAT ARE THE SIGNS AND SYMPTOMS OF COVID-19?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">Symptoms include ANY of the following respiratory symptoms: cough, sore throat, shortness of breath, anosmia (loss of sense of smell),
+                    dysgeusia (alteration of the sense of taste) with or without other symptoms (which may include fever, weakness, myalgia, or diarrhoea).
+                    The severity of illness can range from people who are infected without any illness (asymptomatic infection) to mild respiratory illness,
+                    to severe illness requiring admission to hospital or death. The majority of patients (approximately 80%) will have mild respiratory illness.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT SHOULD I DO IF I TEST POSITIVE?">WHAT SHOULD I DO IF I TEST POSITIVE?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">If you test positive for COVID-19 and your symptoms are mild, you need to isolate at home and if possible,
+                    in a separate room away from your loved ones. If your condition worsens, please seek medical help as soon as possible.
+                    Please keep in contact with your health care provider telephonically to monitor your progress.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="HOW IS COVID-19 TREATED?">HOW IS COVID-19 TREATED?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">Treatment is supportive (e.g. provide oxygen for patients with shortness of breath or treatment for fever).
+                    There is no specific antiviral treatment available. Antibiotics do not treat viral infections.
+                    However, antibiotics may be required if a bacterial secondary infection develops.
+                    There are some studies in progress using different medications that may have some effectiveness against the virus.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT CAN I DO TO PREVENT INFECTION?">WHAT CAN I DO TO PREVENT INFECTION?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">Currently there is no vaccine for COVID-19.
+                    There are no specific measures currently recommended to prevent COVID-19 but the following can provide protection
+                    against infection with coronaviruses and many other viruses that are more common in South Africa:
+                </p>
+                <ul class="expansion-content">
+                    <li>Practice physical distancing, this means keeping a physical distance of at least 2 metres from all people you interact with,
+                        specifically when out in public. This keeps you safe from respiratory droplets.
+                    </li>
+                    <li>
+                        Practice social distancing, this means not interacting with people outside of your household unless necessary.
+                    </li>
+                    <li>
+                        The use of a cloth mask (not medical mask as these are need for health care workers) may help protect you and people around you. Please look at the recommendation for these masks.
+                    </li>
+                    <li>
+                        Wash your hands often with soap and water for at least 20 seconds. If soap and water are not available, use an alcohol-based hand sanitizer (at least 70% alcohol).
+                    </li>
+                    <li>
+                        Avoid touching your eyes, nose, and mouth with unwashed hands.
+                    </li>
+                    <li>
+                        Cover your cough or sneeze with a flexed elbow or a tissue, then throw the tissue in the bin.
+                    </li>
+                    <li>
+                        Avoid close contact with people who are sick.
+                    </li>
+                    <li>
+                        Stay at home when you are sick and try and keep distance from others at home.
+                    </li>
+                    <li>
+                        Clean and disinfect frequently touched objects and surfaces.
+                    </li>
+                </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT IS A CLOSE CONTACT?">WHAT IS A CLOSE CONTACT?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">A close contact is defined as a person having had face-to-face contact (less than 1 metre) or
+                    having been in a closed space with a confirmed COVID-19 case for at least 15 minutes. This includes, amongst others:
+                </p>
+                <ul class="expansion-content">
+                    <li>
+                        All persons living in the same household as a COVID-19 case, and people working closely in the same environment as a case.
+                    </li>
+                    <li>
+                        Healthcare workers or other people providing direct care for a COVID-19 case while not
+                        wearing recommended personal protective equipment or PPE (e.g., gowns, gloves, N95 respirator, eye protection).
+                    </li>
+                    <li>
+                        A contact in an aircraft sitting within two seats (in any direction) of the case, travel
+                        companions or persons providing care, and crew members serving in the section of the aircraft where the case was seated.
+                    </li>
+                </ul>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="IS IT POSSIBLE FOR MY COVID-19 TEST RESULT TO CHANGE?">IS IT POSSIBLE FOR MY COVID-19 TEST RESULT TO CHANGE?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">The main test used to diagnose COVID-19 is a polymerase chain reaction (PCR) test,
+                    which detects the genetic material (RNA) of SARS-CoV-2, the virus which causes COVID-19.
+                    If you test positive then it means that genetic material of the virus was detected in your sample,
+                    which is normally a sample collected from your nose or throat and confirms a diagnosis of SARS-CoV-2 infection.
+                    A negative test does not exclude an infection with SARS-CoV-2, as your test result depends on when your sample was
+                    collected and the quality of the sample that was collected.</p>
+                 <p class="expansion-content">The amount of virus in your body (called the viral load) changes during the course of an infection, starting from low
+                    levels which increase over a few days and then start to decrease towards the later stages of infection.
+                    How long you have the virus for (called viral shedding) depends on many factors such as your age,
+                    whether you have an underlying condition and how severe your disease is.</p>
+                 <p class="expansion-content">Viral shedding is generally
+                    detectable around 2-3 days before the onset of symptoms and tends to decrease after about 7 days from the onset of symptoms.
+                    Although the PCR test is a very sensitive test, there is no test that is 100% sensitive and so if you are tested very early in your infection,
+                    and the viral loads in your body are low then the test may not detect the virus. However, if tested later in infection,
+                    when viral loads are higher, your test may change to positive. Similarly, if you are tested towards the end of the infection,
+                    your test result may change to negative.</p>
+                 <p class="expansion-content">The test result is also affected by the type and quality of the sample that is collected. If a poorly collected sample is tested,
+                    then it is possible that not enough clinical material was collected from you and your test result will be negative when you are infected.
+                    If your clinician suspects a false-negative result, they will request that a repeat sample is collected to be re-tested.</p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="SHOULD I TRAVEL NOW?">SHOULD I TRAVEL NOW?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">At present the country is on lockdown; one of the conditions of lockdown is no internal or international travel.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHAT MEASURES HAVE BEEN PUT IN PLACE IN SOUTH AFRICA TO MINIMISE THE RISK OF TRANSMISSION?">WHAT MEASURES HAVE BEEN PUT IN PLACE IN SOUTH AFRICA TO MINIMISE THE RISK OF TRANSMISSION?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">A countrywide lockdown started on 26 March for 21 days and extended to 35 days,
+                    the aim of this lock down is to flatten the infection rate curve. This means spreading infection rate over a
+                    longer period of time rather than a large number in a shorter period of time. This is to give healthcare
+                    facilities a chance to treat people needing treatment.
+                </p>
+                <p class="expansion-content">Other strategies to minimise the impact of COVID-19 on South Africa includes actively
+                    testing as many people with symptoms as possible. The Department of Health is also doing community based screening in
+                    certain areas where there are potentially large number of infected people.
+                    Both these strategies help to identify and isolate infected people, protecting their families and the community.
+                </p>
+            </mat-expansion-panel>
+            <mat-expansion-panel (opened)="panelOpenState = true"
+                                 (closed)="panelOpenState = false"
+                                 class="expansion-panel">
+              <mat-expansion-panel-header class="expansion-header">
+                <mat-panel-title>
+                    <p class="my-heading" title="WHO SHOULD I CONTACT FOR MORE INFORMATION?">WHO SHOULD I CONTACT FOR MORE INFORMATION?</p>
+                </mat-panel-title>
+              </mat-expansion-panel-header>
+                <p class="expansion-content">For medical/clinical related queries by health care professionals only, contact the NICD hotline at 0800 111131.
+                    The NICD General Public Hotline number is 0800 029 999. All lines operate 24 hours a day..
+                </p>
+            </mat-expansion-panel>
+          </mat-accordion>
+    </div>
+</div>
+<script>
+    document.querySelector('p').addEventListener("mouseover", (e) => {
+      e.target.setAttribute("title", document.querySelector("p.innerText p").innerText);
+    });
+</script>

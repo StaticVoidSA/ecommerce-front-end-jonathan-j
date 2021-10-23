@@ -1,0 +1,67 @@
+<div class="mainDiv">
+    <div class="col-xs-12">
+        <app-navbar></app-navbar>
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <app-added-to-cart *ngIf="hasAddedToCart === true && user.loggedIn === true"></app-added-to-cart>
+        <div [hidden]="connected !== true">
+            <div *ngIf="isLoading === false">
+                <div class="col-md-2">
+                    <div style="margin-top: 43px;">
+                        <div class="filterHeader">FILTERED BY BRAND</div>
+                        <div class="items">
+                            <div *ngFor="let brand of uniqueBrands">
+                                <p class="filterContent">
+                                    <input style="padding-right: 20px; position: relative;" type="checkbox" id="brand" value="{{brand}}" (click)="filterBrand(brand)">
+                                    <label class="filter-label">{{brand}}</label>
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="filterHeader">FILTERED BY PRICE</div>
+                    <div class="items">
+                        <p class="filterContent" *ngFor="let item of pricesCheckboxData">
+                            <input type="checkbox" value="item" (click)="filterPrice(item.minRange, item.maxRange)" />
+                            <label class="filter-label">R{{item.minRange}}  -  R{{item.maxRange}}</label>
+                        </p>
+                    </div>
+                    <div class="filterHeader">FILTERED BY QUANTITY</div>
+                    <div class="items">
+                        <p class="filterContent" *ngFor="let quantity of uniqueQuantities">
+                            <input style="padding-right: 20px; position: relative;" type="checkbox" id="quantity" value="{{quantity}}" (click)="filterQuantity(quantity)" />
+                            <label class="filter-label">{{quantity}}</label>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-md-8 col-md-offset-1" *ngIf="products[0].productID > 0">
+                    <mat-grid-list cols="3" rowHeight="1.8:3.4" gutterSize="10px" class="matGrid">
+                        <mat-grid-tile *ngFor="let item of products">
+                            <div class="item">
+                                <img class="itemImage" alt="search image" [src]="item.uri" (click)="scrollToTop()" [routerLink]="['/product-detail', item.barcode]">
+                                <p class="itemTitle">{{item.title}}</p>
+                                <p class="itemPrice">R {{item.price}}</p>
+                                <button class="addButton" title="Add To Cart" (click)="onAddToCart(item.title, item.barcode, item.brand, amount, item.price, item.productID)">ADD
+                                    TO TROLLEY</button>
+                                <button id="favoriteButton" class="favoritesButton" title="Add to favorites" (click)="onAddTofavorites(item.productID, item.title, item.description, item.brand, item.quantity, item.uri, item.price, item.barcode)">
+                                    <mat-icon>favorite_border</mat-icon>
+                                </button>
+                                <button class="listButton" id="listButton" title="Add To Shopping List" (click)="onAddToShoppingList(item.title, item.brand, item.barcode, item.quantity, item.price)">
+                                    <mat-icon>list</mat-icon>
+                                </button>
+                            </div>
+                        </mat-grid-tile>
+                    </mat-grid-list>
+                    <mat-paginator id="paginator"
+                    [length]="searchItems.length"
+                    [pageSize]="size"
+                    [pageIndex]="page"
+                    [pageSizeOptions]="[3, 6, 12, 24, searchItems.length]"
+                    (page)="getPaginationData($event)"></mat-paginator>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+</div>

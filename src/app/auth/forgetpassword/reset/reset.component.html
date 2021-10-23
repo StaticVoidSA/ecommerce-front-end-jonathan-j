@@ -1,0 +1,55 @@
+<div class="container" fxHide.xs>
+    <div class="banner">
+      <img class="bannerImage" src="../../../../assets/onlineshopping_logo.png" width="157px;" height="36px" style="object-fit: cover; margin-top: 10px;" (click)="onHomeNav()">
+    </div>
+    <div style="text-align: center;">
+        <div class="col-md-6 col-md-offset-3">
+            <label class="heading" style="text-align: center; margin-top: 50px;">RESET PASSWORD</label><br /><br />
+            <p class="intro" style="text-align: center;">Please enter a new password</p><br /><br />
+            <form #resetpassForm="ngForm" (ngSubmit)="onSubmit(resetpassForm)" autocomplete="off">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td class="email">
+                                <label for="email" style="font-size: 12px; padding-left: 16px; text-align: left; margin-left: -95px;">Email address/username</label>
+                            </td>
+                            <td>
+                                <input email class="inputEmail" required type="email" style="font-size: 12px; padding: 6px 10px;" id="email" name="email" #email="ngModel" ngModel minlength="7">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="password">
+                                <label for="password" style="font-size: 12px; padding-left: 16px; text-align: left; margin-left: -95px;">New Password</label>
+                            </td>
+                            <td>
+                                <input password class="inputPassword" required type="password" style="font-size: 12px; padding: 6px 10px;" id="password" name="password" #password="ngModel" ngModel minlength="7">
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="confirmPassword">
+                                <label for="confirmPassword" style="font-size: 12px; padding-left: 16px; text-align: left; margin-left: -95px;">Confirm Password</label>
+                            </td>
+                            <td>
+                                <input password class="inputConfirmPassword" required type="password" style="font-size: 12px; padding: 6px 10px;" id="confirmPassword" name="confirmPassword" #confirmPassword="ngModel" ngModel minlength="7">
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div *ngIf="resetpassForm.touched && resetpassForm.value.email.indexOf('@') === -1 && resetpassForm.value.email.indexOf('.co') === -1">
+                    <label style="margin-top: 25px;" class="warning-label">Please enter a valid email address</label>
+                </div>
+                <div style="margin-bottom: 30px;" class="warning-label" *ngIf="resetpassForm.touched && resetpassForm.value.confirmPassword !== resetpassForm.value.password && !resetpassForm.valid">
+                    <label style="margin-top: 10px;">Please make sure passwords match</label>
+                </div>
+                <button style="margin-top: 20px;" *ngIf="resetpassForm.valid" style="text-align: center; margin-top: 50px;" class="submitButton" type="submit" mat-raised-button color="primary">RESET PASSWORD</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+<!-- Mobile Layout -->
+<div fxHide.gt-xs>
+    <div class="mobile__navbar">
+    
+    </div>
+</div>

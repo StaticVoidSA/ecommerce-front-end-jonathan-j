@@ -1,0 +1,55 @@
+.mainDiv {
+  margin-top: 35px;
+}
+
+.mat-spinner {
+  position: relative;
+  margin-left: 50%;
+  margin-right: 50%;
+  margin-bottom: 50%;
+  margin-top: 25%;
+}
+
+.banner-image {
+  width: 1100px;
+  height: 1000px;
+  height: auto;
+  object-fit: cover;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.main-heading {
+  text-align: center;
+  font-family: Roboto !important;
+  font-size: 36px;
+  font-weight: 400;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+  color: #b9154a;
+}
+
+.sub-heading {
+  margin-top: 40px;
+  color: #575757;
+  text-align: left;
+  font-size: 22px;
+  font-weight: 300;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.warning-container {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.warning-image {
+  margin-top: 0px;
+  width: 300px;
+  height: 300px;
+  object-fit: cover;
+}

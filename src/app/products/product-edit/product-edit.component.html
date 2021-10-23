@@ -1,0 +1,80 @@
+<div class="mainDiv">
+    <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+    <div *ngIf="connected === true">
+        <div class="col-md-8 col-md-offset-2" *ngIf="isLoading === false">
+            <h3 class="heading">{{product.title}}</h3>
+            <form #productForm="ngForm" (ngSubmit)="onSubmit()">
+                <div id="product-data" ngModelGroup="productData" #productData="ngModelGroup">
+                    <table>
+                        <tbody>
+                            <tr id="grad">
+                                <td class="title" for="productID">Product ID</td>
+                                <td id="title">{{product.productID}}</td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="title">Title</td>
+                                <td><input name="title" [(ngModel)]="product.title" type="text"
+                                        value="{{product.title}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="category">Category</td>
+                                <td><input name="category" [(ngModel)]="product.category" type="text"
+                                        value="{{product.category}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="brand">Brand</td>
+                                <td><input name="brand" [(ngModel)]="product.brand" type="text"
+                                        value="{{product.brand}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="uri">URI</td>
+                                <td><input name="uri" [(ngModel)]="product.uri" type="text" value="{{product.uri}}" />
+                                </td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="price">Price</td>
+                                <td><input class="price-input" name="price" [(ngModel)]="product.price" type="number"
+                                        value="{{product.price}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="description">Description</td>
+                                <td><input name="description" [(ngModel)]="product.description" type="text"
+                                        value="{{product.description}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="features">Features</td>
+                                <td><input name="features" [(ngModel)]="product.features" type="text"
+                                        value="{{product.features}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="usage">Usage</td>
+                                <td><input name="usage" [(ngModel)]="product.usage" type="text"
+                                        value="{{product.usage}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="quantity">Quantity</td>
+                                <td><input name="quantity" [(ngModel)]="product.quantity" type="text"
+                                        value="{{product.quantity}}" /></td>
+                            </tr>
+                            <tr id="grad">
+                                <td class="title" for="barcode">Barcode</td>
+                                <td><input name="barcode" [(ngModel)]="product.barcode" type="text"
+                                        value="{{product.barcode}}" /></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <button id="grad" mat-raised-button title="Update Product" color="primary" type="submit">Update</button>
+            </form>
+        </div>
+    </div>
+    <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+    </div>
+</div>
+<script>
+    document.querySelector('button').addEventListener("mouseover", (e) => {
+        e.target.setAttribute("title", document.querySelector(".button p").innerText);
+    });
+</script>
