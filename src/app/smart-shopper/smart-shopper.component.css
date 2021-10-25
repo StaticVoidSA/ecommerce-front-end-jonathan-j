@@ -16,8 +16,8 @@
 }
 
 .tile {
-  height: auto;
-  width: 1160px;
+  height: 65rem;
+  width: auto;
   background-color: #ccc;
   background-size: cover;
   display: flex;
@@ -81,8 +81,8 @@
 }
 
 .item-image {
-  height: 458px;
-  width: 1160px;
+  height:100%;
+  width: 100%;
   object-fit: cover;
   padding: 0px;
   margin: 2px 2px;

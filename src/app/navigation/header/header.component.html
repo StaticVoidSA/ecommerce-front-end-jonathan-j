@@ -1,6 +1,6 @@
 <div class="header">
-    <mat-toolbar color="primary" style="height:35px;">
-        <div class="col-md-8 col-md-offset-2">
+    <mat-toolbar color="primary" style="height:3.5rem;">
+        <div class="col-xs-2 col-sm-4 col-md-8 col-lg-10 col-lg-offset-1">
             <div fxHide.gt-xs>
                 <button class="city" mat-button [matMenuTriggerFor]="menu">YOUR REGION: <u>{{ userLocation.Country | uppercase }}</u></button>
                 <mat-menu #menu="matMenu">
@@ -12,7 +12,7 @@
                 </mat-menu>
             </div>
             <div fxHide.xs>
-                <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px; margin-left: -190px" mat-button [matMenuTriggerFor]="menu">
+                <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px;" mat-button [matMenuTriggerFor]="menu">
                 <a>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u>  <span class="caret"></span></a>
             </button>
                 <mat-menu #menu="matMenu" class="menuItems" *ngFor="let location of locations">
@@ -20,15 +20,15 @@
                 </mat-menu>
             </div>
             <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs style="text-align: center; padding-top: 8px;">
-                <div style="margin-right: -370px;">
+                <div>
                     <ul fxLayout class="navigation-items" fxLayoutGap="10px">
                         <li *ngIf="authRespData.loggedIn === false"><a style="font-size: 12px;" routerLink="/login" routerLinkActive="active"><u>LOG IN</u></a></li>
                         <span *ngIf="authRespData.loggedIn === false"> | </span>
-                        <li *ngIf="authRespData.loggedIn === false"><a style="font-size: 12px; margin-right: 200px;" routerLink="/signup" routerLinkActive="active"><u>SIGN UP</u></a></li>
-                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px; margin-right: 20px; cursor: pointer;" routerLink="/edit-products">Products</a></li>
-                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px; margin-right: 20px; cursor: pointer;" (click)="onNavigateUsers()">Users</a></li>
-                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 14px; margin-right: 20px;" routerLink="/">Welcome {{ authRespData.userName }}</a></li>
-                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 12px; margin-right: 200px;" routerLink="/" routerLinkActive="active" (click)="onLogout()"><u>LOG OUT</u></a></li>
+                        <li *ngIf="authRespData.loggedIn === false"><a style="font-size: 12px;" routerLink="/signup" routerLinkActive="active"><u>SIGN UP</u></a></li>
+                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px; cursor: pointer;" routerLink="/edit-products">Products</a></li>
+                        <li *ngIf="authRespData.loggedIn === true && authRespData.userRole === 'Admin'"><a style="font-size: 14px;  cursor: pointer;" (click)="onNavigateUsers()">Users</a></li>
+                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 14px;" routerLink="/">Welcome {{ authRespData.userName }}</a></li>
+                        <li *ngIf="authRespData.loggedIn === true"><a style="font-size: 12px;" routerLink="/" routerLinkActive="active" (click)="onLogout()"><u>LOG OUT</u></a></li>
                     </ul>
                 </div>
             </div>
