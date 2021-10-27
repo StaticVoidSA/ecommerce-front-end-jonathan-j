@@ -24,19 +24,34 @@ export class RecipeService {
 
   recipesStartup(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/startupRecipes'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/startupRecipes',
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
+      }
     )
   }
 
   getRecipes(): Observable<RecipeComplete[]> {
     return this.http.get<RecipeComplete[]>(
-      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipes'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipes',
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
+      }
     )
   }
 
   getRecipe(recID: number): Observable<RecipeComplete[]> {
     return this.http.get<RecipeComplete[]>(
-      `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipe?recID=${recID}`
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipe?recID=${recID}`,
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
+      }
     )
   }
 
@@ -48,7 +63,8 @@ export class RecipeService {
         {
             'Authorization': sessionStorage.getItem('access_token'),
             'User': sessionStorage.getItem('user_name'),
-            'Role': sessionStorage.getItem('user_role')
+            'Role': sessionStorage.getItem('user_role'),
+            'Access-Control-Allow-Origin' : '*'
         }
       }
     )

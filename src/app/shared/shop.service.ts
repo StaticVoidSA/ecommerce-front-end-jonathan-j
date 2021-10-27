@@ -10,7 +10,12 @@ export class ShopService {
 
   onShopInit(): Observable<SearchRespData[]> {
     return this.http.get<SearchRespData[]>(
-      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/startup'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/startup',
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
+      }
     );
   }
 
@@ -20,6 +25,11 @@ export class ShopService {
       {
         brand: request.brand,
         category: request.category
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     );
   }
@@ -31,6 +41,11 @@ export class ShopService {
         minRange: request.minRange,
         maxRange: request.maxRange,
         category: request.category,
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     );
   }
@@ -41,6 +56,11 @@ export class ShopService {
       {
         quantity: request.quantity,
         category: request.category
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     )
   }

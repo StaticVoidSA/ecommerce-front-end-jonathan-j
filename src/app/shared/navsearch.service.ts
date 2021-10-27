@@ -13,6 +13,12 @@ export class NavSearchService {
       'https://rnr-ecommerce-server-jj.herokuapp.com/api/search/searchall',
       {
         item: item
+      },
+      {
+        headers:
+        {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     );
   }

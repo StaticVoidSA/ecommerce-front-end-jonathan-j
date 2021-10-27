@@ -22,9 +22,10 @@ export class UserService {
   getUsers(): Observable<User[]> {
     return this.http.get<User[]>("https://rnr-ecommerce-server-jj.herokuapp.com/api/admin/getUsers", {
       headers: {
-        Authorization: sessionStorage.getItem("access_token"),
-        User: sessionStorage.getItem("user_name"),
-        Role: sessionStorage.getItem("user_role"),
+        'Authorization': sessionStorage.getItem("access_token"),
+        'User': sessionStorage.getItem("user_name"),
+        'Role': sessionStorage.getItem("user_role"),
+        'Access-Control-Allow-Origin' : '*'
       }
     });
   }
@@ -37,9 +38,10 @@ export class UserService {
       },
       {
         headers: {
-          Authorization: sessionStorage.getItem("access_token"),
-          User: sessionStorage.getItem("user_name"),
-          Role: sessionStorage.getItem("user_role"),
+          'Authorization': sessionStorage.getItem("access_token"),
+          'User': sessionStorage.getItem("user_name"),
+          'Role': sessionStorage.getItem("user_role"),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     );
@@ -54,9 +56,10 @@ export class UserService {
       },
       {
         headers: {
-          Authorization: sessionStorage.getItem("access_token"),
-          User: sessionStorage.getItem("user_name"),
-          Role: sessionStorage.getItem("user_role"),
+          'Authorization': sessionStorage.getItem("access_token"),
+          'User': sessionStorage.getItem("user_name"),
+          'Role': sessionStorage.getItem("user_role"),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     );
@@ -74,9 +77,10 @@ export class UserService {
       },
       {
         headers: {
-          Authorization: sessionStorage.getItem("access_token"),
-          User: sessionStorage.getItem("user_name"),
-          Role: sessionStorage.getItem("user_role"),
+          'Authorization': sessionStorage.getItem("access_token"),
+          'User': sessionStorage.getItem("user_name"),
+          'Role': sessionStorage.getItem("user_role"),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     );

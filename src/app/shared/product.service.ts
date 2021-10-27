@@ -19,7 +19,12 @@ export class ProductService {
 
     getProducts(): Observable<Product[]> {
         return this.http.get<Product[]>(
-            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProducts'
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProducts',
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
+            }
         )
     }
 
@@ -28,6 +33,11 @@ export class ProductService {
             'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProduct',
             {
                 barcode: barcode
+            },
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
             }
         )
     }
@@ -54,7 +64,8 @@ export class ProductService {
                 {
                     'Authorization': sessionStorage.getItem('access_token'),
                     'User': sessionStorage.getItem('user_name'),
-                    'Role': sessionStorage.getItem('user_role')
+                    'Role': sessionStorage.getItem('user_role'),
+                    'Access-Control-Allow-Origin' : '*'
                 }
             }
         )
@@ -65,13 +76,23 @@ export class ProductService {
             'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/deleteProduct',
             {
                 barcode: barcode
+            },
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
             }
         )
     }
 
     searchCatalogue(category: string): Observable<Catalogue[]> {
         return this.http.get<Catalogue[]>(
-            `https://rnr-ecommerce-server-jj.herokuapp.com/api/catalogue/getCatalogueItems?category=${category}`
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/catalogue/getCatalogueItems?category=${category}`,
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
+            }
         )
     }
 }

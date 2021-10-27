@@ -21,6 +21,11 @@ export class ResetPasswordService {
             'https://rnr-ecommerce-server-jj.herokuapp.com/api/resetpassword/reset',
             {
                 email: email
+            },
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
             }
         );
     }
@@ -32,6 +37,11 @@ export class ResetPasswordService {
                 email: email,
                 password: password,
                 hash: hash
+            },
+            {
+                headers: {
+                    'Access-Control-Allow-Origin' : '*'
+                }
             }
         )
     }

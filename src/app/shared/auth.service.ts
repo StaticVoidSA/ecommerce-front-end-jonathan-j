@@ -45,6 +45,11 @@ export class AuthenticationService {
         surname: surname,
         email: email,
         password: password
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     )
   }
@@ -55,6 +60,11 @@ export class AuthenticationService {
       {
         email: email,
         password: password
+      },
+      {
+        headers: {
+          'Access-Control-Allow-Origin' : '*'
+        }
       }
     ).pipe(tap(res => {
       sessionStorage.setItem('access_token', res.token);

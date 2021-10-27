@@ -57,7 +57,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
@@ -71,7 +72,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
@@ -85,7 +87,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
@@ -99,7 +102,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
@@ -118,7 +122,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
@@ -132,7 +137,8 @@ export class CartService {
         {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
-          'Role': sessionStorage.getItem('user_role')
+          'Role': sessionStorage.getItem('user_role'),
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )
