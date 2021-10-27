@@ -29,7 +29,7 @@ export class FavoritesService {
 
   getFavorites(userID: number): Observable<GetFavorites[]> {
     return this.http.get<GetFavorites[]>(
-      `https://localhost:4446/api/favorites/getFavorites?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/favorites/getFavorites?userID=${userID}`,
       {
         headers:
         {
@@ -43,7 +43,7 @@ export class FavoritesService {
 
   addToFavorites(favorite: Favorites): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:4446/api/favorites/addToFavorites',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/favorites/addToFavorites',
       {
         productID: favorite.productID,
         title: favorite.title,
@@ -69,7 +69,7 @@ export class FavoritesService {
 
   removeFromFavorites(ID: number, favID: number): Observable<boolean> {
     return this.http.delete<boolean>(
-      `https://localhost:4446/api/favorites/removeFromFavorites?ID=${ID}&favID=${favID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/favorites/removeFromFavorites?ID=${ID}&favID=${favID}`,
       {
         headers:
         {
@@ -83,7 +83,7 @@ export class FavoritesService {
 
   addToCart(item: CartItem): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:4446/api/favorites/addToCart',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/favorites/addToCart',
       {
         userID: +item.userID,
         cartID: +item.cartID,

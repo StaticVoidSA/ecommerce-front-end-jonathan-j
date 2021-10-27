@@ -35,7 +35,7 @@ export class ShoppingListService {
 
   createShoppingList(list: UserShoppingList): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:4446/api/shoppingLists/createShoppingList',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/createShoppingList',
       {
         shoppingListName: list.shoppingListName,
         userID: list.userID
@@ -53,7 +53,7 @@ export class ShoppingListService {
 
   getShoppingLists(userID: number): Observable<ShoppingList[]> {
     return this.http.get<ShoppingList[]>(
-      `https://localhost:4446/api/shoppingLists/getShoppingLists?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/getShoppingLists?userID=${userID}`,
       {
         headers:
         {
@@ -67,7 +67,7 @@ export class ShoppingListService {
 
   getUserShoppingList(userID: number): Observable<UserShoppingList[]> {
     return this.http.get<UserShoppingList[]>(
-      `https://localhost:4446/api/shoppingLists/getUserShoppingList?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/getUserShoppingList?userID=${userID}`,
       {
         headers:
         {
@@ -81,7 +81,7 @@ export class ShoppingListService {
 
   deleteShoppingList(itemID: number, userID: number): Observable<boolean> {
     return this.http.delete<boolean>(
-      `https://localhost:4446/api/shoppingLists/deleteShoppingList?itemID=${itemID}&userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/deleteShoppingList?itemID=${itemID}&userID=${userID}`,
       {
         headers:
         {
@@ -95,7 +95,7 @@ export class ShoppingListService {
 
   addToShoppingList(list: ShoppingList): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:4446/api/shoppingLists/addToShoppingList',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/addToShoppingList',
       {
         title: list.title,
         brand: list.brand,
@@ -118,7 +118,7 @@ export class ShoppingListService {
 
   getListItems(listName: string, userId: number): Observable<ShoppingList[]> {
     return this.http.get<ShoppingList[]>(
-      `https://localhost:4446/api/shoppingLists/getListItems?userID=${userId}&listName=${listName}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/getListItems?userID=${userId}&listName=${listName}`,
       {
         headers:
         {
@@ -132,7 +132,7 @@ export class ShoppingListService {
 
   deleteFromList(listID: number, ID: number): Observable<boolean> {
     return this.http.delete<boolean>(
-      `https://localhost:4446/api/shoppingLists/deleteFromList?listID=${listID}&ID=${ID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/deleteFromList?listID=${listID}&ID=${ID}`,
       {
         headers:
         {
@@ -146,7 +146,7 @@ export class ShoppingListService {
 
   getUserDetails(userID: number): Observable<MyUserDetails> {
     return this.http.get<MyUserDetails>(
-      `https://localhost:4446/api/shoppingLists/getUserDetails?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/getUserDetails?userID=${userID}`,
       {
         headers:
         {
@@ -160,7 +160,7 @@ export class ShoppingListService {
 
   getListCount(userID: number): Observable<number> {
     return this.http.get<number>(
-      `https://localhost:4446/api/shoppingLists/getListCount?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/shoppingLists/getListCount?userID=${userID}`,
       {
         headers:
         {

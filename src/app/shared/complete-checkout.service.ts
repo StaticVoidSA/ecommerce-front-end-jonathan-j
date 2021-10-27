@@ -9,7 +9,7 @@ export class CompleteCheckoutService {
 
     completeCheckout(transaction: CompleteTransaction): Observable<boolean> {
         return this.http.post<boolean>(
-            'https://localhost:4446/api/completeTransaction/complete',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/completeTransaction/complete',
             {
                 userName: transaction.userName,
                 userEmail: transaction.userEmail,

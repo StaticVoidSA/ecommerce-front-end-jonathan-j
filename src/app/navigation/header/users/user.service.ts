@@ -20,7 +20,7 @@ export class UserService {
   emittedUser = new EventEmitter<User>();
 
   getUsers(): Observable<User[]> {
-    return this.http.get<User[]>("https://localhost:4446/api/admin/getUsers", {
+    return this.http.get<User[]>("https://rnr-ecommerce-server-jj.herokuapp.com/api/admin/getUsers", {
       headers: {
         Authorization: sessionStorage.getItem("access_token"),
         User: sessionStorage.getItem("user_name"),
@@ -31,7 +31,7 @@ export class UserService {
 
   getUser(email: string): Observable<User> {
     return this.http.post<User>(
-      "https://localhost:4446/api/admin/getUser",
+      "https://rnr-ecommerce-server-jj.herokuapp.com/api/admin/getUser",
       {
         email: email,
       },
@@ -47,7 +47,7 @@ export class UserService {
 
   deleteUser(email: string, userID: number): Observable<boolean> {
     return this.http.post<boolean>(
-      "https://localhost:4446/api/admin/deleteUser/",
+      "https://rnr-ecommerce-server-jj.herokuapp.com/api/admin/deleteUser/",
       {
         email: email,
         userID: userID,
@@ -64,7 +64,7 @@ export class UserService {
 
   editUser(user: UserUpdate): Observable<boolean> {
     return this.http.put<boolean>(
-      "https://localhost:4446/api/admin/updateUser",
+      "https://rnr-ecommerce-server-jj.herokuapp.com/api/admin/updateUser",
       {
         email: user.email,
         _email: user._email,

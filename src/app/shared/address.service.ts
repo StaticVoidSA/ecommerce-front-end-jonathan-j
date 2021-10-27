@@ -22,7 +22,7 @@ export class AddressService {
 
     createAddress(address: Address): Observable<AddAddressResponse> {
         return this.http.post<AddAddressResponse>(
-            'https://localhost:4446/api/address/createAddress',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/address/createAddress',
             {
                 addressID: address.addressID,
                 ID: address.id,
@@ -43,7 +43,7 @@ export class AddressService {
 
     getAddresses(userID: number): Observable<Address[]> {
         return this.http.get<Address[]>(
-            `https://localhost:4446/api/address/getAddresses?userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/address/getAddresses?userID=${userID}`,
             {
                 headers:
                 {
@@ -57,7 +57,7 @@ export class AddressService {
 
     deleteAddress(userID: number, addressID: number): Observable<boolean> {
         return this.http.delete<boolean>(
-            `https://localhost:4446/api/address/deleteAddress?addressID=${addressID}&userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/address/deleteAddress?addressID=${addressID}&userID=${userID}`,
             {
                 headers:
                 {
@@ -71,7 +71,7 @@ export class AddressService {
 
     updateAddress(address: Address): Observable<boolean> {
         return this.http.put<boolean>(
-            `https://localhost:4446/api/address/updateAddress`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/address/updateAddress`,
             {
                 ID: address.id,
                 addressID: address.addressID,

@@ -39,7 +39,7 @@ export class AuthenticationService {
 
   signup(firstName: string, surname: string, email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://localhost:4446/api/auth/signup',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/auth/signup',
       {
         firstName: firstName,
         surname: surname,
@@ -51,7 +51,7 @@ export class AuthenticationService {
 
   login(email: string, password: string) {
     return this.http.post<AuthResponseData>(
-      'https://localhost:4446/api/auth/login',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/auth/login',
       {
         email: email,
         password: password

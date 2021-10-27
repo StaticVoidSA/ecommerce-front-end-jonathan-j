@@ -19,13 +19,13 @@ export class ProductService {
 
     getProducts(): Observable<Product[]> {
         return this.http.get<Product[]>(
-            'https://localhost:4446/api/products/getProducts'
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProducts'
         )
     }
 
     getProduct(barcode: string): Observable<Product> {
         return this.http.post<Product>(
-            'https://localhost:4446/api/products/getProduct',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProduct',
             {
                 barcode: barcode
             }
@@ -34,7 +34,7 @@ export class ProductService {
 
     editProduct(product: ProductUpdate): Observable<boolean> {
         return this.http.put<boolean>(
-            'https://localhost:4446/api/products/updateProduct',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/updateProduct',
             {
                 productID: product.productID,
                 title: product.title,
@@ -62,7 +62,7 @@ export class ProductService {
 
     deleteProduct(barcode: string): Observable<boolean> {
         return this.http.post<boolean>(
-            'https://localhost:4446/api/products/deleteProduct',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/deleteProduct',
             {
                 barcode: barcode
             }
@@ -71,7 +71,7 @@ export class ProductService {
 
     searchCatalogue(category: string): Observable<Catalogue[]> {
         return this.http.get<Catalogue[]>(
-            `https://localhost:4446/api/catalogue/getCatalogueItems?category=${category}`
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/catalogue/getCatalogueItems?category=${category}`
         )
     }
 }

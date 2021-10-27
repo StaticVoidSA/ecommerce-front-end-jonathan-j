@@ -21,7 +21,7 @@ export class CollectionsService {
 
     getAllCollections(userID: number): Observable<CollectionItem[]> {
         return this.http.get<CollectionItem[]>(
-            `https://localhost:4446/api/collections/getCollections?userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/collections/getCollections?userID=${userID}`,
             {
                 headers:
                 {

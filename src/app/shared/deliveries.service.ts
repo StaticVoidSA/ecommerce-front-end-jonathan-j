@@ -21,7 +21,7 @@ export class DeliveriesService {
 
     getAllDeliveries(userID: number): Observable<DeliveryItem[]> {
         return this.http.get<DeliveryItem[]>(
-            `https://localhost:4446/api/deliveries/getDeliveries?userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/deliveries/getDeliveries?userID=${userID}`,
             {
                 headers:
                 {

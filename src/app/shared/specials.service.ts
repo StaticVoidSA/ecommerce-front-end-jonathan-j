@@ -24,7 +24,7 @@ export class SpecialsService {
 
     getSpecials(category: string): Observable<Specials[]> {
         return this.http.get<Specials[]>(
-            `https://localhost:4446/api/specials/getSpecials?category=${category}`
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/specials/getSpecials?category=${category}`
         )
     }
 }

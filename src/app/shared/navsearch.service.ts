@@ -10,7 +10,7 @@ export class NavSearchService {
 
   searchItemsNavbar(item: string): Observable<SearchRespData[]> {
     return this.http.post<SearchRespData[]>(
-      'https://localhost:4446/api/search/searchall',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/search/searchall',
       {
         item: item
       }

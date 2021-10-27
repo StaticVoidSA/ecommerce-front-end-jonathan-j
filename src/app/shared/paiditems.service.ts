@@ -18,7 +18,7 @@ export class PaidForItemsService {
 
     getPaidItems = (userID: number) => {
         return this.http.get<PaidItems[]>(
-            `https://localhost:4446/api/paidItems/getItems?userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/paidItems/getItems?userID=${userID}`,
             {
                 headers:
                 {
@@ -32,7 +32,7 @@ export class PaidForItemsService {
 
     addToPaidItems = (item: CartItem) => {
         return this.http.post<boolean>(
-            `https://localhost:4446/api/cart/addToPaidItems`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/addToPaidItems`,
             {
                 userID: item.userID,
                 title: item.title,
@@ -55,7 +55,7 @@ export class PaidForItemsService {
 
     clearPaidItems = (userID: number) => {
         return this.http.delete<boolean>(
-            `https://localhost:4446/api/paidItems/clearAll?userID=${userID}`,
+            `https://rnr-ecommerce-server-jj.herokuapp.com/api/paidItems/clearAll?userID=${userID}`,
             {
                 headers:
                 {

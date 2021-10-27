@@ -18,7 +18,7 @@ export class ResetPasswordService {
 
     resetPassword(email: string) {
         return this.http.post<RespData>(
-            'https://localhost:4446/api/resetpassword/reset',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/resetpassword/reset',
             {
                 email: email
             }
@@ -27,7 +27,7 @@ export class ResetPasswordService {
 
     completeReset(email: string, password: string, hash: string) {
         return this.http.post<EmailRespData>(
-            'https://localhost:4446/api/resetpassword/complete',
+            'https://rnr-ecommerce-server-jj.herokuapp.com/api/resetpassword/complete',
             {
                 email: email,
                 password: password,

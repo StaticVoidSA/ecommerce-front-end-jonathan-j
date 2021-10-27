@@ -10,13 +10,13 @@ export class ShopService {
 
   onShopInit(): Observable<SearchRespData[]> {
     return this.http.get<SearchRespData[]>(
-      'https://localhost:4446/api/shop/startup'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/startup'
     );
   }
 
   filterByBrand(request: SearchRequestData): Observable<SearchRespData[]> {
     return this.http.post<SearchRespData[]>(
-      'https://localhost:4446/api/shop/searchBrand',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/searchBrand',
       {
         brand: request.brand,
         category: request.category
@@ -26,7 +26,7 @@ export class ShopService {
 
   filterByPrice(request: SearchRequestData): Observable<SearchRespData[]> {
     return this.http.post<SearchRespData[]>(
-      'https://localhost:4446/api/shop/searchPrice',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/searchPrice',
       {
         minRange: request.minRange,
         maxRange: request.maxRange,
@@ -37,7 +37,7 @@ export class ShopService {
 
   filterByQuantity(request: SearchRequestData): Observable<SearchRespData[]> {
     return this.http.post<SearchRespData[]>(
-      'https://localhost:4446/api/shop/searchQuantity',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/searchQuantity',
       {
         quantity: request.quantity,
         category: request.category

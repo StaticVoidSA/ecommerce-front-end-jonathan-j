@@ -41,7 +41,7 @@ export class CartService {
 
   addToCart(item: CartItem): Observable<boolean> {
     return this.http.post<boolean>(
-      'https://localhost:4446/api/cart/addToCart',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/addToCart',
       {
         userID: item.userID,
         cartID: item.cartID,
@@ -65,7 +65,7 @@ export class CartService {
 
   getItems(userID: number): Observable<CartItem[]> {
     return this.http.get<CartItem[]>(
-      `https://localhost:4446/api/cart/getItems?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/getItems?userID=${userID}`,
       {
         headers:
         {
@@ -79,7 +79,7 @@ export class CartService {
 
   deleteCartItem(cartID: number, cartItemID: number): Observable<boolean> {
     return this.http.delete<boolean>(
-      `https://localhost:4446/api/cart/removeFromCart?cartID=${cartID}&cartItemID=${cartItemID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/removeFromCart?cartID=${cartID}&cartItemID=${cartItemID}`,
       {
         headers:
         {
@@ -93,7 +93,7 @@ export class CartService {
 
   getCartCount(userID: number): Observable<number> {
     return this.http.get<number>(
-      `https://localhost:4446/api/cart/cartCount?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/cartCount?userID=${userID}`,
       {
         headers:
         {
@@ -107,7 +107,7 @@ export class CartService {
 
   updateCartItem(userID: number, cartItemID: number, quantity: number): Observable<boolean> {
     return this.http.put<boolean>(
-      'https://localhost:4446/api/cart/updateCartItem',
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/updateCartItem',
       {
         userID: userID,
         cartItemID: cartItemID,
@@ -126,7 +126,7 @@ export class CartService {
 
   clearCart = (userID: number) => {
     return this.http.delete<boolean>(
-      `https://localhost:4446/api/cart/clearCartItems?userID=${userID}`,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/cart/clearCartItems?userID=${userID}`,
       {
         headers:
         {

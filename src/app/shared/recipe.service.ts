@@ -24,25 +24,25 @@ export class RecipeService {
 
   recipesStartup(): Observable<Recipe[]> {
     return this.http.get<Recipe[]>(
-      'https://localhost:4446/api/recipes/startupRecipes'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/startupRecipes'
     )
   }
 
   getRecipes(): Observable<RecipeComplete[]> {
     return this.http.get<RecipeComplete[]>(
-      'https://localhost:4446/api/recipes/getRecipes'
+      'https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipes'
     )
   }
 
   getRecipe(recID: number): Observable<RecipeComplete[]> {
     return this.http.get<RecipeComplete[]>(
-      `https://localhost:4446/api/recipes/getRecipe?recID=${recID}`
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/getRecipe?recID=${recID}`
     )
   }
 
   addIngredientItemsToCart(items: IngredientCartModel[]): Observable<number> {
     return this.http.post<number>(
-      `https://localhost:4446/api/recipes/addIngredientsToCart`, items,
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/addIngredientsToCart`, items,
       {
         headers:
         {
