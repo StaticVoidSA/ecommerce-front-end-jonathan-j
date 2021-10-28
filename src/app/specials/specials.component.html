@@ -2,13 +2,13 @@
   <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
     <app-navbar></app-navbar>
   </div>
-  <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
+  <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
     <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
     <div *ngIf="connected === true">
-      <div class="col-xs-12" *ngIf="isLoading === false">
+      <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1" *ngIf="isLoading === false">
         <h2 class="heading">CURRENT SPECIALS</h2>
         <div class="gridLayout">
-          <div class="col-md-12">
+          <div class="">
             <mat-grid-list cols="5" rowHeight="1.2:3.2">
               <!-- Bakery -->
               <div>

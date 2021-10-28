@@ -76,9 +76,14 @@ export class SpecialsComponent implements OnInit {
             item.arr.push(...specials);
           }).catch(error => { throw new Error(error); });
       });
+    });
+
+    const SpinnerPromise = new Promise(() => {
       setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
+        if (this.items) {
+          this.isLoading = false;
+        }
+      }, 5000);
     });
 
     async function getCartCount() {
@@ -89,10 +94,15 @@ export class SpecialsComponent implements OnInit {
       await SpecialsPromise;
     }
 
+    async function stopSpinner() {
+      await SpinnerPromise;
+    }
+
     async function Init() {
       await UserPromise
         .then(getSpecials)
         .then(getCartCount)
+        .then(stopSpinner)
     }
 
     try {

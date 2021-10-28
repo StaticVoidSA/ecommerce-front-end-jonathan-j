@@ -2,22 +2,22 @@
     <mat-toolbar color="primary" style="height:3.5rem;">
         <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
             <div fxHide.gt-xs>
-                <button class="city" mat-button [matMenuTriggerFor]="menu">YOUR REGION: <u>{{ userLocation.Country | uppercase }}</u></button>
-                <mat-menu #menu="matMenu">
+                <label class="city">YOUR REGION: <u>{{ userLocation.Country | uppercase }}</u></label>
+                <!-- <mat-menu #menu="matMenu">
                     <button mat-menu-item name="country" value="Free State">FREE STATE</button>
                     <button mat-menu-item name="country" value="Eastern Cape">EASTERN CAPE</button>
                     <button mat-menu-item name="country" value="Gauteng">GAUTENG</button>
                     <button mat-menu-item name="country" value="Kwazulu Natal">KWAZULU NATAL</button>
                     <button mat-menu-item name="country" value="Western Cape">WESTERN CAPE</button>
-                </mat-menu>
+                </mat-menu> -->
             </div>
             <div fxHide.xs>
-                <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px;" mat-button [matMenuTriggerFor]="menu">
-                <a>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u>  <span class="caret"></span></a>
-            </button>
-                <mat-menu #menu="matMenu" class="menuItems" *ngFor="let location of locations">
+                <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px;" mat-button>
+                    <a>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u></a>
+                </button>
+                <!-- <mat-menu #menu="matMenu" class="menuItems" *ngFor="let location of locations">
                     <button class="location-button" mat-menu-item (click)="onLocationChanged(location)" name="country">{{location}}</button>
-                </mat-menu>
+                </mat-menu> -->
             </div>
             <div fxFlex fxLayout fxLayoutAlign="flex-end" fxHide.xs style="text-align: center; padding-top: 8px;">
                 <div>
