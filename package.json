@@ -7,7 +7,7 @@
         "start": "node server.js",
         "build:dev": "ng build",
         "build:prod": "ng build --prod",
-        "start:dev": "ng serve --ssl --ssl-key /Users/StaticVoid/Documents/Certificate/localhost.key  --ssl-cert /Users/StaticVoid/Documents/Certificate/localhost.crt",
+        "start:dev": "ng serve --ssl --ssl-key C:/Certificate/localhost.key  --ssl-cert C:/Certificate/localhost.crt",
         "start:prod": "ng serve --prod --ssl --ssl-key /Users/StaticVoid/Documents/Certificate/localhost.key  --ssl-cert /Users/StaticVoid/Documents/Certificate/localhost.crt",
         "test": "ng test",
         "test:jest": "jest --watchAll",

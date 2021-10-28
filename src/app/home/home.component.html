@@ -1,126 +1,131 @@
 <!-- Desktop Layout -->
 <div class="mainDiv" fxHide.xs>
-    <div class="col-xs-12">
-        <app-navbar></app-navbar>
-        <div class="homeContainer" *ngIf="connected === true">
-            <div class="row">
-                <label class="headerLabel">We’re restocking our liquor aisles daily, for delivery Mon-Thurs!
-                    <u><span title="Shop Now" class="shp-nw-lbl" style="cursor: pointer;" [routerLink]="['/liquor-catalogue']">Shop now.</span></u>
-                </label>
+    
+    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+        <app-navbar></app-navbar>    
+        <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+            <div class="homeContainer" *ngIf="connected === true">
+                <div class="row" style="margin-top: 2rem;">
+                    <label class="headerLabel">We’re restocking our liquor aisles daily, for delivery Mon-Thurs!
+                        <u><span title="Shop Now" class="shp-nw-lbl" style="cursor: pointer;" [routerLink]="['/liquor-catalogue']">Shop now.</span></u>
+                    </label>
+                </div>
+                <div class="row">
+                    <img alt="Main Banner Image" routerLink="/winter" class="mainBanner" src="../../assets/images/mainpage-banner.jpg" style="object-fit: cover;">
+                </div>
+                <div class="divider">
+                    <hr />
+                </div>
+                <div class="navContainer" style="margin-left: auto;margin-right: auto;">
+                    <p class="pageNav" title="Book a delivery" routerLink="/delivery-detail">BOOK DELIVERY</p>
+                    <p class="pageNav" title="Click and collect" routerLink="/click-and-collect">CLICK N COLLECT</p>
+                    <p class="pageNav" title="Specials" routerLink="/specials">SPECIALS</p>
+                    <!-- <p class="pageNav" title="Competitions" routerLink="/competitions">COMPETITIONS</p> -->
+                    <p class="pageNav" title="Track my order" routerLink="/track-my-order">TRACK MY ORDER</p>
+                    <p class="pageNav" title="Covid 19 update" routerLink="/covid-update">COVID-19 UPDATE</p>
+                </div>
             </div>
-            <div class="row">
-                <img alt="Main Banner Image" routerLink="/winter" class="mainBanner" src="../../assets/images/mainpage-banner.jpg" style="object-fit: cover;">
+            <br /><br /><br />
+            <div class="row" style="position: relative; margin-top: 20px;" *ngIf="connected === true">
+                <label style="color: #505050; font-size: 20px; font-weight: 400;margin-left: 1.5rem;">SHOP NOW</label>
             </div>
             <div class="divider">
                 <hr />
             </div>
-            <div class="navContainer">
-                <p class="pageNav" title="Book a delivery" routerLink="/delivery-detail">BOOK DELIVERY</p>
-                <p class="pageNav" title="Click and collect" routerLink="/click-and-collect">CLICK N COLLECT</p>
-                <p class="pageNav" title="Specials" routerLink="/specials">SPECIALS</p>
-                <p class="pageNav" title="Competitions" routerLink="/competitions">COMPETITIONS</p>
-                <p class="pageNav" title="Track my order" routerLink="/track-my-order">TRACK MY ORDER</p>
-                <p class="pageNav" title="Covid 19 update" routerLink="/covid-update">COVID-19 UPDATE</p>
+            <div class="row" *ngIf="connected === true">
+                <mat-grid-list cols="4" rowHeight="1:1">
+                    <div class="gridContainer">
+                        <mat-grid-tile>
+                            <img alt="Braai Image" class="gridImage" src="../../assets/images/braai-01.jpeg">
+                            <div class="text-block" [routerLink]="['/shop', 'Meat_&_Poultry']">
+                                <h4>Braai</h4>
+                                <p>Enjoy a weekend with friends and family</p>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                    <div class="gridContainer">
+                        <mat-grid-tile>
+                            <img alt="Sweets Image" class="gridImage" src="../../assets/images/sweets2.jpg">
+                            <div class="text-block" [routerLink]="['/shop', 'Chocolates_&_Sweets']">
+                                <h4>Chocolates & Sweets</h4>
+                                <p>We have all the sweet and goodies<br /></p>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                    <div class="gridContainer">
+                        <mat-grid-tile>
+                            <img alt="Vegetables Image" class="gridImage" src="../../assets/images/vegetables1.jpg">
+                            <div class="text-block" [routerLink]="['/shop', 'Vegetables']">
+                                <h4>Veggies</h4>
+                                <p>From the farm to your table<br /></p>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                    <div class="gridContainer">
+                        <mat-grid-tile>
+                            <img alt="Bakery Image" class="gridImage" src="../../assets/images/bakery1.jpg">
+                            <div class="text-block" [routerLink]="['/shop', 'Bakery']">
+                                <h4>Bakery</h4>
+                                <p>Freshly baked on a daily basis<br /></p>
+                            </div>
+                        </mat-grid-tile>
+                    </div>
+                </mat-grid-list>
             </div>
-        </div>
-        <br /><br /><br />
-        <div class="row" style="position: relative; margin-top: 20px;" *ngIf="connected === true">
-            <label style="color: #505050; font-size: 20px; font-weight: 400;">SHOP NOW</label>
-            <div class="divider">
+            <div class="row" *ngIf="connected === true">
+                <label style="color: #505050; font-size: 20px; font-weight: 400;margin-left: 1.5rem;">TOP ONLINE DEALS</label>
+            </div>
+            <div class="divider" *ngIf="connected === true">
                 <hr />
             </div>
-        </div>
-        <div class="row" *ngIf="connected === true">
-            <mat-grid-list cols="4" rowHeight="1:1">
-                <div class="gridContainer">
-                    <mat-grid-tile>
-                        <img alt="Braai Image" class="gridImage" src="../../assets/images/braai-01.jpeg">
-                        <div class="text-block" [routerLink]="['/shop', 'Meat_&_Poultry']">
-                            <h4>Braai</h4>
-                            <p>Enjoy a weekend with friends and family</p>
-                        </div>
-                    </mat-grid-tile>
-                </div>
-                <div class="gridContainer">
-                    <mat-grid-tile>
-                        <img alt="Sweets Image" class="gridImage" src="../../assets/images/sweets2.jpg">
-                        <div class="text-block" [routerLink]="['/shop', 'Chocolates_&_Sweets']">
-                            <h4>Chocolates & Sweets</h4>
-                            <p>We have all the sweet and goodies<br /></p>
-                        </div>
-                    </mat-grid-tile>
-                </div>
-                <div class="gridContainer">
-                    <mat-grid-tile>
-                        <img alt="Vegetables Image" class="gridImage" src="../../assets/images/vegetables1.jpg">
-                        <div class="text-block" [routerLink]="['/shop', 'Vegetables']">
-                            <h4>Veggies</h4>
-                            <p>From the farm to your table<br /></p>
-                        </div>
-                    </mat-grid-tile>
-                </div>
-                <div class="gridContainer">
-                    <mat-grid-tile>
-                        <img alt="Bakery Image" class="gridImage" src="../../assets/images/bakery1.jpg">
-                        <div class="text-block" [routerLink]="['/shop', 'Bakery']">
-                            <h4>Bakery</h4>
-                            <p>Freshly baked on a daily basis<br /></p>
-                        </div>
-                    </mat-grid-tile>
-                </div>
-            </mat-grid-list>
-        </div>
-        <div class="row" *ngIf="connected === true">
-            <label style="color: #505050; font-size: 20px; font-weight: 400;">TOP ONLINE DEALS</label>
-            <div class="divider">
-                <hr />
-            </div>
-            <div *ngFor="let special of specials" class="specials-container">
-                <div class="specials-container">
-                    <div class="myImages">
-                        <div class="specials-container" [routerLink]="['/product-detail', special.barcode]">
-                            <label class="discount" id="circle">Save R{{special.discount}}</label>
-                            <img alt="Specials Image" class="specials-image" [src]="special.uri" />
-                            <label class="current-price">R{{special.price}}</label>
+            <div class="row" *ngIf="connected === true">
+                <div *ngFor="let special of specials" class="specials-container">
+                    <div class="specials-container">
+                        <div class="myImages">
+                            <div class="specials-container" [routerLink]="['/product-detail', special.barcode]">
+                                <label class="discount" id="circle">Save R{{special.discount}}</label>
+                                <img alt="Specials Image" class="specials-image" [src]="special.uri" />
+                                <label class="current-price">R{{special.price}}</label>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="warning-container" *ngIf="connected === false">
-            <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
-            <h3>CHECK YOUR INTERNET CONNECTION</h3>
-        </div>
-    </div>
-</div>
-<!-- Mobile Layout -->
-<div fxHide.gt-xs>
-    <div class="mobile-home__container">
-        <div class="row">
-            <div>
-                <app-navbar></app-navbar>
+            <div class="warning-container" *ngIf="connected === false">
+                <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+                <h3>CHECK YOUR INTERNET CONNECTION</h3>
             </div>
         </div>
-        <div class="row">
-            <label class="headerLabel">We’re restocking our liquor aisles daily, for delivery Mon-Thurs!
-                <u><span  class="shp-nw-lbl" style="cursor: pointer;" [routerLink]="['/liquor-catalogue']">Shop now.</span></u>
-            </label>
-        </div>
-        <div class="row">
-            <img alt="Main Banner Image" routerLink="/winter" class="mobile__mainBanner" src="../../assets/images/mainpage-banner.jpg" style="object-fit: cover;">
-        </div>
-        <div class="divider">
-            <hr />
-        </div>
-        <div class="row links__container">
-            <p class="tabAnchor" routerLink="/specials">SPECIALS</p>
-            <p class="tabAnchor" routerLink="/recipes">SHOP RECIPES</p>
-            <p class="tabAnchor" routerLink="/feedthenation">FEED THE NATION</p>
-            <p class="tabAnchor" routerLink="/smartshopper">SMART SHOPPER</p>
-            <p class="tabAnchor" routerLink="/catalogues">IN-STORE CATALOGUES</p>
-        </div>
-        <div class="divider">
-            <hr />
+    </div>
+    <!-- Mobile Layout -->
+    <div fxHide.gt-xs>
+        <div class="mobile-home__container">
+            <div class="row">
+                <div>
+                    <app-navbar></app-navbar>
+                </div>
+            </div>
+            <div class="row">
+                <label class="headerLabel">We’re restocking our liquor aisles daily, for delivery Mon-Thurs!
+                    <u><span  class="shp-nw-lbl" style="cursor: pointer;" [routerLink]="['/liquor-catalogue']">Shop now.</span></u>
+                </label>
+            </div>
+            <div class="row">
+                <img alt="Main Banner Image" routerLink="/winter" class="mobile__mainBanner" src="../../assets/images/mainpage-banner.jpg" style="object-fit: cover;">
+            </div>
+            <div class="divider">
+                <hr />
+            </div>
+            <div class="row links__container">
+                <p class="tabAnchor" routerLink="/specials">SPECIALS</p>
+                <p class="tabAnchor" routerLink="/recipes">SHOP RECIPES</p>
+                <p class="tabAnchor" routerLink="/feedthenation">FEED THE NATION</p>
+                <p class="tabAnchor" routerLink="/smartshopper">SMART SHOPPER</p>
+                <p class="tabAnchor" routerLink="/catalogues">IN-STORE CATALOGUES</p>
+            </div>
+            <div class="divider">
+                <hr />
+            </div>
         </div>
     </div>
 </div>

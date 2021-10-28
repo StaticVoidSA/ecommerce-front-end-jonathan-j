@@ -1,6 +1,8 @@
 <div class="mainDiv">
-    <div class="col-xs-12">
+    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
         <app-navbar></app-navbar>
+      </div>
+      <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
         <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
         <div *ngIf="connected === true">
             <div *ngIf="isLoading === false">
@@ -30,18 +32,20 @@
                             <label class="itemPrice">R{{ product.price }}</label><br />
                         </mat-card-content>
                         <mat-card-actions>
-                            <button title="Add To Cart" class="addCartButton"
-                                (click)="onAddToCart(product.title, product.barcode, product.brand, 1, product.price, product.productID)">
-                                <mat-icon>add_shopping_cart</mat-icon> ADD TO TROLLEY
-                            </button>
-                            <button title="Add To Favorites" class="favoritesButton"
-                                (click)="onAddToFavorites(product.productID, product.title, product.description, product.brand, product.quantity, product.uri, product.price, product.barcode)">
-                                <mat-icon>favorite_border</mat-icon> ADD TO FAVORITES
-                            </button>
-                            <button title="Add To List" class="addToListButton"
-                                (click)="onAddToList(product.title, product.brand, product.barcode, 1, product.price)">
-                                <mat-icon>list</mat-icon> ADD TO LIST
-                            </button>
+                            <div style="margin-left: 0;margin-bottom: 2rem;">
+                                <button title="Add To Cart" class="addCartButton"
+                                    (click)="onAddToCart(product.title, product.barcode, product.brand, 1, product.price, product.productID)">
+                                    <mat-icon>add_shopping_cart</mat-icon> ADD TO TROLLEY
+                                </button>
+                                <button title="Add To Favorites" class="favoritesButton"
+                                    (click)="onAddToFavorites(product.productID, product.title, product.description, product.brand, product.quantity, product.uri, product.price, product.barcode)">
+                                    <mat-icon>favorite_border</mat-icon> ADD TO FAVORITES
+                                </button>
+                                <button title="Add To List" class="addToListButton"
+                                    (click)="onAddToList(product.title, product.brand, product.barcode, 1, product.price)">
+                                    <mat-icon>list</mat-icon> ADD TO LIST
+                                </button>
+                            </div>
                         </mat-card-actions>
                     </mat-card>
                 </div>

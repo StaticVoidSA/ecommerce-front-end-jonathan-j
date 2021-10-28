@@ -1,22 +1,22 @@
 <!-- Greater than mobile devices -->
 <div class="div-main">
-    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+    <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
         <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
         <div class="mainDiv" *ngIf="isLoading === false">
             <div fxHide.xs>
                 <div class="banner">
-                    <img class="bannerImage" src="../../../assets/onlineshopping_logo.png" width="157px;" height="36px" style="object-fit: cover; margin-top: 10px; margin-left: -15px;" (click)="onHomeNav()">
+                    <img class="bannerImage" src="../../../assets/onlineshopping_logo.png" width="157px;" height="36px" style="object-fit: cover; margin-top: 10px;" (click)="onHomeNav()">
                     <label style="margin-top: 20px; color: #575757; font-weight: 400; font-size: 16px;" fxFlex fxLayout fxLayoutAlign="flex-end">Don't have an account? </label>
                     <a (click)="onSignupNav()" style="margin-top: 20px; cursor: pointer; margin-left: 8px; font-size: 16px;"><u><b>Sign up</b></u></a>
                 </div>
-                <div style="margin-top: 70px; margin-left: 60px;">
-                    <div class="col-xs-12">
-                        <div class="col-md-6 col-md-offset-3">
+                <div style="margin-top: 70px;">
+                    <div class="col-xs-2 col-sm-4 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+                        <div class="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-4">
                             <h1 style="font-size: 20px; color: #575757;"><b>LOG IN</b></h1>
                             <p style="font-size: 16px; color: #575757; margin-top: 15px;">Registered on our website or app?</p>
                             <p style="font-size: 16px; color: #575757;">Use your same login details here.</p>
                         </div>
-                        <div class="col-md-6 col-md-offset-3" style="margin-top: 15px;">
+                        <div class="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-4" style="margin-top: 15px;">
                             <form #loginForm="ngForm" autocomplete="off" (ngSubmit)="onLogin(loginForm)">
                                 <div>
                                     <label class="inputLabel">Email address / username</label><br />
@@ -26,7 +26,7 @@
                                     <label class="inputLabel" style="margin-top: 15px;">Password</label>
                                     <show-hide-password size="lg" btnStyle="primary" [btnOutline]="true" style="display:inline-flexbox; z-index: 0;">
                                         <input name="password" id="password" role="presentation" ngModel password class="userInput" type="password" minlength="6" required>
-                                        <label style="font-size: 12px; color: #3374B5; display:block">Show/Hide</label>
+                                        <label style="font-size: 12px; color: #3374B5; display:block; margin-top:8rem;">Show/Hide</label>
                                     </show-hide-password>
                                 </div>
                                 <br />
