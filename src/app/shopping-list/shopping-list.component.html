@@ -1,216 +1,219 @@
 <div class="mainDiv">
-  <div class="col-xs-12">
+  <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
     <app-navbar></app-navbar>
-    <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
-    <div [hidden]="connected !== true">
-      <div class="col-md-12" *ngIf="isLoading === false">
-        <mat-tab-group backgroundColor="white" mat-align-tabs="middle" animationDuration="1000ms" mat-stretch-tabs>
-          <!-- Shopping Lists Tab -->
-          <mat-tab class="user-tab">
-            <ng-template mat-tab-label>
-              <mat-icon title="User Lists" class="tab-icon">list</mat-icon>
-              <h5 style="color: black;">Shopping Lists</h5>
-            </ng-template>
-            <div class="mat-div">
-              <hr class="divider" />
-              <h4 class="list-heading">MY SHOPPING LISTS AND NOTES</h4>
-              <p class="list-sub-heading">Create shopping lists and name them for your convenience. For example, 'Weekly
-                shop', 'Birthday party' or 'Holiday shopping list'. Then add products to your lists and simply edit,
-                duplicate or delete your lists anytime!</p>
-              <div class="input-area">
-                <form #userListForm="ngForm" (ngSubmit)="onCreateList(userListForm)" autocomplete="off">
-                  <label class="create-heading">CREATE A NEW LIST</label>
-                  <input name="listName" ngModel required type="text" minlength="1" class="list-input" type="text"
-                    placeholder="Enter a new list name">
-                  <button class="submit-button" type="submit">CREATE</button>
-                </form>
-              </div>
-              <div class="list-area">
-                <div *ngIf="shoppingLists.length === 0" class="no-items">
-                  <span>
-                    <h4>No shopping lists yet!</h4>
-                    <p style="position: relative; display:inline-box;">Start creating yours now to make shopping even
-                      faster in future.</p>
-                  </span>
+    <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+      <div [hidden]="connected !== true">
+        <div class="col-md-12" *ngIf="isLoading === false">
+          <mat-tab-group backgroundColor="white" mat-align-tabs="middle" animationDuration="1000ms" mat-stretch-tabs>
+            <!-- Shopping Lists Tab -->
+            <mat-tab class="user-tab">
+              <ng-template mat-tab-label>
+                <mat-icon title="User Lists" class="tab-icon">list</mat-icon>
+                <h5 style="color: black;">Shopping Lists</h5>
+              </ng-template>
+              <div class="mat-div">
+                <hr class="divider" />
+                <h4 class="list-heading">MY SHOPPING LISTS AND NOTES</h4>
+                <p class="list-sub-heading">Create shopping lists and name them for your convenience. For example,
+                  'Weekly
+                  shop', 'Birthday party' or 'Holiday shopping list'. Then add products to your lists and simply edit,
+                  duplicate or delete your lists anytime!</p>
+                <div class="input-area">
+                  <form #userListForm="ngForm" (ngSubmit)="onCreateList(userListForm)" autocomplete="off">
+                    <label class="create-heading">CREATE A NEW LIST</label>
+                    <input name="listName" ngModel required type="text" minlength="1" class="list-input" type="text"
+                      placeholder="Enter a new list name">
+                    <button class="submit-button" type="submit">CREATE</button>
+                  </form>
                 </div>
-                <div *ngIf="shoppingLists.length > 0">
-                  <div *ngFor="let list of shoppingLists; let i = index" style="display: inline-block;">
-                    <div class="list-container">
-                      <h5 class="list-text">
-                        <span class="badge">{{i + 1}}</span>
-                        {{list.listName}}
-                        <mat-icon class="list-icon" title="Edit List Items"
-                          [routerLink]="['/shoppinglists', list.listName, user.userId]">list</mat-icon>
-                        <mat-icon class="list-icon" title="Delete List"
-                          (click)="onDeleteList(list.itemID, user.userId)">remove_circle_outline</mat-icon>
-                      </h5>
+                <div class="list-area">
+                  <div *ngIf="shoppingLists.length === 0" class="no-items">
+                    <span>
+                      <h4>No shopping lists yet!</h4>
+                      <p style="position: relative; display:inline-box;">Start creating yours now to make shopping even
+                        faster in future.</p>
+                    </span>
+                  </div>
+                  <div *ngIf="shoppingLists.length > 0">
+                    <div *ngFor="let list of shoppingLists; let i = index" style="display: inline-block;">
+                      <div class="list-container">
+                        <h5 class="list-text">
+                          <span class="badge">{{i + 1}}</span>
+                          {{list.listName}}
+                          <mat-icon class="list-icon" title="Edit List Items"
+                            [routerLink]="['/shoppinglists', list.listName, user.userId]">list</mat-icon>
+                          <mat-icon class="list-icon" title="Delete List"
+                            (click)="onDeleteList(list.itemID, user.userId)">remove_circle_outline</mat-icon>
+                        </h5>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          </mat-tab>
-          <!-- Edit User Tab -->
-          <mat-tab class="user-tab">
-            <ng-template mat-tab-label>
-              <mat-icon title="Edit Account" class="tab-icon">account_circle</mat-icon>
-              <h5 style="color: black;">Edit Profile</h5>
-            </ng-template>
-            <div class="mat-div">
-              <hr class="divider" />
-              <h3 class="user-heading">Edit User Details</h3>
-              <div class="user-details">
-                <div class="col-md-offset-3 col-md-6">
-                  <form #userForm="ngForm" (ngSubmit)="onUpdateUser()">
-                    <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
-                      <table class="user-table">
-                        <tbody>
-                          <tr>
-                            <td for="firstName" class="title">First Name</td>
-                            <td><input name="firstName" [(ngModel)]="userDetails.firstName" type="text"
-                                value="{{ userDetails.firstName }}" /></td>
-                          </tr>
-                          <tr>
-                            <td for="surname" class="title">Last Name</td>
-                            <td><input name="surname" [(ngModel)]="userDetails.surname" type="text"
-                                value="{{ userDetails.surname }}" /></td>
-                          </tr>
-                          <tr>
-                            <td for="email" class="title">Email</td>
-                            <td><input name="email" [(ngModel)]="userDetails.email" type="text"
-                                value="{{ userDetails.email }}" /></td>
-                          </tr>
-                          <tr>
-                            <td for="doj" class="title">DOJ</td>
-                            <td><input name="doj" [(ngModel)]="userDetails.doj" type="text"
-                                value="{{ userDetails.doj | date:'short' }}" /></td>
-                          </tr>
-                        </tbody>
-                      </table>
-                      <div class="col-md-offset-5 col-md-2">
-                        <button class="update-button" mat-raised-button color="primary" type="submit">Update</button>
+            </mat-tab>
+            <!-- Edit User Tab -->
+            <mat-tab class="user-tab">
+              <ng-template mat-tab-label>
+                <mat-icon title="Edit Account" class="tab-icon">account_circle</mat-icon>
+                <h5 style="color: black;">Edit Profile</h5>
+              </ng-template>
+              <div class="mat-div">
+                <hr class="divider" />
+                <h3 class="user-heading">Edit User Details</h3>
+                <div class="user-details">
+                  <div class="col-md-offset-3 col-md-6">
+                    <form #userForm="ngForm" (ngSubmit)="onUpdateUser()">
+                      <div id="user-data" ngModelGroup="userData" #userData="ngModelGroup">
+                        <table class="user-table">
+                          <tbody>
+                            <tr>
+                              <td for="firstName" class="title">First Name</td>
+                              <td><input name="firstName" [(ngModel)]="userDetails.firstName" type="text"
+                                  value="{{ userDetails.firstName }}" /></td>
+                            </tr>
+                            <tr>
+                              <td for="surname" class="title">Last Name</td>
+                              <td><input name="surname" [(ngModel)]="userDetails.surname" type="text"
+                                  value="{{ userDetails.surname }}" /></td>
+                            </tr>
+                            <tr>
+                              <td for="email" class="title">Email</td>
+                              <td><input name="email" [(ngModel)]="userDetails.email" type="text"
+                                  value="{{ userDetails.email }}" /></td>
+                            </tr>
+                            <tr>
+                              <td for="doj" class="title">DOJ</td>
+                              <td><input name="doj" [(ngModel)]="userDetails.doj" type="text"
+                                  value="{{ userDetails.doj | date:'short' }}" /></td>
+                            </tr>
+                          </tbody>
+                        </table>
+                        <div class="col-md-offset-5 col-md-2">
+                          <button class="update-button" mat-raised-button color="primary" type="submit">Update</button>
+                        </div>
                       </div>
-                    </div>
-                  </form>
+                    </form>
+                  </div>
                 </div>
               </div>
-            </div>
-          </mat-tab>
-          <!-- Edit Favorites Tab -->
-          <mat-tab>
-            <ng-template mat-tab-label>
-              <mat-icon class="tab-icon" title="Edit Favorites">favorite_border</mat-icon>
-              <h5 style="color: black;">Edit Favorites</h5>
-            </ng-template>
-            <div class="mat-div">
-              <hr class="divider" />
-              <h3 class="favorites-heading">Edit Favorite Items</h3>
-              <div class="table-div">
-                <div class="no-favorites-div" *ngIf="favorites.length === 0">
-                  <img style="margin-top: -40px;" src="../../../assets/images/no-cart-items3.jpg" width="450px"
-                    height="400px" style=" object-fit: cover;" />
-                  <h3 style="margin-top: -20px;">Oops... You have no favorite items</h3>
-                </div>
-                <table class="favoritesTable" *ngIf="favorites.length > 0">
-                  <thead>
-                    <tr>
-                      <th class="title" colspan="2">Title</th>
-                      <th>Brand</th>
-                      <th>Barcode</th>
-                      <th>Quantity</th>
-                      <th colspan="3">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody *ngFor="let favorite of favorites">
-                    <tr>
-                      <td><img class="itemImage" (click)="onNavProductDetail(favorite.barcode)" [src]="favorite.uri"
-                          width="50px" height="50px" /></td>
-                      <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.title}}</td>
-                      <td class="linkLabel" (click)="onNavBrand(favorite.brand)">{{favorite.brand}}</td>
-                      <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.barcode}}</td>
-                      <td>{{favorite.quantity}}</td>
-                      <td>{{favorite.price}}</td>
-                      <td>
-                        <mat-icon class="removeProduct" title="Remove from Favorites"
-                          (click)="onRemoveFromFavorites(favorite.id, favorite.favID)">remove_circle_outline</mat-icon>
-                      </td>
-                      <td>
-                        <mat-icon class="addToCart" title="Add to Shopping Cart"
-                          (click)="onAddToCart(favorite.title, favorite.barcode, favorite.brand, 1, favorite.price, favorite.productID)">
-                          add_shopping_cart</mat-icon>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-              </div>
-            </div>
-          </mat-tab>
-          <!-- Edit Cart Tab -->
-          <mat-tab>
-            <ng-template mat-tab-label>
-              <mat-icon title="Edit Shopping Cart" class="tab-icon">shopping_cart</mat-icon>
-              <h5 style="color: black;">Edit Cart</h5>
-            </ng-template>
-            <div class="mat-div">
-              <hr class="divider" />
-              <h3 class="favorites-heading">Edit Cart Items</h3>
-              <div class="no-cart-items" *ngIf="cartItems.length === 0">
-                <img alt="No items in cart" src="../../../assets/images/no-cart-items2.png" width="350px"
-                  height="300px">
-                <h3>Oops... There are no items in your cart</h3>
-                <p class="link" routerLink="/catalogues">Go Shop</p>
-              </div>
-              <div class="cart-table" *ngIf="cartItems.length > 0">
-                <table>
-                  <thead>
-                    <tr>
-                      <th>Product Title</th>
-                      <th>Brand</th>
-                      <th>Amount</th>
-                      <th colspan="3">Price</th>
-                    </tr>
-                  </thead>
-                  <tbody *ngFor="let item of cartItems">
-                    <tr>
-                      <td class="linkLabel" (click)="onNavProductDetail(item.barcode)">{{item.title}}</td>
-                      <td class="linkLabel" (click)="onNavBrand(item.brand)">{{item.brand}}</td>
-                      <td><input type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"></td>
-                      <td>R{{item.price * item.quantity | number:'1.2-2'}}</td>
-                      <td>
-                        <mat-icon id="removeProduct" (click)="removeProduct(item.userID, item.cartItemID)"
-                          title="Remove Product">remove_shopping_cart</mat-icon>
-                      </td>
-                      <td>
-                        <mat-icon id="updateProduct"
-                          (click)="updateProduct(item.userID, item.cartItemID, item.quantity)" title="Update Product">
-                          cached</mat-icon>
-                      </td>
-                    </tr>
-                  </tbody>
-                </table>
-                <div class="col-md-6 col-md-offset-3">
-                  <table class="total-table">
+            </mat-tab>
+            <!-- Edit Favorites Tab -->
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon class="tab-icon" title="Edit Favorites">favorite_border</mat-icon>
+                <h5 style="color: black;">Edit Favorites</h5>
+              </ng-template>
+              <div class="mat-div">
+                <hr class="divider" />
+                <h3 class="favorites-heading">Edit Favorite Items</h3>
+                <div class="table-div">
+                  <div class="no-favorites-div" *ngIf="favorites.length === 0">
+                    <img style="margin-top: -40px;" src="../../../assets/images/no-cart-items3.jpg" width="450px"
+                      height="400px" style=" object-fit: cover;" />
+                    <h3 style="margin-top: -20px;">Oops... You have no favorite items</h3>
+                  </div>
+                  <table class="favoritesTable" *ngIf="favorites.length > 0">
                     <thead>
                       <tr>
-                        <th>Items</th>
-                        <th>Total</th>
-                      </tr>
-                      <tr>
-                        <td>{{totalItems}}</td>
-                        <td>R{{totalPrice | number:'1.2-2'}}</td>
+                        <th class="title" colspan="2">Title</th>
+                        <th>Brand</th>
+                        <th>Barcode</th>
+                        <th>Quantity</th>
+                        <th colspan="3">Price</th>
                       </tr>
                     </thead>
+                    <tbody *ngFor="let favorite of favorites">
+                      <tr>
+                        <td><img class="itemImage" (click)="onNavProductDetail(favorite.barcode)" [src]="favorite.uri"
+                            width="50px" height="50px" /></td>
+                        <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.title}}</td>
+                        <td class="linkLabel" (click)="onNavBrand(favorite.brand)">{{favorite.brand}}</td>
+                        <td class="linkLabel" (click)="onNavProductDetail(favorite.barcode)">{{favorite.barcode}}</td>
+                        <td>{{favorite.quantity}}</td>
+                        <td>{{favorite.price}}</td>
+                        <td>
+                          <mat-icon class="removeProduct" title="Remove from Favorites"
+                            (click)="onRemoveFromFavorites(favorite.id, favorite.favID)">remove_circle_outline
+                          </mat-icon>
+                        </td>
+                        <td>
+                          <mat-icon class="addToCart" title="Add to Shopping Cart"
+                            (click)="onAddToCart(favorite.title, favorite.barcode, favorite.brand, 1, favorite.price, favorite.productID)">
+                            add_shopping_cart</mat-icon>
+                        </td>
+                      </tr>
+                    </tbody>
                   </table>
                 </div>
               </div>
-            </div>
-          </mat-tab>
-        </mat-tab-group>
+            </mat-tab>
+            <!-- Edit Cart Tab -->
+            <mat-tab>
+              <ng-template mat-tab-label>
+                <mat-icon title="Edit Shopping Cart" class="tab-icon">shopping_cart</mat-icon>
+                <h5 style="color: black;">Edit Cart</h5>
+              </ng-template>
+              <div class="mat-div">
+                <hr class="divider" />
+                <h3 class="favorites-heading">Edit Cart Items</h3>
+                <div class="no-cart-items" *ngIf="cartItems.length === 0">
+                  <img alt="No items in cart" src="../../../assets/images/no-cart-items2.png" width="350px"
+                    height="300px">
+                  <h3>Oops... There are no items in your cart</h3>
+                  <p class="link" routerLink="/catalogues">Go Shop</p>
+                </div>
+                <div class="cart-table" *ngIf="cartItems.length > 0">
+                  <table>
+                    <thead>
+                      <tr>
+                        <th>Product Title</th>
+                        <th>Brand</th>
+                        <th>Amount</th>
+                        <th colspan="3">Price</th>
+                      </tr>
+                    </thead>
+                    <tbody *ngFor="let item of cartItems">
+                      <tr>
+                        <td class="linkLabel" (click)="onNavProductDetail(item.barcode)">{{item.title}}</td>
+                        <td class="linkLabel" (click)="onNavBrand(item.brand)">{{item.brand}}</td>
+                        <td><input type="number" [(ngModel)]="item.quantity" value="{{item.quantity}}"></td>
+                        <td>R{{item.price * item.quantity | number:'1.2-2'}}</td>
+                        <td>
+                          <mat-icon id="removeProduct" (click)="removeProduct(item.userID, item.cartItemID)"
+                            title="Remove Product">remove_shopping_cart</mat-icon>
+                        </td>
+                        <td>
+                          <mat-icon id="updateProduct"
+                            (click)="updateProduct(item.userID, item.cartItemID, item.quantity)" title="Update Product">
+                            cached</mat-icon>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div class="col-md-6 col-md-offset-3">
+                    <table class="total-table">
+                      <thead>
+                        <tr>
+                          <th>Items</th>
+                          <th>Total</th>
+                        </tr>
+                        <tr>
+                          <td>{{totalItems}}</td>
+                          <td>R{{totalPrice | number:'1.2-2'}}</td>
+                        </tr>
+                      </thead>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </mat-tab>
+          </mat-tab-group>
+        </div>
+      </div>
+      <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
       </div>
     </div>
-    <div class="warning-container" *ngIf="connected === false">
-      <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
-      <h3>CHECK YOUR INTERNET CONNECTION</h3>
-    </div>
   </div>
-</div>

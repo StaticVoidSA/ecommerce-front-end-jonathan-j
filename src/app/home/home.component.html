@@ -1,6 +1,5 @@
 <!-- Desktop Layout -->
 <div class="mainDiv" fxHide.xs>
-    
     <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
         <app-navbar></app-navbar>    
         <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
@@ -80,12 +79,14 @@
             </div>
             <div class="row" *ngIf="connected === true">
                 <div *ngFor="let special of specials" class="specials-container">
-                    <div class="specials-container">
-                        <div class="myImages">
-                            <div class="specials-container" [routerLink]="['/product-detail', special.barcode]">
-                                <label class="discount" id="circle">Save R{{special.discount}}</label>
-                                <img alt="Specials Image" class="specials-image" [src]="special.uri" />
-                                <label class="current-price">R{{special.price}}</label>
+                    <div class="col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+                        <div class="specials-container">
+                            <div class="myImages">
+                                <div class="specials-container" [routerLink]="['/product-detail', special.barcode]">
+                                    <label class="discount" id="circle">Save R{{special.discount}}</label>
+                                    <img alt="Specials Image" class="specials-image" [src]="special.uri" />
+                                    <label class="current-price">R{{special.price}}</label>
+                                </div>
                             </div>
                         </div>
                     </div>
