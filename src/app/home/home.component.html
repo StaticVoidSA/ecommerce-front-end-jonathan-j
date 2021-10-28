@@ -78,8 +78,8 @@
                 <hr />
             </div>
             <div class="row" *ngIf="connected === true">
-                <div *ngFor="let special of specials" class="specials-container">
-                    <div class="col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+                <div *ngFor="let special of specials" style="display: inline-block;">
+                    <div class="col-md-8 col-md-offset-2 col-lg-12">
                         <div class="specials-container">
                             <div class="myImages">
                                 <div class="specials-container" [routerLink]="['/product-detail', special.barcode]">

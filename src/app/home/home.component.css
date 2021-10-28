@@ -114,8 +114,8 @@
 
 .specials-container {
   margin-top: 3.5rem;
-  margin-bottom: 3rem;
-  margin-left: 6%;
+  margin-bottom: 2rem;
+  margin-left: 2rem;
   margin-right: auto;
   width: auto;
   height: 250px;
@@ -149,6 +149,7 @@
   padding: auto;
   font-size: 12px;
   padding-top: 9px;
+  font-weight: 150;
 }
 
 .myImages {
@@ -167,13 +168,13 @@
 
 .current-price {
   position: relative;
-  float: inline-end;
+  /* float: inline-end; */
   display: block;
   text-align: center;
   margin-top: 2.5rem;
   font-size: 18px;
   font-weight: 400;
-  padding-left: -10px;
+  padding-left: 50px;
 }
 
 .warning-container {
