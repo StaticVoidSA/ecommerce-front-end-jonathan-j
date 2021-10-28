@@ -8,6 +8,7 @@ import { ShopHelperService } from '../shop/shopHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
 import { CartHelperService } from '../cart/cartHelper.service';
 import { CartItem, CartService } from '../shared/cart.service';
+import { Router } from '@angular/router';
 
 interface DialogData {
   listName: string[]
@@ -48,7 +49,8 @@ export class SpecialsComponent implements OnInit {
     private shopHelper: ShopHelperService,
     private homeHelper: HomeHelperService,
     private cartHelper: CartHelperService,
-    private cartService: CartService) { }
+    private cartService: CartService, 
+    private router: Router) { }
 
   ngOnInit(): void {
     window.addEventListener('online', () => { this.connected = true; });
@@ -117,27 +119,31 @@ export class SpecialsComponent implements OnInit {
   onAddToCart(title: string, barcode: string, brand: string,
     quantity: number, price: number, productID: string) {
     try {
-      const item: CartItem = {
-        userID: +this.user.userId,
-        cartID: +this.user.userId,
-        title: title, 
-        brand: brand,
-        price: price,
-        quantity: quantity,
-        barcode: barcode,
-        productID: productID
-      }
-      this.cartService.addToCart(item).subscribe((success: boolean) => {
-        if (success) {
-          this.cartCount++;
-          this.cartService.cartCountUpdate(this.cartCount);
-        } else {
-          alert(`Unable to add item ${title} to cart`);
+      if (this.user.userId === null || this.user.success === 'false') {
+        this.router.navigate(['/user-not-logged-in']);
+      } else {
+        const item: CartItem = {
+          userID: +this.user.userId,
+          cartID: +this.user.userId,
+          title: title, 
+          brand: brand,
+          price: price,
+          quantity: quantity,
+          barcode: barcode,
+          productID: productID
         }
-      });
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
+        this.cartService.addToCart(item).subscribe((success: boolean) => {
+          if (success) {
+            this.cartCount++;
+            this.cartService.cartCountUpdate(this.cartCount);
+          } else {
+            alert(`Unable to add item ${title} to cart`);
+          }
+        });
+        setTimeout(() => {
+          this.isLoading = false;
+        }, 500);
+      }
     } catch (error) {
       throw new Error(error);
     }

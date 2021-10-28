@@ -1,7 +1,7 @@
 <!-- Desktop Layout -->
 <div class="mainDiv" fxHide.xs>
     <div class="row" style="align-content: center;">
-        <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+        <div class="col-xs-2 col-sm-8 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
             <img alt="Rick 'n Ray Image" src="../../../assets/onlineshopping_logo.png" class="bannerImage" routerLink="/" width="157px;" height="36px" style="object-fit: cover; float: left; margin-top: 10px;">
             <div style="width: auto;" fxLayoutAlign="flex-end">
                 <form #searchitemsForm="ngForm" (ngSubmit)="onSearchSubmit(searchitemsForm)" autocomplete="off">
@@ -13,7 +13,7 @@
                 <span class="favoritesContainer">
                     <a id="btnFavorites" class="favorites" style="font-family: Roboto;" (click)="onFavoritesNav()"><span style="padding-top: 21px;" id="glyph__icon" class="glyphicon glyphicon-heart-empty"></span>FAVORITES</a>
                 </span>
-                <span style="margin: 22px 25px 0 0;">
+                <span class="listsContainer" style="margin-top:21px;margin-right:10px;">
                     <a class="shoppingLists" style="font-family: Roboto;" (click)="onShoppingListsNav()"><span id="glyph__icon" class="glyphicon glyphicon-th-list"></span>SHOPPING LISTS</a>
                 </span>
                 <div class="myIcons">

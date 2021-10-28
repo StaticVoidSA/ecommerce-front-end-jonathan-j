@@ -81,14 +81,14 @@
 }
 
 .badge {
-  background-color: red;
+  background: rgba(255, 0, 0, 0.733);
   color: white;
 }
 
 #circle {
   width: 50px;
   height: 50px;
-  background: red;
+  background: rgba(255, 0, 0, 0.733);
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
   border-radius: 50px;
@@ -98,7 +98,7 @@
   padding: auto;
   font-size: 12px;
   font-weight: 150;
-  padding-top: 8px;
+  padding-top: 9px;
   margin-top: 10px;
 }
 
@@ -122,11 +122,11 @@
   height: 40px;
   color: white;
   border-style: none;
-  margin-left: 6px;
-  margin-right: 6px;
+  margin-left: 3px;
+  /* margin-right: 6px; */
   margin-top: 3px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 5px;
   font-weight: 100;
   font-family: Roboto;
@@ -145,10 +145,10 @@
   height: 40px;
   color: white;
   border-style: none;
-  margin-left: auto;
-  margin-right: 6px;
-  padding-left: 5px;
-  padding-right: 5px;
+  /* margin-left: auto; */
+  /* margin-right: 3px; */
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 5px;
   font-weight: 100;
   font-family: Roboto;
@@ -162,8 +162,8 @@
   color: white;
   border-style: none;
   background-color: #13357a;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding-left: 3px;
+  padding-right: 3px;
   padding-top: 5px;
   font-weight: 100;
   font-family: Roboto;
@@ -173,7 +173,7 @@
 
 .buttonsContainer {
   margin-top: 15px;
-  margin-left: 1.5rem;
+  margin-left: 1rem;
 }
 
 button:hover {
