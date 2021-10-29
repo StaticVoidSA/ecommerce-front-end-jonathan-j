@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FavoritesService, GetFavorites } from '../shared/favorites.service';
+import { Favorites, FavoritesService, GetFavorites } from '../shared/favorites.service';
 import { LoginService } from '../auth/login/login.service';
 import { AuthRespData } from '../auth/login/auth-resp-data.model';
 import { Router } from '@angular/router';
@@ -112,11 +112,26 @@ export class FavoritesComponent implements OnInit {
 
   onRemoveFromFavorites(userID: number, favID: number) {
     try {
-      this.isLoading = true;
-      this.shopHelper.removeFromFavorites(userID, favID, this.favorites);
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
+      if (confirm('Are you sure?')) {
+        this.isLoading = true;
+        this.favoriteService.removeFromFavorites(userID, favID).subscribe((success: boolean) => {
+          if (success) {
+            this.favorites.splice(0, this.favorites.length);
+            this.favoriteService.getFavorites(this.user.userId).subscribe((data: any[]) => {
+              if (!data || data.length <= 0) {
+                  this.router.navigate(['/no-current-favorites']);
+                  this.isLoading = false;
+              } else {
+                this.favorites.push(...data);
+                this.isLoading = false;
+              }
+            });
+          } else {
+            alert('Unable to remove from favorites');
+            this.isLoading = false;
+          }
+        });
+      } else { return; }
     } catch (error) {
       throw new Error(error);
     }
