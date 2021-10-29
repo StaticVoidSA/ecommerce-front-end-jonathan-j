@@ -2,7 +2,7 @@ table,
 tr {
     border: 1px solid lightgrey;
     color: #575757;
-    padding: 4px 0px;
+    padding: 2px 0px;
     width: auto;
 }
 
@@ -19,6 +19,7 @@ input {
 
 label {
     padding: 6px 10px;
+    font-weight: 100;
 }
 
 button {
@@ -58,6 +59,14 @@ input[type="checkbox"]:hover {
 input[type="checkbox"] {
     width: 150px;
     text-align: center;
+}
+
+input[type="text"], 
+input[type="email"], 
+input[type="password"] {
+    outline: none;
+    border: none;
+    border-left: 0.1px dotted #A9A9A9;
 }
 
 .container {
