@@ -233,13 +233,13 @@ input[type="checkbox"]:hover {
   color: #575757;
 }
 
-::ng-deep .mat-option:hover{
+::ng-deep .mat-option:hover {
   padding: 1em!important;
   background-color: #575757;
   color: rgb(224, 224, 224);
 }
 
-::ng-deep .mat-option:nth-child(1){
+::ng-deep #mat-option-0 {
   padding: 1em!important;
   background-color: rgb(224, 224, 224);
   color: #575757;

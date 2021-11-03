@@ -34,10 +34,20 @@
     padding: 5px 15px 0px;
 }
 
-.footerLabels:hover {
+.specialsLink:hover {
     cursor: pointer;
 }
 
-.specialsLink:hover {
-    cursor: pointer;
+.caret:hover, label:hover {
+    cursor:grab;
+}
+
+::ng-deep .mat-menu, .mat-menu-item, .mat-menu-background {
+    background-color: #FFFFFF;
+    color: #575757;
+}
+
+::ng-deep .mat-menu:hover, .mat-menu-item:hover {
+    color: #FFFFFF;
+    background-color: #575757;
 }
