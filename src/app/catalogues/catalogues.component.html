@@ -2,7 +2,7 @@
   <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
     <app-navbar></app-navbar>
   </div>
-  <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2" *ngIf="connected === true">
+  <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1" *ngIf="connected === true">
     <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
     <div *ngIf="isLoading === false;">
       <h1 style="text-align: center; margin-top: 2rem;">Catalogues</h1>

@@ -61,12 +61,14 @@
 
 .itemTitle {
   margin-top: 10px;
-  padding: 5px 12px 25px 12px;
-  font-size: 14px;
+  margin-bottom: 15px;
+  padding: 15px 12px 15px 12px;
+  font-size: 16px;
   font-family: "Roboto";
+  font-weight: 300;
   color: #505050;
-  text-align: center;
-  height: 70px;
+  text-align: left;
+  height: 50px;
 }
 
 .itemPrice {
