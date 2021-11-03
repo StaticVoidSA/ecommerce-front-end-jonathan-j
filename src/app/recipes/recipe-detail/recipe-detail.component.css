@@ -23,9 +23,9 @@
 .recipeTitle {
     margin-left: 145px;
     margin-right: auto;
+    padding-top: 5%;
     font-weight: 400;
     color: #575757;
-    margin-top: 0px;
 }
 
 .ingredientImage {
