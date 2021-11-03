@@ -8,8 +8,8 @@
             <div class="col-md-6" *ngIf="isLoading === false">
                 <img class="recipeImage" [src]="recipes[0].recipeImage">
             </div>
-            <div class="ingredientsColumn">
-                <div class="col-md-6" class="item_area" *ngIf="isLoading === false">
+            <div class="col-md-6">
+                <div class="ingredientsColumn" class="item_area" *ngIf="isLoading === false">
                     <h1 class="recipeTitle">{{recipes[0].recipeTitle}}</h1>
                     <h3 class="listTitle">Ingredients:</h3><br />
                     <ul class="items">

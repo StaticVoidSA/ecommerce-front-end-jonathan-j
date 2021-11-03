@@ -54,7 +54,7 @@
 
 .cartButton {
     margin-top: 60px;
-    margin-left: 20px;
+    margin-left: 22%;
     text-align: center;
     width: 150px;
     height: 39px;
@@ -101,6 +101,7 @@
 
 .item_area {
     margin-top: 50px;
+    padding-left: 2%;
 }
 
 .warning-container {
@@ -118,8 +119,10 @@
 
 .button-container {
     text-align: center;
-    float: left;
-    margin-left: -2.0rem;
+    display: inline;
+    /* margin-left: 50%; */
+    /* float: right; */
+    /* margin-left: -2.0rem; */
 }
 
 button:hover {
