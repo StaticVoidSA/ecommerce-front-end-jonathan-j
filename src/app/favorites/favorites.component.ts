@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { Favorites, FavoritesService, GetFavorites } from '../shared/favorites.service';
+import { FavoritesService, GetFavorites } from '../shared/favorites.service';
 import { LoginService } from '../auth/login/login.service';
 import { AuthRespData } from '../auth/login/auth-resp-data.model';
 import { Router } from '@angular/router';
 import { CartService } from '../shared/cart.service';
-import { CartHelperService } from '../cart/cartHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
 import { ShopHelperService } from '../shop/shopHelper.service';
 

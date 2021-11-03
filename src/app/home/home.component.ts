@@ -24,6 +24,7 @@ export class HomeComponent implements OnInit {
   public fruitSpecials: Specials[] = [];
   public bakerySpecials: Specials[] = [];
   public specials: Specials[] = [];
+  public gridContainerDetails: any[] = [];
   public connected: boolean = false;
 
   constructor(private headerService: HeaderService,
@@ -112,4 +113,3 @@ export class HomeComponent implements OnInit {
     }
   }
 }
-

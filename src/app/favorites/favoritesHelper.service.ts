@@ -19,8 +19,6 @@ export class FavoritesHelperService {
                     alert(`Unable to remove from favorites`);
                 }
             });
-        } else {
-            return;
-        }
+        } else { return; }
     }
 }

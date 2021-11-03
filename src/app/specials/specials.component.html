@@ -8,20 +8,22 @@
       <div *ngIf="isLoading === false">
         <h2 class="heading">CURRENT SPECIALS</h2>
         <div class="gridLayout">
-          <div class="">
-            <mat-grid-list cols="5" rowHeight="1.2:3.4">
+          <div class="row">
+            <mat-grid-list cols="4" rowHeight="1.2:2.2">
               <!-- Bakery -->
               <div>
                 <mat-grid-tile *ngFor="let bakery of bakerySpecials">
                   <div class="container">
                     <div class="myImages" [routerLink]="['/product-detail', bakery.barcode]">
                       <label class="discount" id="circle">Save R{{bakery.discount}}</label>
-                      <img class="image" style="margin-right: 1.5rem;" [src]="bakery.uri" alt="{{bakery.title}}" />
+                      <div>
+                        <img class="image" style="margin-right: 1.5rem;" [src]="bakery.uri" alt="{{bakery.title}}" />
+                      </div>
                     </div>
                     <div class="titleContainer">
                       <label class="title">{{bakery.title}}</label>
                     </div>
-                    <div class="price-container" style="position: relative;">
+                    <div class="price-container">
                       <div>
                         <label class="priceLabel">Was</label>
                         <label class="old-price">R{{bakery.oldPrice | number:'1.2-2'}}</label>
@@ -53,7 +55,9 @@
                 <div class="container">
                   <div class="myImages" [routerLink]="['/product-detail', fruit.barcode]">
                     <label class="discount" id="circle">Save R{{fruit.discount}}</label>
-                    <img class="image" [src]="fruit.uri" alt="{{fruit.title}}" />
+                    <div>
+                      <img class="image" [src]="fruit.uri" alt="{{fruit.title}}" />
+                    </div>
                   </div>
                   <div class="titleContainer">
                     <label class="title">{{fruit.title}}</label>
@@ -89,7 +93,9 @@
                 <div class="container">
                   <div class="myImages" [routerLink]="['/product-detail', juice.barcode]">
                     <label class="discount" id="circle">Save R{{juice.discount}}</label>
-                    <img class="image" [src]="juice.uri" alt="{{juice.title}}" />
+                    <div>
+                      <img class="image" [src]="juice.uri" alt="{{juice.title}}" />
+                    </div>
                   </div>
                   <div class="titleContainer">
                     <label class="title">{{juice.title}}</label>
@@ -125,7 +131,9 @@
                 <div class="container">
                   <div class="myImages" [routerLink]="['/product-detail', meals.barcode]">
                     <label class="discount" id="circle">Save R{{meals.discount}}</label>
-                    <img class="image" [src]="meals.uri" alt="{{meals.title}}" />
+                    <div>
+                      <img class="image" [src]="meals.uri" alt="{{meals.title}}" />
+                    </div>
                   </div>
                   <div class="titleContainer">
                     <label class="title">{{meals.title}}</label>
@@ -161,7 +169,9 @@
                 <div class="container">
                   <div class="myImages" [routerLink]="['/product-detail', pet.barcode]">
                     <label class="discount" id="circle">Save R{{pet.discount}}</label>
-                    <img class="image" [src]="pet.uri" alt="{{pet.title}}" />
+                    <div>
+                      <img class="image" [src]="pet.uri" alt="{{pet.title}}" />
+                    </div>
                   </div>
                   <div class="titleContainer">
                     <label class="title">{{pet.title}}</label>
@@ -197,7 +207,9 @@
                 <div class="container">
                   <div class="myImages" [routerLink]="['/product-detail', sport.barcode]">
                     <label class="discount" id="circle">Save R{{sport.discount}}</label>
-                    <img class="image" [src]="sport.uri" alt="{{sport.title}}" />
+                    <div>
+                      <img class="image" [src]="sport.uri" alt="{{sport.title}}" />
+                    </div>
                   </div>
                   <div class="titleContainer">
                     <label class="title">{{sport.title}}</label>
