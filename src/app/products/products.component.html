@@ -1,8 +1,8 @@
 <div class="mainDiv">
   <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
     <app-navbar></app-navbar>
-  </div>
-  <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+  </div>  
+  <div class="col-xs-2 col-sm-8 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
       <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
         <mat-grid-list *ngIf="isLoading === false" cols="3" rowHeight="1:1">
           <div *ngFor="let category of subCategories">

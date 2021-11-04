@@ -1,7 +1,10 @@
 <div class="mainDiv">
+    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+        <app-navbar></app-navbar>
+    </div>  
     <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
     <div *ngIf="connected === true">
-        <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1" *ngIf="isLoading === false">
+        <div class="col-xs-2 col-sm-8 col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3" *ngIf="isLoading === false">
             <h3 class="heading">{{product.title}}</h3>
             <form #productForm="ngForm" (ngSubmit)="onSubmit()">
                 <div id="product-data" ngModelGroup="productData" #productData="ngModelGroup">

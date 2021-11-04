@@ -49,7 +49,7 @@ export class UsersComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+      }, 1500);
     } catch (error) {
       throw new Error(error);
     }

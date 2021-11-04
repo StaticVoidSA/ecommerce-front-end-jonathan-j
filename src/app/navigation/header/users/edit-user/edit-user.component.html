@@ -1,5 +1,8 @@
 <div class="mainDiv">
-    <div class="col-xs-12">
+    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+        <app-navbar></app-navbar>
+    </div>
+    <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-8 col-lg-offset-2">
       <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
         <div class="col-md-8 col-md-offset-2" *ngIf="isLoading === false">
             <h3 class="heading">{{user.firstName | uppercase}} {{user.surname | uppercase}}</h3>

@@ -1,5 +1,5 @@
 .mainDiv {
-  margin-top: 80px;
+  margin-top: 35px;
 }
 
 table,
@@ -30,6 +30,11 @@ td {
 
 tr:nth-child(even) {
   background-image: linear-gradient(to right, #d4d1d1a1, #fafafaad);
+}
+
+thead tr th:first-child,
+tbody tr td:first-child  {
+  width: 25rem;
 }
 
 button {
