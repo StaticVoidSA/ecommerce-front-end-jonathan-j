@@ -48,7 +48,7 @@ export class AuthenticationService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     )
@@ -63,7 +63,7 @@ export class AuthenticationService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     ).pipe(tap(res => {
