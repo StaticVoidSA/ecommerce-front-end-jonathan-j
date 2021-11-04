@@ -123,11 +123,9 @@ export class RecipeDetailComponent implements OnInit {
 
         this.recipeService.addIngredientItemsToCart(ingredientItems).subscribe((cartCount: number) => {
           if (cartCount > 0) {
-            setTimeout(() => {
-              this.cartCount = cartCount;
-              this.cartService.cartCountUpdate(this.cartCount);
-              this.isLoading = false;
-            }, 500);
+            this.cartCount = cartCount;
+            this.cartService.cartCountUpdate(this.cartCount);
+            this.isLoading = false;
           } else {
             alert(`Unable to add ingredients to cart`);
             setTimeout(() => {

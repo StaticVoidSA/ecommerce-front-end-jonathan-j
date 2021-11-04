@@ -36,6 +36,9 @@ export class HomeComponent implements OnInit {
     window.addEventListener('online', () => { this.connected = true; });
     window.addEventListener('offline', () => { this.connected = false; });
 
+    var sessionToken = sessionStorage.getItem("access_token");
+    var sessionUserID = sessionStorage.getItem("user_id");
+
     const InitPromise = new Promise(() => {
       window.scrollTo(0, 0);
       this.headerService.currentLocation.subscribe((location: UserLocation) => {
@@ -44,12 +47,15 @@ export class HomeComponent implements OnInit {
     });
 
     const CartPromise = new Promise(() => {
-      this.userService.currentUser.subscribe((user: AuthRespData) => {
-        this.cartService.getCartCount(user.userId).subscribe((count: number) => {
-          !count ? this.cartCount = 0 : this.cartCount = count;
-          this.cartService.cartCountUpdate(count);
+      if (sessionToken !== null && sessionUserID !== null) {
+        this.userService.currentUser.subscribe((user: AuthRespData) => {
+          this.cartService.getCartCount(user.userId).subscribe((count: number) => {
+            !count ? this.cartCount = 0 : this.cartCount = count;
+            this.cartService.cartCountUpdate(count);
+          });
         });
-      });
+      }
+      else { return; }
     });
 
     const SpecialsPromise = new Promise(() => {
