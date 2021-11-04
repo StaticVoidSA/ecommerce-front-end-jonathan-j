@@ -7,6 +7,8 @@ import { AuthRespData } from 'src/app/auth/login/auth-resp-data.model';
 import { HomeHelperService } from 'src/app/home/homeHelper.service';
 import { ShopHelperService } from 'src/app/shop/shopHelper.service';
 import { IngredientCartModel } from 'src/app/shared/models/ingredientCartModel.model';
+import { Favorites } from 'src/app/shared/favorites.service';
+import { FavoritesComponent } from 'src/app/favorites/favorites.component';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -28,8 +30,7 @@ export class RecipeDetailComponent implements OnInit {
     private cartService: CartService,
     private loginService: LoginService,
     private router: Router,
-    private homeHelper: HomeHelperService,
-    private shopHelper: ShopHelperService) { }
+    private homeHelper: HomeHelperService) { }
 
   ngOnInit(): void {
     const ConnectionPromise = new Promise(() => {
@@ -122,9 +123,9 @@ export class RecipeDetailComponent implements OnInit {
 
         this.recipeService.addIngredientItemsToCart(ingredientItems).subscribe((cartCount: number) => {
           if (cartCount > 0) {
-            this.cartCount = cartCount;
-            this.cartService.cartCountUpdate(this.cartCount);
             setTimeout(() => {
+              this.cartCount = cartCount;
+              this.cartService.cartCountUpdate(this.cartCount);
               this.isLoading = false;
             }, 500);
           } else {
@@ -142,18 +143,55 @@ export class RecipeDetailComponent implements OnInit {
 
   onAddToFavorites = () => {
     try {
-      let num = 0;
-      this.isLoading = true;
-      this.recipes.forEach((recipe: RecipeComplete) => {
-        num++;
-        this.shopHelper.addToFavorites(num, recipe.ingredientTitle, '', recipe.brand, 
-        recipe.quantity, recipe.ingredientImage, recipe.price, recipe.barcode);
-      });
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
+      if (this.user.loggedIn !== true) {
+        setTimeout(() => {
+          this.isLoading = false;
+          this.router.navigate(['/user-not-logged-in']);
+        }, 500);
+      } else {
+          this.isLoading = true;
+          let num = 0;
+          let currentFavorites: Favorites[] = [];
+
+          this.recipes.forEach(recipe => {
+            let favorite: Favorites = {
+              barcode: recipe.barcode,
+              productID: num++,
+              title: recipe.ingredientTitle,
+              description: "",
+              brand: recipe.brand,
+              quantity: recipe.quantity,
+              uri: recipe.ingredientImage,
+              price: recipe.price,
+              userID: this.user.userId,
+              favID: recipe.recID
+            };
+
+            currentFavorites.push(favorite);
+          });
+
+          this.recipeService.addIngredientsToFavorites(currentFavorites).subscribe((success:boolean) => {
+            if (!success) alert('Unable to add ingredients to Favorites');
+            this.isLoading = false;
+          });
+      }
     } catch (error) {
       throw new Error(error);
     }
   }
+  //   try {
+  //     let num = 0;
+  //     this.isLoading = true;
+  //     this.recipes.forEach((recipe: RecipeComplete) => {
+  //       num++;
+  //       this.shopHelper.addToFavorites(num, recipe.ingredientTitle, '', recipe.brand, 
+  //       recipe.quantity, recipe.ingredientImage, recipe.price, recipe.barcode);
+  //     });
+  //     setTimeout(() => {
+  //       this.isLoading = false;
+  //     }, 500);
+  //   } catch (error) {
+  //     throw new Error(error);
+  //   }
+  // }
 }

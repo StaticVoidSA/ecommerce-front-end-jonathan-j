@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Recipe } from './models/recipe.model';
 import { IngredientCartModel } from './models/ingredientCartModel.model';
+import { Favorites } from './favorites.service';
 
 export interface RecipeComplete {
   recipeTitle: string,
@@ -58,6 +59,21 @@ export class RecipeService {
   addIngredientItemsToCart(items: IngredientCartModel[]): Observable<number> {
     return this.http.post<number>(
       `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/addIngredientsToCart`, items,
+      {
+        headers:
+        {
+            'Authorization': sessionStorage.getItem('access_token'),
+            'User': sessionStorage.getItem('user_name'),
+            'Role': sessionStorage.getItem('user_role'),
+            'Access-Control-Allow-Origin' : '*'
+        }
+      }
+    )
+  }
+
+  addIngredientsToFavorites(items: Favorites[]): Observable<boolean> {
+    return this.http.post<boolean>(
+      `https://rnr-ecommerce-server-jj.herokuapp.com/api/recipes/addIngredientsToFavorites`, items,
       {
         headers:
         {
