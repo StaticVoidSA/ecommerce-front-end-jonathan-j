@@ -179,19 +179,4 @@ export class RecipeDetailComponent implements OnInit {
       throw new Error(error);
     }
   }
-  //   try {
-  //     let num = 0;
-  //     this.isLoading = true;
-  //     this.recipes.forEach((recipe: RecipeComplete) => {
-  //       num++;
-  //       this.shopHelper.addToFavorites(num, recipe.ingredientTitle, '', recipe.brand, 
-  //       recipe.quantity, recipe.ingredientImage, recipe.price, recipe.barcode);
-  //     });
-  //     setTimeout(() => {
-  //       this.isLoading = false;
-  //     }, 500);
-  //   } catch (error) {
-  //     throw new Error(error);
-  //   }
-  // }
 }
