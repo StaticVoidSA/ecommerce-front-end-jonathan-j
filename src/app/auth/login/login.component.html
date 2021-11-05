@@ -10,7 +10,7 @@
                     <a (click)="onSignupNav()" style="margin-top: 20px; cursor: pointer; margin-left: 8px; font-size: 16px;"><u><b>Sign up</b></u></a>
                 </div>
                 <div style="margin-top: 70px;">
-                    <div class="col-xs-2 col-sm-4 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-0">
+                    <div class="col-xs-2 col-sm-4 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
                         <div class="col-md-6 col-md-offset-3 col-lg-8 col-lg-offset-4">
                             <label style="font-size: 18px; color: #575757;"><b>LOG IN</b></label>
                             <p style="font-size: 16px; color: #575757; margin-top: 15px;">Registered on our website or app?</p>
@@ -31,8 +31,14 @@
                                 </div>
                                 <br />
                                 <div class="button__container">
-                                    <a style="margin-top: 15px; margin-left: -8px; font-size: 16px; cursor: pointer;" (click)="onNavForgetPassword()"><u><b>Forgot Password?</b></u></a><br />
-                                    <button class="submitButton" mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+                                    <button style="margin-top: 2rem;margin-bottom: 2rem;" class="submitButton" mat-raised-button type="submit" [disabled]="!loginForm.valid">Login</button>
+                                </div>
+                                <div class="row">
+                                    <div class="col"></div>
+                                    <div class="col" style="display: inline; text-align: center;">
+                                        <a style="font-weight: 100; font-size: 16px; cursor: pointer;margin-left: 20%;margin-top: 10%;" (click)="onNavForgetPassword()"><u><b>Forget Password?</b></u></a><br />
+                                    </div>    
+                                <div class="col"></div>
                                 </div>
                             </form>
                             <br /><br /><br /><br />
