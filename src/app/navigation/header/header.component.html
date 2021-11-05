@@ -6,7 +6,7 @@
             </div>
             <div fxHide.xs>
                 <button title="Your Location" class="city" style="font-size: 12px; padding-top: 8px;" mat-button>
-                    <a>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u></a>
+                    <label>YOUR REGION: <u>{{ userLocation.Country | uppercase }} {{ userLocation.Country !== "Unknown" ? 'ONLINE' : 'OFFLINE' }}</u></label>
                 </button>
                 <!-- <mat-menu #menu="matMenu" class="menuItems" *ngFor="let location of locations">
                     <button class="location-button" mat-menu-item (click)="onLocationChanged(location)" name="country">{{location}}</button>
