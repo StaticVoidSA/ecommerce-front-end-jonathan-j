@@ -12,7 +12,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
 
         if (request.headers.has('Authorization')) {
           request = request.clone({ headers: request.headers.set('Authorization', 'Bearer ' + 
-            request.headers.get("Authorization")) 
+            request.headers.get("Authorization"))
           });
         }
 

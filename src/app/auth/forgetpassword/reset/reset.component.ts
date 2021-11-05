@@ -41,10 +41,10 @@ export class ResetComponent implements OnInit {
         resolve(this.service.completeReset(this.user.email, this.user.password, this.hash).subscribe(data => {
           if (data.passwordChanged === true) {
             alert(`Password for ${data.email} has been successfully changed`);
-            this.router.navigate(["/login"]);
+            this.router.navigate(["https://rnr-ecommerce-server-jj.herokuapp.com/reset/login"]);
           } else {
             alert(`User ${data.email} does not exist`);
-            this.router.navigate(["/signup"]);
+            this.router.navigate(["https://rnr-ecommerce-server-jj.herokuapp.com/reset/signup"]);
           }
         }));
       });
