@@ -108,16 +108,19 @@ export class ShopComponent implements OnInit {
             if (data[0].productID > 0) {
               this.searchItems = data;
               this.getPaginationData({pageIndex: this.page, pageSize: this.size});
-
-              this.isLoading = false;
               this.uniqueBrands = this.shopHelper.gatherBrands(this.searchItems, this.brands);
               this.uniquePrices = this.shopHelper.gatherPrices(this.searchItems, this.prices);
               this.uniqueQuantities = this.shopHelper.gatherQuantities(this.searchItems, this.quantities);
 
               this.getPricesCheckboxData();
+              setTimeout(() => {
+                this.isLoading = false;
+              }, 1500);              
             } else {
-              this.isLoading = false;
-              this.router.navigate(["/items-not-found"]);
+              setTimeout(() => {
+                this.isLoading = false;
+                this.router.navigate(["/items-not-found"]);
+              }, 1500);
             }
           });
         }, 500);
@@ -226,7 +229,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+      }, 2000);
       window.scrollTo(0, 0);
     } catch (error) {
       throw new Error(error);
@@ -259,7 +262,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+      }, 2000);
     } catch (error) {
       throw new Error(error);
     }
@@ -287,7 +290,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+      }, 2000);
       window.scrollTo(0, 0);
     } catch (error) {
       throw new Error(error);
@@ -301,7 +304,7 @@ export class ShopComponent implements OnInit {
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
       setTimeout(() => {
         this.hasAddedToCart = false;
-      }, 800);
+      }, 1000);
     } catch (error) {
       throw new Error(error);
     }

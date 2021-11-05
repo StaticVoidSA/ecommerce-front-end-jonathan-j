@@ -120,6 +120,7 @@ export class CartComponent implements OnInit {
     paypal
       .Buttons({
         createOrder: (data, actions) => {
+          alert('PLEASE NOTE!!!!\nThis is a sandbox account!!!!\nPlease dont use a real CC\nThere are no items in the mail :)');
           return actions.order.create({
             purchase_units: [{
               description: "Rick and Ray Online Shopping",
