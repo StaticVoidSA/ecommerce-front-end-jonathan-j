@@ -30,10 +30,8 @@ export class ProductsComponent implements OnInit {
 
     const RoutePromise = new Promise((resolve) => {
       resolve(this.route.params.subscribe((params: Params) => {
-        setTimeout(() => {
-          this.subCategories = this.categoryDataService.getSubCategories(params.category);
-          this.isLoading = false;
-        }, 500);
+        this.subCategories = this.categoryDataService.getSubCategories(params.category);
+        this.isLoading = false;
       }));
     });
 
