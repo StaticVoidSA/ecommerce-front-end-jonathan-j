@@ -77,7 +77,7 @@ export class ShopComponent implements OnInit {
               this.cartCount = count; 
               this.cartService.cartCountUpdate(this.cartCount);
             });
-          }, 500);
+          }, 100);
           resolve(this.cartService.currentitems.subscribe((count: number) => {
             this.cartCount = count;
           }));
@@ -115,15 +115,15 @@ export class ShopComponent implements OnInit {
               this.getPricesCheckboxData();
               setTimeout(() => {
                 this.isLoading = false;
-              }, 1500);              
+              }, 100);              
             } else {
               setTimeout(() => {
                 this.isLoading = false;
                 this.router.navigate(["/items-not-found"]);
-              }, 1500);
+              }, 100);
             }
           });
-        }, 500);
+        }, 100);
       }));
     });
 
@@ -229,7 +229,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 2000);
+      }, 500);
       window.scrollTo(0, 0);
     } catch (error) {
       throw new Error(error);
@@ -262,7 +262,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 2000);
+      }, 500);
     } catch (error) {
       throw new Error(error);
     }
@@ -290,7 +290,7 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 2000);
+      }, 500);
       window.scrollTo(0, 0);
     } catch (error) {
       throw new Error(error);
@@ -304,7 +304,7 @@ export class ShopComponent implements OnInit {
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
       setTimeout(() => {
         this.hasAddedToCart = false;
-      }, 1000);
+      }, 500);
     } catch (error) {
       throw new Error(error);
     }
