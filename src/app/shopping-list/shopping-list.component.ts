@@ -114,7 +114,7 @@ export class ShoppingListComponent implements OnInit {
       this.connected = this.homeHelper.checkConnection();
       if (!this.connected) { return; };
       Init()
-        .then(AfterInit)
+        // .then(AfterInit)
         .catch(error => { throw new Error(error); });
     } catch (error) {
       throw new Error(error);
