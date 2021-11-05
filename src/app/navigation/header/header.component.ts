@@ -54,22 +54,22 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     const LocationPromise = new Promise((resolve) => {
       this.headerService.getLocation();
-      resolve(setTimeout(() => {
-        this.headerService.currentLocation.subscribe((location: UserLocation) => {
-          if (!location) {
-            this.userLocation = {
-              Address: null,
-              Country: "Unknown",
-              Lat: null,
-              Long: null,
-              Town: null
-            };
-          }
-          else {
-            this.userLocation = location;
-          }
-        });
-      }, 50));
+        resolve(setTimeout(() => {
+          this.headerService.currentLocation.subscribe((location: UserLocation) => {
+            if (!location) {
+              this.userLocation = {
+                Address: null,
+                Country: "Unknown",
+                Lat: null,
+                Long: null,
+                Town: null
+              };
+            }
+            else {
+              this.userLocation = location;
+            }
+          });
+        }, 50));
     });
 
     const RoutePromise = new Promise((resolve) => {

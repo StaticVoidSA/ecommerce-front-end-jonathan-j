@@ -88,7 +88,7 @@ export class CartService {
           'Authorization': sessionStorage.getItem('access_token'),
           'User': sessionStorage.getItem('user_name'),
           'Role': sessionStorage.getItem('user_role'),
-          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
+          'Access-Control-Allow-Origin' : '*'
         }
       }
     )

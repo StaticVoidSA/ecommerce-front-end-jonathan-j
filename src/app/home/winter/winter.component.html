@@ -1,10 +1,12 @@
 <div class="mainDiv">
-    <div class="col-xs-12">
-        <app-navbar></app-navbar>
-        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
-        <div class="row">
-            <img class="winterBanner" src="../../../assets/images/winterheader.jpg"/>
-            <label class="label1">There's a chill in the air, rainy days here and there, winter's arrived, and we've got so much to share! Explore our Winter Wonderland to warm your body, fill your belly and feed your soul.</label>
+    <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+        <app-navbar></app-navbar>    
+        <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+            <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+            <div class="row">
+                <img class="winterBanner" src="../../../assets/images/winterheader.jpg"/>
+                <label class="label1">There's a chill in the air, rainy days here and there, winter's arrived, and we've got so much to share! Explore our Winter Wonderland to warm your body, fill your belly and feed your soul.</label>
+            </div>
         </div>
     </div>
 </div>
