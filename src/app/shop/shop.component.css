@@ -27,10 +27,10 @@
   border: 1px solid lightgrey;
   box-shadow: 0px 3px 4px #ccc;
   width: 176px;
-  height: 415px;
+  height: 450px;
   text-align: center;
   margin: 5px;
-  /* margin-top: 20px; */
+  margin-top: 20px;
   padding-top: 30px;
 }
 
@@ -68,7 +68,7 @@
   font-weight: 200;
   color: #505050;
   text-align: left;
-  height: 90px;
+  height: 85px;
 }
 
 .itemPrice {
