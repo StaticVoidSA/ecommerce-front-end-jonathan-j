@@ -4,13 +4,13 @@ const app = express();
 const port = process.env.PORT || 3000;
 const cors = require('cors');
 
-const corsOptions = {
-    origin: ['*', 'https://ecommerce-front-end-jonathan-j.herokuapp.com'],
-    credentials: true,
-    optionSuccessStatus: 200
-};
+// const corsOptions = {
+//     origin: '*',
+//     credentials: true,
+//     optionSuccessStatus: 200
+// };
 
-app.use(cors(corsOptions));
+// app.use(cors(corsOptions));
 
 app.use(express.static(__dirname + '/dist/front-end'));
 
