@@ -5,7 +5,7 @@ const port = process.env.PORT || 3000;
 const cors = require('cors');
 
 const corsOptions = {
-    origin: ['*', 'https://ecommerce-front-end-joanthan-j.herokuapp.com'],
+    origin: ['*', 'https://ecommerce-front-end-jonathan-j.herokuapp.com'],
     credentials: true,
     optionSuccessStatus: 200
 };
