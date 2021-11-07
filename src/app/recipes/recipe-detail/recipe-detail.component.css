@@ -67,6 +67,7 @@
     position: relative;
     padding-bottom: auto;
     padding-top: auto;
+    border-radius: 0.5rem;
 }
 
 .cartButton:focus {
@@ -88,6 +89,7 @@
     margin-left: 10px;
     position: relative;
     text-align: center;
+    border-radius: 0.5rem;
 }
 
 .favoriteButton:focus {

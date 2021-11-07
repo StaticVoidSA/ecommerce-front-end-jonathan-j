@@ -2,7 +2,7 @@
     <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
         <app-navbar></app-navbar>
     </div>
-    <div class="col-xs-2 col-sm-8 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1">
+    <div class="col-xs-2 col-sm-8 col-md-10 col-md-offset-1 col-lg-10 col-lg-offset-1" style="margin-top: 8rem;">
         <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
         <div *ngIf="connected === true">
             <div class="col-md-6" *ngIf="isLoading === false">
@@ -17,7 +17,7 @@
                     </ul>
                     <div class="button-container">
                         <button id="cartButton" title="Add To Cart" class="cartButton" type="button" (click)="onAddToCart()">
-                            <mat-icon>add_shopping_cart</mat-icon> ADD TO CART
+                            <mat-icon>add_shopping_cart</mat-icon> <p style="display:inline;vertical-align:text-top">ADD TO CART</p>
                         </button>
                         <button id="favoriteButton" title="Add To Favorites" class="favoriteButton" type="button" (click)="onAddToFavorites()">
                             <mat-icon>favorite_border</mat-icon> ADD TO FAVORITES

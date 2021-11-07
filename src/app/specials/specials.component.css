@@ -126,6 +126,7 @@
   font-family: Roboto;
   vertical-align: center;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .addToFavorites {
@@ -142,6 +143,7 @@
   font-family: Roboto;
   vertical-align: center;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .addToList {
@@ -158,6 +160,7 @@
   font-family: Roboto;
   vertical-align: center;
   text-align: center;
+  border-radius: 0.5rem;
 }
 
 .buttonsContainer {

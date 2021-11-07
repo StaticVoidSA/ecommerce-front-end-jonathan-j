@@ -33,6 +33,7 @@ button {
     padding-bottom: 10px;
     padding-right: 30px;
     padding-left: 10px;
+    border-radius: 0.5rem;
 }
 
 .favorites {
@@ -44,6 +45,7 @@ button {
     font-size: 14px;
     padding-right: 30px;
     text-align: center;
+    border-radius: 0.5rem;
 }
 
 .favorites:hover, .shoppingLists:hover {
