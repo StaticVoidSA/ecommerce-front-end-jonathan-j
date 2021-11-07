@@ -86,7 +86,7 @@ export class CartComponent implements OnInit {
             this.isLoading = false;
           }, 500);
         }
-      }, 2000);
+      }, 2500);
     });
 
     async function Init() {

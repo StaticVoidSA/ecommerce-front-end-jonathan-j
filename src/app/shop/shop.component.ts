@@ -105,6 +105,7 @@ export class ShopComponent implements OnInit {
           this.searchItem = params.item;
           this.barcode = params.item.barcode;
           this.navService.searchItemsNavbar(this.searchItem).subscribe(data => {
+            console.log(data.length);
             if (data[0].productID > 0) {
               this.searchItems = data;
               this.getPaginationData({pageIndex: this.page, pageSize: this.size});
