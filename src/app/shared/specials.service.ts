@@ -28,7 +28,7 @@ export class SpecialsService {
             {
                 headers: 
                 {
-                    'Access-Control-Allow-Origin' : '*'    
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'    
                 }
             }
         )

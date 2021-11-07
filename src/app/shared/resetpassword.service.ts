@@ -24,7 +24,7 @@ export class ResetPasswordService {
             },
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         );
@@ -40,7 +40,7 @@ export class ResetPasswordService {
             },
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )

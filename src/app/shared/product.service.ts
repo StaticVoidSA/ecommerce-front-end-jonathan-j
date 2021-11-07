@@ -22,7 +22,7 @@ export class ProductService {
             'https://rnr-ecommerce-server-jj.herokuapp.com/api/products/getProducts',
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -36,7 +36,7 @@ export class ProductService {
             },
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -65,7 +65,7 @@ export class ProductService {
                     'Authorization': sessionStorage.getItem('access_token'),
                     'User': sessionStorage.getItem('user_name'),
                     'Role': sessionStorage.getItem('user_role'),
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -79,7 +79,7 @@ export class ProductService {
             },
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -90,7 +90,7 @@ export class ProductService {
             `https://rnr-ecommerce-server-jj.herokuapp.com/api/catalogue/getCatalogueItems?category=${category}`,
             {
                 headers: {
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )

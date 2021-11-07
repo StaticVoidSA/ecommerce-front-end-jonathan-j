@@ -13,7 +13,7 @@ export class ShopService {
       'https://rnr-ecommerce-server-jj.herokuapp.com/api/shop/startup',
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     );
@@ -28,7 +28,7 @@ export class ShopService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     );
@@ -44,7 +44,7 @@ export class ShopService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     );
@@ -59,7 +59,7 @@ export class ShopService {
       },
       {
         headers: {
-          'Access-Control-Allow-Origin' : '*'
+          'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
         }
       }
     )

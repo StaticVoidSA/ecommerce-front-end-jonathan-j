@@ -124,7 +124,7 @@ import { AddedToCartComponent } from './cart/added-to-cart/added-to-cart.compone
     JwtModule.forRoot({
       config: {
         tokenGetter: function tokenGetter() {
-          return sessionStorage.getItem('Token');
+          return sessionStorage.getItem('access_token');
         }
       }
     }),

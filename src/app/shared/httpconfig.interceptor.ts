@@ -21,7 +21,7 @@ export class HttpConfigInterceptor implements HttpInterceptor {
         }
 
         if (!request.headers.has('Access-Control-Allow-Origin')) {
-          request = request.clone({headers: request.headers.set('Access-Control-Allow-Origin', '*')});
+          request = request.clone({headers: request.headers.set('Access-Control-Allow-Origin', 'https://rnr-ecommerce-server-jj.herokuapp.com')});
         }
 
         if(!request.headers.has('Content-Encoding')) {

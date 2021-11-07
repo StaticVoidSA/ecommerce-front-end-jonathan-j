@@ -36,7 +36,7 @@ export class AddressService {
                     'Authorization': sessionStorage.getItem('access_token'),
                     'User': sessionStorage.getItem('user_name'),
                     'Role': sessionStorage.getItem('user_role'),
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -51,7 +51,7 @@ export class AddressService {
                     'Authorization': sessionStorage.getItem('access_token'),
                     'User': sessionStorage.getItem('user_name'),
                     'Role': sessionStorage.getItem('user_role'),
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -66,7 +66,7 @@ export class AddressService {
                     'Authorization': sessionStorage.getItem('access_token'),
                     'User': sessionStorage.getItem('user_name'),
                     'Role': sessionStorage.getItem('user_role'),
-                    'Access-Control-Allow-Origin' : '*'
+                    'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
@@ -88,7 +88,7 @@ export class AddressService {
                   'Authorization': sessionStorage.getItem('access_token'),
                   'User': sessionStorage.getItem('user_name'),
                   'Role': sessionStorage.getItem('user_role'),
-                  'Access-Control-Allow-Origin' : '*'
+                  'Access-Control-Allow-Origin' : 'https://rnr-ecommerce-server-jj.herokuapp.com'
                 }
             }
         )
