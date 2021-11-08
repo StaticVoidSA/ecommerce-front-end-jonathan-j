@@ -27,7 +27,7 @@
   border: 1px solid lightgrey;
   box-shadow: 0px 3px 4px #ccc;
   width: 176px;
-  height: 440px;
+  height: 435px;
   text-align: center;
   /* margin: 5px; */
   margin-top: 15px;
@@ -69,7 +69,7 @@
   font-weight: 200;
   color: #505050;
   text-align: left;
-  height: 80px;
+  height: 76px;
 }
 
 .itemPrice {
@@ -259,7 +259,7 @@ input[type="checkbox"]:hover {
 }
 
 ::ng-deep .mat-paginator {
-  margin-top: 1.5rem !important;
+  margin-top: 2rem !important;
 }
 
 .mat-radio-button ~ .mat-radio-button {
