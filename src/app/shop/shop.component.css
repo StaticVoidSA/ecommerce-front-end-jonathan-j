@@ -27,12 +27,12 @@
   border: 1px solid lightgrey;
   box-shadow: 0px 3px 4px #ccc;
   width: 176px;
-  height: 435px;
+  height: 440px;
   text-align: center;
   /* margin: 5px; */
-  margin-top: 15px;
-  margin-bottom: 15px;
-  padding-top: 25px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding-top: 20px;
 }
 
 .mat-grid-tile-footer {
@@ -63,13 +63,13 @@
 .itemTitle {
   margin-top: -5px;
   margin-bottom: 15px;
-  padding: 15px 12px 15px 12px;
+  padding: 12px 12px 12px 12px;
   font-size: 16px;
   font-family: "Roboto";
   font-weight: 200;
   color: #505050;
   text-align: left;
-  height: 76px;
+  height: 74px;
 }
 
 .itemPrice {
