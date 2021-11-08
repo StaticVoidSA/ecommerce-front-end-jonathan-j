@@ -29,10 +29,10 @@
   width: 176px;
   height: 440px;
   text-align: center;
-  margin: 5px;
-  margin-top: 25px;
+  /* margin: 5px; */
+  margin-top: 15px;
   margin-bottom: 15px;
-  padding-top: 30px;
+  padding-top: 25px;
 }
 
 .mat-grid-tile-footer {
@@ -259,7 +259,7 @@ input[type="checkbox"]:hover {
 }
 
 ::ng-deep .mat-paginator {
-  margin-top: 2rem !important;
+  margin-top: 1.5rem !important;
 }
 
 .mat-radio-button ~ .mat-radio-button {
