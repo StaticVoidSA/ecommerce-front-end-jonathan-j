@@ -79,14 +79,14 @@ export class CartComponent implements OnInit {
             this.totalPrice = +this.cartHelper.calculateTotalPrice(this.items).toFixed(2);
             this.totalItems = this.cartHelper.getCartCount(this.items);
             this.isLoading = false;
-          }, 500);
+          }, 1500);
         } else {
           setTimeout(() => {
             this.router.navigate(["/no-cart-items"]);
             this.isLoading = false;
           }, 500);
         }
-      }, 2500);
+      }, 1000);
     });
 
     async function Init() {
