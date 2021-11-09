@@ -3,9 +3,11 @@ tr {
     border: 1px solid lightgrey;
     color: #575757;
     padding: 2px 0px;
-    width: auto;
 }
 
+table td {
+    width: 50%;
+}
 input {
     width: 272px;
     border: 0.5px solid lightgrey;
@@ -76,4 +78,10 @@ input[type="password"] {
 input:focus {
     text-decoration: none;
     outline: none;
+}
+
+.form-group {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }

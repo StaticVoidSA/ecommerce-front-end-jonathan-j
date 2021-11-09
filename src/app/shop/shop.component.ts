@@ -230,8 +230,8 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+      }, 1500);
     } catch (error) {
       throw new Error(error);
     }
@@ -263,7 +263,8 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
+        window.scrollTo(0, 0);
+      }, 1500);
     } catch (error) {
       throw new Error(error);
     }
@@ -291,8 +292,8 @@ export class ShopComponent implements OnInit {
       });
       setTimeout(() => {
         this.isLoading = false;
-      }, 500);
-      window.scrollTo(0, 0);
+        window.scrollTo(0, 0);
+      }, 1500);
     } catch (error) {
       throw new Error(error);
     }
