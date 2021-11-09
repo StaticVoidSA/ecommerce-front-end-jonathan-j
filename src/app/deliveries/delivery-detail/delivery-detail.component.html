@@ -1,22 +1,27 @@
 <div class="mainDiv">
-  <div class="col-xs-12">
-    <app-navbar></app-navbar>
-    <div *ngIf="connected === true">
-      <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
-      <div *ngIf="isLoading === false">
-        <div *ngIf="addresses.length > 0">
-          <!-- TODO: Display Addresses || Add Addresses  || CheckoutItem -->
-          <p *ngFor="let address of addresses">{{address.userAddress}}</p>
-        </div>
-        <div *ngIf="addresses.length === 0">
-          <!-- TODO: Add Address -->
-          <p>You have no addresses!</p>
+  <div class="col-xs-2 col-sm-8 col-md-10 col-lg-12">
+    <app-navbar></app-navbar>    
+    <div class="col-xs-2 col-sm-8 col-md-8 col-md-offset-2 col-lg-10 col-lg-offset-1">
+      <div *ngIf="connected === true">
+        <mat-spinner [diameter]="40" *ngIf="isLoading === true"></mat-spinner>
+        <div *ngIf="isLoading === false">
+          <div *ngIf="addresses.length > 0">
+            <!-- TODO: Display Addresses || Add Addresses  || CheckoutItem -->
+            <p *ngFor="let address of addresses">{{address.userAddress}}</p>
+          </div>
+          <div *ngIf="addresses.length === 0">
+            <div style="text-align: center;" *ngIf="addresses.length <= 0">
+              <img style="margin-top: 5rem;" alt="No Delivery Items" src="../../../assets/images/no-delivery-items.jpg" width="450px" height="450px"/>
+              <h3 style="padding-top: 3rem;">Oops.. You have no delivery items.</h3>
+              <h5>Please proceed to complete checkout and select the delivery option</h5>
+            </div>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="warning-container" *ngIf="connected === false">
-      <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
-      <h3>CHECK YOUR INTERNET CONNECTION</h3>
+      <div class="warning-container" *ngIf="connected === false">
+        <img class="warning-image" alt="No Internet Connection" src="../../assets/no-connection.png" />
+        <h3>CHECK YOUR INTERNET CONNECTION</h3>
+      </div>
     </div>
   </div>
 </div>

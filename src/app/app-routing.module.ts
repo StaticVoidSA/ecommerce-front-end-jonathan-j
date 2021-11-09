@@ -54,7 +54,7 @@ const appRoutes: Routes = [
     { path: 'cart', component: CartComponent, canActivate: [CartGuardService] },
     { path: 'click-and-collect', component: ClickAndCollectComponent, canActivate: [CartGuardService] },
     { path: 'competitions', component: CompetitionsComponent },
-    { path: 'track-my-order', component: TrackMyOrderComponent, canActivate: [AuthGuardService] },
+    { path: 'track-my-order', component: TrackMyOrderComponent, canActivate: [CartGuardService] },
     { path: 'covid-update', component: CovidUpdateComponent },
     { path: 'questions', component: QuestionsComponent },
     { path: 'products/:category', component: ProductsComponent },
