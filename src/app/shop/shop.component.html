@@ -34,8 +34,8 @@
                         </p>
                     </div>
                 </div>
-                <div class="col-md-8 col-md-offset-1" style="margin-top: 43px;">
-                    <mat-grid-list cols="3" rowHeight="1.8:3.6" gutterSize="10px" class="matGrid">
+                <div class="col-md-8 col-md-offset-1">
+                    <mat-grid-list cols="3" rowHeight="1.8:4.0" gutterSize="10px" class="matGrid">
                         <mat-grid-tile *ngFor="let item of products">
                             <div class="item">
                                 <img class="itemImage" alt="search image" [src]="item.uri" (click)="scrollToTop()" [routerLink]="['/product-detail', item.barcode]">

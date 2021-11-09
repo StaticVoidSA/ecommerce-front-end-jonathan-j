@@ -305,7 +305,7 @@ export class ShopComponent implements OnInit {
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
       setTimeout(() => {
         this.hasAddedToCart = false;
-      }, 500);
+      }, 750);
     } catch (error) {
       throw new Error(error);
     }
