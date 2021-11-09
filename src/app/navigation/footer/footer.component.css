@@ -12,6 +12,7 @@
 .footer-image {
     height: auto;
     width: auto;
+    padding-top: 0.7rem;
 }
 
 .footerArea {
@@ -24,6 +25,7 @@
     color: #FFFFFF;
     display: inline;
     font-weight: lighter;
+    margin-top: 0.5rem;
 }
 
 .specialsLink {
@@ -42,7 +44,7 @@
     cursor:grab;
 }
 
-::ng-deep .mat-menu, .mat-menu-item, .mat-menu-background {
+/* ::ng-deep .mat-menu, .mat-menu-item, .mat-menu-background {
     background-color: #FFFFFF;
     color: #575757;
 }
@@ -50,4 +52,4 @@
 ::ng-deep .mat-menu:hover, .mat-menu-item:hover {
     color: #FFFFFF;
     background-color: #575757;
-}
+} */

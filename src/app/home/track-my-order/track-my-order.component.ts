@@ -29,9 +29,11 @@ export class TrackMyOrderComponent implements OnInit {
     
     const PaidItemsPromise = new Promise(() => {
       this.itemsService.getAllDeliveries(this.user.userId).subscribe((_items: DeliveryItem[]) => {
-        (_items.length > 0)
-          ? this.items.push(..._items)
-          : this.items = null;
+        if (_items.length > 0) {
+          this.items.push(..._items);
+        } else {
+          this.items = null;
+        }
       });
     });
 
