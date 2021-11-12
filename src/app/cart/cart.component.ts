@@ -6,6 +6,7 @@ import { Router } from '@angular/router';
 import { IPayPalConfig } from 'ngx-paypal';
 import { CartHelperService } from './cartHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
+import { NotificationService } from '../notification.service';
 
 // Card Type: Visa
 // Card Number: 4032038806854307
@@ -43,7 +44,8 @@ export class CartComponent implements OnInit {
     private router: Router,
     private cartHelper: CartHelperService,
     private homeHelper: HomeHelperService,
-    private zone: NgZone) {}
+    private zone: NgZone,
+    private notifyService: NotificationService) {}
 
   ngOnInit(): void {
     const InitPromise = new Promise(() => {
@@ -165,7 +167,7 @@ export class CartComponent implements OnInit {
                     this.totalPrice = 0;
                     window.scrollTo(0, 0);
                     setTimeout(() => {
-                      alert(`Transaction Successful. Items Paid For.`);
+                      this.notifyService.showSuccess("Items Successfully Paid For", "Transaction Successful");
                       this.isLoading = false;
                       this.zone.run(() => {
                         this.router.navigate(['/deliveries']);
@@ -173,13 +175,13 @@ export class CartComponent implements OnInit {
                     }, 500);
                   } else {
                     setTimeout(() => {
-                      alert('Unable to Complete Payment');
+                      this.notifyService.showError('Please try again', 'Unable to Complete Payment');
                       this.isLoading = false;
                     }, 500);
                   }
                 }).catch(error => { throw new Error(error); });
             } else {
-              alert('Unable to Complete Payment');
+              this.notifyService.showError('Please try again', 'Unable to Complete Payment');
               this.isLoading = false;
             }
           }).catch(error => { throw new Error(error); });
@@ -192,7 +194,7 @@ export class CartComponent implements OnInit {
         },
         onError: err => {
           this.isLoading = true;
-          alert(`Transaction unsuccessful ${err}`);
+          this.notifyService.showError('Please try again', `Unable to Complete Payment: Error ${err}`);
           this.isLoading = false;
         }
       })
@@ -205,7 +207,7 @@ export class CartComponent implements OnInit {
         this.isLoading = true;
         this.service.deleteCartItem(cartID, cartItemID).subscribe(result => {
           if (result) {
-            alert(`Product successfully removed from cart`);
+            this.notifyService.showInfo('', 'Product removed from cart');
             new Promise(resolve => {
               this.items.splice(0, this.items.length);
               this.service.getItems(this.user.userId).subscribe(data => {
@@ -225,7 +227,7 @@ export class CartComponent implements OnInit {
                 }));
             });
           } else {
-            alert(`Unable to remove item from cart`);
+            this.notifyService.showError('', 'Unable to remove item from cart');
             this.isLoading = false;
           }
         });
@@ -238,10 +240,11 @@ export class CartComponent implements OnInit {
   updateProduct(cartID: number, cartItemID: number, quantity: number) {
     try {
       if (confirm('Are you sure?')) {
+        window.scrollTo(0, 0);
         this.isLoading = true;
         this.service.updateCartItem(cartID, cartItemID, quantity).subscribe(result => {
           if (result) {
-            alert(`Product successfully updated`);
+            this.notifyService.showSuccess(`Quantity: ${quantity}`, 'Item updated successfully');
             let cartCount: number = 0;
             new Promise(resolve => {
               this.items.splice(0, this.items.length);
@@ -255,16 +258,12 @@ export class CartComponent implements OnInit {
                 setTimeout(() => {
                   this.service.cartCountUpdate(cartCount);
                   this.isLoading = false;
-                  window.scrollTo(0, 0);
-                  return;
                 }, 100);
               }));
             });
           } else {
-            alert(`Unable to update product`);
+            this.notifyService.showError('', `Unable to update product`);
             this.isLoading = false;
-            window.scrollTo(0, 0);
-            return;
           }
         });
       } else { return; }

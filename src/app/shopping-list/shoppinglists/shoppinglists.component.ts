@@ -5,6 +5,7 @@ import { AuthRespData } from 'src/app/auth/login/auth-resp-data.model';
 import { LoginService } from 'src/app/auth/login/login.service';
 import { CartService, CartItem } from 'src/app/shared/cart.service';
 import { HomeHelperService } from 'src/app/home/homeHelper.service';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-shoppinglists',
@@ -26,7 +27,8 @@ export class ShoppinglistsComponent implements OnInit {
     private loginService: LoginService,
     private router: Router, 
     private cartService: CartService,
-    private homeHelper: HomeHelperService) { }
+    private homeHelper: HomeHelperService,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     window.addEventListener('online', () => { this.connected = true; });
@@ -87,12 +89,13 @@ export class ShoppinglistsComponent implements OnInit {
               this.items.push(...data);
             });
             setTimeout(() => {
+              this.notifyService.showInfo(``, `Product Removed From List`);
               alert(`Removed from list successfully`);
               this.isLoading = false;
             }, 500)
           } else {
             setTimeout(() => {
-              alert(`Unable to remove from list`);
+              this.notifyService.showError(``, `Unable To Remove Product From List`);
               this.isLoading = false;
             }, 500)
           }
@@ -107,34 +110,30 @@ export class ShoppinglistsComponent implements OnInit {
 
   onAddToCart(title: string, barcode: string, brand: string, quantity: number, price: number, productID: string) {
     try {
-      if (confirm(`Add to Cart?`)) {
-        this.isLoading = true;
-        const item: CartItem = {
-          title: title,
-          barcode: barcode,
-          brand: brand,
-          quantity: quantity,
-          price: price,
-          productID: productID,
-          userID: this.user.userId,
-          cartID: this.user.userId
-        }
-        this.cartService.addToCart(item).subscribe((success: boolean) => {
-          if (success) {
-            this.cartCount++;
-            this.cartService.cartCountUpdate(this.cartCount);
-            setTimeout(() => {
-              alert(`Added ${item.title} to Cart`);
-              this.isLoading = false;
-            }, 500);
-          } else {
-            alert(`Unable to add ${item.title} to Cart`);
-            return this.isLoading = false;
-          }
-        });
-      } else {
-        return this.isLoading = false;
+      const item: CartItem = {
+        title: title,
+        barcode: barcode,
+        brand: brand,
+        quantity: quantity,
+        price: price,
+        productID: productID,
+        userID: this.user.userId,
+        cartID: this.user.userId
       }
+      
+      this.cartService.addToCart(item).subscribe((success: boolean) => {
+        if (success) {
+          this.cartCount++;
+          this.cartService.cartCountUpdate(this.cartCount);
+          this.notifyService.showInfo(`${item.title}`, `Product Added To Cart`);
+          setTimeout(() => {
+            this.isLoading = false;
+          }, 500);
+        } else {
+          this.notifyService.showError(`${item.title}`, `Unable To Add Product To Cart`);
+          this.isLoading = false;
+        }
+      });
     } catch (error) {
       throw new Error(error);
     }

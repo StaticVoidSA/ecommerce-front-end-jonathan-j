@@ -4,6 +4,8 @@ import { NgForm } from '@angular/forms';
 import { AuthenticationService, AuthResponseData } from 'src/app/shared/auth.service';
 import { LoginService } from './login.service';
 import { AuthRespData } from './auth-resp-data.model';
+import { NotificationService } from '../../notification.service';
+
 
 @Component({
   selector: 'app-login',
@@ -32,7 +34,8 @@ export class LoginComponent implements OnInit {
 
   constructor(private router: Router,
     private authService: AuthenticationService,
-    private loginService: LoginService) { }
+    private loginService: LoginService,
+    private notifyService : NotificationService) { }
 
   ngOnInit() {
     window.scrollTo(0, 0);
@@ -92,12 +95,13 @@ export class LoginComponent implements OnInit {
               this.loginService.updateUserDetails(this.authResponse);
               this.authService.userTokenUpdate(this.authResponse.token);
               this.isLoading = false;
+              this.notifyService.showSuccess("Login Successful!", `Welcome ${user.userName}!`);
               this.router.navigate(["/"]);
             }, 500);
           } else if (user.success === false) {
             setTimeout(() => {
+              this.notifyService.showError("Login Unsuccessful!", `Sorry ${data.email}!`);
               this.isLoading = false;
-              alert("Invalid username/password");
               return;
             }, 500);
           }

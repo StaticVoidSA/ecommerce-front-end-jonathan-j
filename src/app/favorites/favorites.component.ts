@@ -5,7 +5,7 @@ import { AuthRespData } from '../auth/login/auth-resp-data.model';
 import { Router } from '@angular/router';
 import { CartService } from '../shared/cart.service';
 import { HomeHelperService } from '../home/homeHelper.service';
-import { ShopHelperService } from '../shop/shopHelper.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-favorites',
@@ -35,7 +35,7 @@ export class FavoritesComponent implements OnInit {
     private router: Router,
     private cartService: CartService,
     private homeHelper: HomeHelperService,
-    private shopHelper: ShopHelperService) { }
+    private notifyService: NotificationService) { }
 
   ngOnInit() {
     window.addEventListener('online', () => { this.connected = true; });
@@ -115,6 +115,7 @@ export class FavoritesComponent implements OnInit {
         this.isLoading = true;
         this.favoriteService.removeFromFavorites(userID, favID).subscribe((success: boolean) => {
           if (success) {
+            this.notifyService.showInfo(`Favourite ID: ${favID}`, 'Removed From Favorites')
             this.favorites.splice(0, this.favorites.length);
             this.favoriteService.getFavorites(this.user.userId).subscribe((data: any[]) => {
               if (!data || data.length <= 0) {
@@ -126,7 +127,7 @@ export class FavoritesComponent implements OnInit {
               }
             });
           } else {
-            alert('Unable to remove from favorites');
+            this.notifyService.showError(`Favorite ID: ${favID}`, 'Unable to remove from favorites');
             this.isLoading = false;
           }
         });
@@ -152,10 +153,11 @@ export class FavoritesComponent implements OnInit {
 
       this.cartService.addToCart(item).subscribe((success: boolean) => {
         if (success) {
+          this.notifyService.showInfo(`${title}`, 'Favorite Item Added To Cart');
           this.cartCount++;
           this.cartService.cartCountUpdate(this.cartCount);
         } else {
-          return;
+          this.notifyService.showError(`${title}`, 'Unable To Add Favorite To Cart');
         }
       });
     } catch (error) {

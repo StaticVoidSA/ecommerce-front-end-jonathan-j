@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { ActivatedRoute, Params, Router } from '@angular/router';
 import { ResetPasswordService } from 'src/app/shared/resetpassword.service';
+import { NotificationService } from '../../../notification.service';
 
 @Component({
   selector: 'app-reset',
@@ -17,7 +18,10 @@ export class ResetComponent implements OnInit {
     password: ""
   }
 
-  constructor(private router: Router, private service: ResetPasswordService, private route: ActivatedRoute) { }
+  constructor(private router: Router, 
+    private service: ResetPasswordService, 
+    private route: ActivatedRoute,
+    private notifyService: NotificationService) { }
 
   ngOnInit() {
     new Promise((resolve) => {
@@ -40,10 +44,10 @@ export class ResetComponent implements OnInit {
         this.gatherFormData(form);
         this.service.completeReset(this.user.email, this.user.password, this.hash).subscribe((response: any) => {
           if (response.passwordChanged === true) {
-            alert(`Password for ${response.email} has been successfully changed`);
+            this.notifyService.showSuccess(`has been successfully changed`, `Password for ${response.email}`);
             this.router.navigate(["https://rnr-ecommerce-server-jj.herokuapp.com/reset/login"]);
           } else {
-            alert(`User ${response.email} does not exist`);
+            this.notifyService.showError(`Please sign up`, `User ${response.email} does not exist`);
             this.router.navigate(["https://rnr-ecommerce-server-jj.herokuapp.com/reset/signup"]);
           }
         })

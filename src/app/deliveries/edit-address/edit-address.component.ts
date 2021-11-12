@@ -3,6 +3,7 @@ import { ActivatedRoute, Params } from '@angular/router';
 import { HomeHelperService } from 'src/app/home/homeHelper.service';
 import { Address } from 'src/app/shared/address.service';
 import { DeliveriesHelper } from '../deliveriesHelper.service';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-edit-address',
@@ -30,7 +31,8 @@ export class EditAddressComponent implements OnInit {
 
   constructor(private deliveriesHelper: DeliveriesHelper,
     private route: ActivatedRoute,
-    private homeHelper: HomeHelperService) { }
+    private homeHelper: HomeHelperService,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     const ConnectionPromise = new Promise(() => {
@@ -75,6 +77,7 @@ export class EditAddressComponent implements OnInit {
       this.deliveriesHelper.updateAddress(this.address, this.id, this.addressID,
         this.addressNickName, this.userAddress, this.isDefault);
       setTimeout(() => {
+        this.notifyService.showInfo('', 'Address Successfully Update!');
         this.isLoading = false;
       }, 500);
     } catch (error) {

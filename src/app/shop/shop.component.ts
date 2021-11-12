@@ -12,7 +12,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { ShopHelperService } from './shopHelper.service';
 import { CartHelperService } from '../cart/cartHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
-import { PageEvent } from '@angular/material/paginator';
 
 interface DialogData {
   listName: string[];
@@ -302,11 +301,7 @@ export class ShopComponent implements OnInit {
   onAddToCart(title: string, barcode: string, brand: string,
     quantity: number, price: number, productID: string) {
     try {
-      this.hasAddedToCart = true;
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
-      setTimeout(() => {
-        this.hasAddedToCart = false;
-      }, 750);
     } catch (error) {
       throw new Error(error);
     }

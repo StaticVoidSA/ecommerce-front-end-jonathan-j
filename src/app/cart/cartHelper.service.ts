@@ -5,6 +5,7 @@ import { LoginService } from "../auth/login/login.service";
 import { CartItem, CartService } from "../shared/cart.service";
 import { PaidForItemsService } from "../shared/paiditems.service";
 import { ShopHelperService } from "../shop/shopHelper.service";
+import { NotificationService } from '../notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class CartHelperService {
@@ -13,7 +14,8 @@ export class CartHelperService {
         private shopHelper: ShopHelperService,
         private cartService: CartService,
         private paidService: PaidForItemsService,
-        private loginService: LoginService) { }
+        private loginService: LoginService,
+        private notifyService: NotificationService) { }
 
     calculateTotalPrice(items: CartItem[]): number {
         let total = 0.00;
@@ -57,8 +59,11 @@ export class CartHelperService {
                         .then((item: CartItem) => {
                             this.cartService.addToCart(item).subscribe((success: boolean) => {
                                 if (success) {
+                                    this.notifyService.showInfo(`${title}`, `Item Added To Cart`);
                                     cartCount++;
                                     this.cartService.cartCountUpdate(cartCount);
+                                } else {
+                                    this.notifyService.showError(`${title}`, `Unable To Add Item To Cart`);
                                 }
                             });
                         }).catch(error => { throw new Error(error); });

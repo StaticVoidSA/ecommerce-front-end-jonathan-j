@@ -8,6 +8,7 @@ import { HomeHelperService } from '../home/homeHelper.service';
 import { Address, AddressService } from '../shared/address.service';
 import { PaidItems } from '../shared/paiditems.service';
 import { DeliveriesHelper, ShopName } from './deliveriesHelper.service';
+import { NotificationService } from '../notification.service';
 
 @Component({
   selector: 'app-deliveries',
@@ -48,7 +49,8 @@ export class DeliveriesComponent implements OnInit {
     private loginService: LoginService,
     private homeHelper: HomeHelperService,
     private deliveriesHelper: DeliveriesHelper,
-    private router: Router) { }
+    private router: Router,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     const ConnectionPromise = new Promise(() => {
@@ -181,8 +183,10 @@ export class DeliveriesComponent implements OnInit {
       this.deliveriesHelper.submitAddress(this.newAddress, this.addressForm, this.user, this.addresses);
       this.clearItems();
       window.scrollTo(0, 0);
+      this.notifyService.showInfo(`${this.newAddress.addressNickName}`, 'Address added!');
       this.paneOpen = false;
     } catch (error) {
+      this.notifyService.showError(`${this.newAddress.addressNickName}`, 'Unable to added new address!');
       throw new Error(error);
     }
   }
@@ -195,9 +199,11 @@ export class DeliveriesComponent implements OnInit {
           this.addressService.getAddresses(this.user.userId).subscribe((addresses: Address[]) => {
             this.clearItems();
             this.addresses.push(...addresses);
+            this.notifyService.showInfo(`$Address ID: ${addressID}`, 'Address Successfully Deleted!');
           });
         }
         else {
+          this.notifyService.showError(`$Address ID: ${addressID}`, 'Unable To Delete Address!');
           alert('Unable to Delete Address');
         }
       });

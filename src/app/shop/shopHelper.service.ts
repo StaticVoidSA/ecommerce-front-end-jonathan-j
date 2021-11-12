@@ -9,6 +9,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ListDialogComponent } from "../shopping-list/list-dialog/list-dialog.component";
 import { Router } from "@angular/router";
 import { HttpParams } from "@angular/common/http";
+import { NotificationService } from '../notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class ShopHelperService {
@@ -20,7 +21,8 @@ export class ShopHelperService {
         public dialog: MatDialog,
         private router: Router,
         private favoriteService: FavoritesService,
-        private loginService: LoginService) { }
+        private loginService: LoginService, 
+        private notifyService: NotificationService) { }
 
     pushItems = (items: SearchRespData[], arr: any[]) => {
         items.forEach(product => {
@@ -132,9 +134,9 @@ export class ShopHelperService {
                             this.shoppingListService.addToShoppingList(list).subscribe((success: boolean) => {
                                 setTimeout(() => {
                                     if (success) {
-                                        alert(`Added ${productTitle} to ${list.shoppingListName} Shopping List`);
+                                        this.notifyService.showInfo(`${productTitle}`, `Product Added To Shopping List ${list.shoppingListName}`)
                                     } else {
-                                        alert(`Unable to add ${productTitle} to ${list.shoppingListName} Shopping List`);
+                                        this.notifyService.showError(`${productTitle}`, `Unable To Add Item To Shopping List ${list.shoppingListName}`)
                                     }
                                 }, 500);
                             });
@@ -156,9 +158,9 @@ export class ShopHelperService {
                         .then((favorite: Favorites) => {
                             this.favoriteService.addToFavorites(favorite).subscribe((success: boolean) => {
                                 if (success) {
-                                    alert(`${title} added successfully to Favorites`);
+                                    this.notifyService.showInfo(`${title}`, `Added Item To Favorites`);
                                 } else {
-                                    alert(`Unable to add ${title} to favorites`);
+                                    this.notifyService.showError(`${title}`, `Unable To Add Item To Favorites`);
                                 }
                             });
                         }).catch(error => { throw new Error(error); });
@@ -179,7 +181,7 @@ export class ShopHelperService {
                         if (data > 0) {
                             this.openDialog(productTitle, brand, barcode, quantity, price);
                         } else {
-                            alert("You have no Shopping Lists");
+                            this.notifyService.showWarning('', `You Have No Shopping Lists!`);
                             this.router.navigate(['/shoppinglist']);
                         }
                     });
@@ -203,9 +205,11 @@ export class ShopHelperService {
                                         this.router.navigate(['/no-current-favorites']);
                                     }
                                 });
-                                alert('Successfully removed item from favorites');
+                                this.notifyService.showInfo(`Favorite ID: ${favID}`, `Removed Item From Favorites`);
                                 window.scrollTo(0, 0);
                             }, 100);
+                        } else {
+                            this.notifyService.showError(`Favorite ID: ${favID}`, `Unable To Remove From Favorites`);
                         }
                     }));
                 });

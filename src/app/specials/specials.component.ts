@@ -6,9 +6,9 @@ import { UserShoppingList } from '../shared/shoppinglist.service';
 import { MatDialog } from '@angular/material/dialog';
 import { ShopHelperService } from '../shop/shopHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
-import { CartHelperService } from '../cart/cartHelper.service';
 import { CartItem, CartService } from '../shared/cart.service';
 import { Router } from '@angular/router';
+import { NotificationService } from '../notification.service';
 
 interface DialogData {
   listName: string[]
@@ -48,9 +48,9 @@ export class SpecialsComponent implements OnInit {
     public dialog: MatDialog,
     private shopHelper: ShopHelperService,
     private homeHelper: HomeHelperService,
-    private cartHelper: CartHelperService,
     private cartService: CartService, 
-    private router: Router) { }
+    private router: Router,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     window.addEventListener('online', () => { this.connected = true; });
@@ -134,10 +134,11 @@ export class SpecialsComponent implements OnInit {
         }
         this.cartService.addToCart(item).subscribe((success: boolean) => {
           if (success) {
+            this.notifyService.showInfo(`${item.title}`, `Product Added To Cart`)
             this.cartCount++;
             this.cartService.cartCountUpdate(this.cartCount);
           } else {
-            alert(`Unable to add item ${title} to cart`);
+            this.notifyService.showError(`${title}`, `Unable To Add Product To Cart`);
           }
         });
         setTimeout(() => {

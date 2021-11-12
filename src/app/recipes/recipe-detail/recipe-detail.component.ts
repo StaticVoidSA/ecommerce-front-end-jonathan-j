@@ -5,10 +5,9 @@ import { CartService } from 'src/app/shared/cart.service';
 import { LoginService } from 'src/app/auth/login/login.service';
 import { AuthRespData } from 'src/app/auth/login/auth-resp-data.model';
 import { HomeHelperService } from 'src/app/home/homeHelper.service';
-import { ShopHelperService } from 'src/app/shop/shopHelper.service';
 import { IngredientCartModel } from 'src/app/shared/models/ingredientCartModel.model';
 import { Favorites } from 'src/app/shared/favorites.service';
-import { FavoritesComponent } from 'src/app/favorites/favorites.component';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-recipe-detail',
@@ -30,7 +29,8 @@ export class RecipeDetailComponent implements OnInit {
     private cartService: CartService,
     private loginService: LoginService,
     private router: Router,
-    private homeHelper: HomeHelperService) { }
+    private homeHelper: HomeHelperService,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     const ConnectionPromise = new Promise(() => {
@@ -123,11 +123,12 @@ export class RecipeDetailComponent implements OnInit {
 
         this.recipeService.addIngredientItemsToCart(ingredientItems).subscribe((cartCount: number) => {
           if (cartCount > 0) {
+            this.notifyService.showInfo(``, 'Recipe Items Added To Cart');
             this.cartCount = cartCount;
             this.cartService.cartCountUpdate(this.cartCount);
             this.isLoading = false;
           } else {
-            alert(`Unable to add ingredients to cart`);
+            this.notifyService.showError(``, 'Unable To Add Items To Cart');
             setTimeout(() => {
               this.isLoading = false;
             }, 500);
@@ -169,7 +170,7 @@ export class RecipeDetailComponent implements OnInit {
           });
 
           this.recipeService.addIngredientsToFavorites(currentFavorites).subscribe((success:boolean) => {
-            if (!success) alert('Unable to add ingredients to Favorites');
+            !success ? this.notifyService.showError(``, 'Unable To Add Items To Favorites') : this.notifyService.showInfo('', 'Recipe Items Added To Favorites');
             this.isLoading = false;
           });
       }

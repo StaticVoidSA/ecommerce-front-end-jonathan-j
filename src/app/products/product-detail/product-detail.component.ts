@@ -10,6 +10,7 @@ import { ShoppingList } from 'src/app/shared/shoppinglist.service';
 import { ShopHelperService } from 'src/app/shop/shopHelper.service';
 import { CartHelperService } from 'src/app/cart/cartHelper.service';
 import { HomeHelperService } from 'src/app/home/homeHelper.service';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-product-detail',
@@ -34,7 +35,8 @@ export class ProductDetailComponent implements OnInit {
     public dialog: MatDialog,
     private shopHelper: ShopHelperService,
     private cartHelper: CartHelperService,
-    private homeHelper: HomeHelperService) { }
+    private homeHelper: HomeHelperService,
+    private notifyService: NotificationService) { }
 
   ngOnInit() {
     window.addEventListener('online', () => { this.connected = true; });
@@ -86,6 +88,7 @@ export class ProductDetailComponent implements OnInit {
     try {
       this.isLoading = true;
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
+      this.notifyService.showInfo(`${title}`, 'Product Added To Cart');
       setTimeout(() => {
         this.isLoading = false;
       }, 500);

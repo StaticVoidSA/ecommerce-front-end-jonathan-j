@@ -5,12 +5,14 @@ import { Favorites } from "../shared/favorites.service";
 import { ProductUpdate } from "../shared/models/product-update.model";
 import { Product } from "../shared/models/product.model";
 import { ProductService } from "../shared/product.service";
+import { NotificationService } from '../notification.service';
 
 @Injectable({ providedIn: 'root' })
 export class ProductHelperService {
 
     constructor(private service: ProductService,
-        private router: Router) { }
+        private router: Router, 
+        private notifyService: NotificationService) { }
 
     getProductData(newProduct, product, productForm, barcode) {
         const promise = new Promise(resolve => {
@@ -57,10 +59,10 @@ export class ProductHelperService {
                     if (confirm('Are you sure you want to update this product?')) {
                         this.service.editProduct(product).subscribe(data => {
                             if (data) {
-                                alert(`Product: ${product.title} was successfully edited`);
+                                this.notifyService.showInfo(`${product.title}`, `Product Successfully Updated`);
                                 this.router.navigate(["/edit-products"]);
                             } else {
-                                alert(`Unable to update ${product.title}`);
+                                this.notifyService.showError(`${product.title}`, `Unable To Update Product`)
                                 this.router.navigate(["/edit-products"]);
                             }
                         });

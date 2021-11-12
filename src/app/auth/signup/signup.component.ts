@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthenticationService } from 'src/app/shared/auth.service';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-signup',
@@ -27,7 +28,9 @@ export class SignupComponent implements OnInit {
     contact: []
   }
 
-  constructor(private router: Router, private authService: AuthenticationService) { }
+  constructor(private router: Router, 
+    private authService: AuthenticationService,
+    private notifyService: NotificationService) { }
 
   ngOnInit() {
     this.optionsChecked.splice(0, this.optionsChecked.length);
@@ -49,9 +52,10 @@ export class SignupComponent implements OnInit {
       this.authService.signup(this.user.name, this.user.surname, this.user.email, this.user.password)
         .subscribe(data => {
           if (data.success === true) {
+            this.notifyService.showSuccess("Thank you for signing up!", `Sigup successful for ${this.user.name}`);
             this.router.navigate(["/login"]);
           } else if (data.success === false) {
-            alert(`Error signing up user ${this.user.name}`);
+            this.notifyService.showError("Sorry. Please try signing up again", `Error signing up user ${this.user.name}`);
             this.router.navigate(["/signup"]);
           }
         });

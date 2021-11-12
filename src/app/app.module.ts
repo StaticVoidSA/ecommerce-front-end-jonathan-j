@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ToastrModule } from 'ngx-toastr';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { HeaderComponent } from './navigation/header/header.component';
 import { TabbarComponent } from './navigation/tabbar/tabbar.component';
@@ -117,6 +118,7 @@ import { AddedToCartComponent } from './cart/added-to-cart/added-to-cart.compone
     AppRoutingModule,
     NgxPayPalModule,
     ServiceWorkerModule,
+    ToastrModule.forRoot(),
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyDHlrQ3EUlaUuM9ffdeG7dWpGj4zCgudhY',
       libraries: ['places']

@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 import { CartHelperService } from '../cart/cartHelper.service';
 import { ShoppingListHelper } from './shoppinListHelper.service';
 import { HomeHelperService } from '../home/homeHelper.service';
+import { NotificationService } from '../notification.service';
 
 export interface List {
   userID: number,
@@ -53,7 +54,8 @@ export class ShoppingListComponent implements OnInit {
     private router: Router,
     private cartHelper: CartHelperService,
     private shoppingListHelper: ShoppingListHelper,
-    private homeHelper: HomeHelperService) { }
+    private homeHelper: HomeHelperService,
+    private notifyService: NotificationService) { }
 
   ngOnInit(): void {
     const ConnectionPromise = new Promise(() => {
@@ -75,46 +77,15 @@ export class ShoppingListComponent implements OnInit {
       }, 1500);
     });
 
-    const FavoritesPromise = new Promise(() => {
-      this.favoritesService.getFavorites(this.user.userId).subscribe((favorites: GetFavorites[]) => {
-        this.favorites.splice(0, this.favorites.length);
-        this.favorites.push(...favorites);
-      });
-    });
-
-    const CartPromise = new Promise(() => {
-      this.cartService.getItems(this.user.userId).subscribe((items: CartItem[]) => {
-        this.cartItems.splice(0, this.cartItems.length);
-        this.cartItems.push(...items);
-        this.totalItems = this.cartHelper.getCartCount(this.cartItems);
-        this.cartCount = this.cartHelper.getCartCount(this.cartItems);
-        this.totalPrice = this.cartHelper.calculateTotalPrice(this.cartItems);
-      });
-    });
-
-    const UserDetailsPromise = new Promise(() => {
-      this.shoppinglistService.getUserDetails(this.user.userId).subscribe(details => {
-        this.userDetails = details;
-        this.userEmail = this.userDetails.email
-      });
-    });
-
     async function Init() {
       await ConnectionPromise;
       await InitPromise;
-    }
-
-    async function AfterInit() {
-      await FavoritesPromise;
-      await CartPromise;
-      await UserDetailsPromise;
     }
 
     try {
       this.connected = this.homeHelper.checkConnection();
       if (!this.connected) { return; };
       Init()
-        // .then(AfterInit)
         .catch(error => { throw new Error(error); });
     } catch (error) {
       throw new Error(error);
@@ -159,10 +130,11 @@ export class ShoppingListComponent implements OnInit {
       }
       this.cartService.addToCart(item).subscribe((success: boolean) => {
         if (success) {
+          this.notifyService.showInfo(`${title}`, `Product Added To Cart`);
           this.cartCount++;
           this.cartService.cartCountUpdate(this.cartCount);
         } else {
-          alert(`Unable to add item ${title} to cart`);
+          this.notifyService.showError(`${title}`, `Unable To Add Product To Cart`);
         }
       });
       setTimeout(() => {
@@ -179,7 +151,7 @@ export class ShoppingListComponent implements OnInit {
         this.isLoading = true;
         this.favoritesService.removeFromFavorites(ID, favID).subscribe((success: boolean) => {
             if (success) {
-                alert(`Successfully removed from favorites`);
+              this.notifyService.showInfo(`Favorite ID: ${favID}`, `Removed Product From Favorites`);
                 setTimeout(() => {
                   this.favorites.splice(0, this.favorites.length);
                   this.favoritesService.getFavorites(this.user.userId).subscribe((favorites: GetFavorites[]) => {
@@ -192,7 +164,7 @@ export class ShoppingListComponent implements OnInit {
                   });
                 }, 500);
             } else {
-                alert(`Unable to remove from favorites`);
+                this.notifyService.showError(`Favorite ID: ${favID}`, 'Unable To Remove From Favorites');
                 setTimeout(() => {
                   this.isLoading = false;
                 }, 500);
@@ -213,7 +185,7 @@ export class ShoppingListComponent implements OnInit {
           this.isLoading = true;
           this.cartService.deleteCartItem(cartID, cartItemID).subscribe(result => {
             if (result === true) {
-              alert(`Product successfully removed from cart`);
+              this.notifyService.showInfo(`Item ID: ${cartItemID}`, `Removed Product From Cart`);
               new Promise((resolve) => {
                 this.cartItems.splice(0, this.cartItems.length);
                 this.cartService.getItems(this.user.userId).subscribe(data => {
@@ -234,7 +206,7 @@ export class ShoppingListComponent implements OnInit {
                 }));
               });
             } else {
-              alert(`Unable to remove item from cart`);
+              this.notifyService.showError(`Item ID: ${cartItemID}`, `Unable To Remove Product From Cart`);
               return this.isLoading = false;
             }
           });
