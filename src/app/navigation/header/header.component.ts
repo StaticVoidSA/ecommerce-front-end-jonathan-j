@@ -6,6 +6,7 @@ import { HeaderService } from './header.service';
 import { CartService } from 'src/app/shared/cart.service';
 import { AuthenticationService } from 'src/app/shared/auth.service';
 import { AuthRespData } from 'src/app/auth/login/auth-resp-data.model';
+import { NotificationService } from '../../notification.service';
 
 @Component({
   selector: 'app-header',
@@ -20,7 +21,8 @@ export class HeaderComponent implements OnInit {
     private headerService: HeaderService,
     public route: ActivatedRoute,
     private cartService: CartService,
-    private authService: AuthenticationService) { }
+    private authService: AuthenticationService,
+    private notifyService: NotificationService) { }
 
   public userLocation: UserLocation = {
     Address: null,
@@ -138,6 +140,7 @@ export class HeaderComponent implements OnInit {
     this.authRespData.expiresIn = null;
     this.authRespData.loggedIn = false;
     this.authRespData.token = null;
+    this.notifyService.showWarning(`Good bye ${this.authRespData.userName}`, `User Logged Out`);
     this.authRespData.userName = null;
     this.authRespData.userId = null;
     let cartCount = 0;

@@ -88,7 +88,7 @@
 
 .matGrid {
   display: flex;
-  margin-top: 20px;
+  margin-top: 0.5rem;
 }
 
 .filterHeader {
@@ -258,7 +258,7 @@ input[type="checkbox"]:hover {
 }
 
 ::ng-deep .mat-paginator {
-  margin-top: 0.5rem !important;
+  margin-top: 0rem !important;
 }
 
 .mat-radio-button ~ .mat-radio-button {
