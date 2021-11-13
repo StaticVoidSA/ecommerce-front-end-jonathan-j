@@ -46,6 +46,10 @@ input {
     margin-top: 15px;
 }
 
+.inputLabel {
+    color: darkgrey;
+}
+
 .mainDiv {
     width: auto;
     height: max-content;
