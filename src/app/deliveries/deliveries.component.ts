@@ -183,7 +183,7 @@ export class DeliveriesComponent implements OnInit {
       this.deliveriesHelper.submitAddress(this.newAddress, this.addressForm, this.user, this.addresses);
       this.clearItems();
       window.scrollTo(0, 0);
-      this.notifyService.showInfo(`${this.newAddress.addressNickName}`, 'Address added!');
+      this.notifyService.showSuccess(`${this.newAddress.addressNickName}`, 'Address added!');
       this.paneOpen = false;
     } catch (error) {
       this.notifyService.showError(`${this.newAddress.addressNickName}`, 'Unable to added new address!');
@@ -199,7 +199,7 @@ export class DeliveriesComponent implements OnInit {
           this.addressService.getAddresses(this.user.userId).subscribe((addresses: Address[]) => {
             this.clearItems();
             this.addresses.push(...addresses);
-            this.notifyService.showInfo(`$Address ID: ${addressID}`, 'Address Successfully Deleted!');
+            this.notifyService.showSuccess(`$Address ID: ${addressID}`, 'Address Successfully Deleted!');
           });
         }
         else {

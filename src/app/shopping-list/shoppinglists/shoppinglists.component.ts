@@ -89,7 +89,7 @@ export class ShoppinglistsComponent implements OnInit {
               this.items.push(...data);
             });
             setTimeout(() => {
-              this.notifyService.showInfo(``, `Product Removed From List`);
+              this.notifyService.showSuccess(``, `Product Removed From List`);
               alert(`Removed from list successfully`);
               this.isLoading = false;
             }, 500)
@@ -125,7 +125,7 @@ export class ShoppinglistsComponent implements OnInit {
         if (success) {
           this.cartCount++;
           this.cartService.cartCountUpdate(this.cartCount);
-          this.notifyService.showInfo(`${item.title}`, `Product Added To Cart`);
+          this.notifyService.showSuccess(`${item.title}`, `Product Added To Cart`);
           setTimeout(() => {
             this.isLoading = false;
           }, 500);

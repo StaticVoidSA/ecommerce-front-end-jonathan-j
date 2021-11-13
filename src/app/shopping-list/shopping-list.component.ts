@@ -130,7 +130,7 @@ export class ShoppingListComponent implements OnInit {
       }
       this.cartService.addToCart(item).subscribe((success: boolean) => {
         if (success) {
-          this.notifyService.showInfo(`${title}`, `Product Added To Cart`);
+          this.notifyService.showSuccess(`${title}`, `Product Added To Cart`);
           this.cartCount++;
           this.cartService.cartCountUpdate(this.cartCount);
         } else {
@@ -151,7 +151,7 @@ export class ShoppingListComponent implements OnInit {
         this.isLoading = true;
         this.favoritesService.removeFromFavorites(ID, favID).subscribe((success: boolean) => {
             if (success) {
-              this.notifyService.showInfo(`Favorite ID: ${favID}`, `Removed Product From Favorites`);
+              this.notifyService.showSuccess(`Favorite ID: ${favID}`, `Removed Product From Favorites`);
                 setTimeout(() => {
                   this.favorites.splice(0, this.favorites.length);
                   this.favoritesService.getFavorites(this.user.userId).subscribe((favorites: GetFavorites[]) => {
@@ -185,7 +185,7 @@ export class ShoppingListComponent implements OnInit {
           this.isLoading = true;
           this.cartService.deleteCartItem(cartID, cartItemID).subscribe(result => {
             if (result === true) {
-              this.notifyService.showInfo(`Item ID: ${cartItemID}`, `Removed Product From Cart`);
+              this.notifyService.showSuccess(`Item ID: ${cartItemID}`, `Removed Product From Cart`);
               new Promise((resolve) => {
                 this.cartItems.splice(0, this.cartItems.length);
                 this.cartService.getItems(this.user.userId).subscribe(data => {
@@ -226,7 +226,7 @@ export class ShoppingListComponent implements OnInit {
           this.isLoading = true;
           this.cartService.updateCartItem(cartID, cartItemID, quantity).subscribe(result => {
             if (result) {
-              alert(`Product successfully updated`);
+              this.notifyService.showSuccess(`Quantity: ${quantity}`, `Product Updated`);
               new Promise(resolve => {
                 this.cartItems.splice(0, this.cartItems.length);
                 this.cartService.getItems(this.user.userId).subscribe(data => {
@@ -243,7 +243,7 @@ export class ShoppingListComponent implements OnInit {
                 }));
               });
             } else {
-              alert(`Unable to update product`);
+              this.notifyService.showError(`Item ID: ${cartItemID}`, `Unable To Update Product`);
               this.isLoading = false;
             }
           });
@@ -251,18 +251,6 @@ export class ShoppingListComponent implements OnInit {
           return;
         }
       });
-    } catch (error) {
-      throw new Error(error);
-    }
-  }
-
-  onUpdateUser() {
-    try {
-      this.isLoading = true;
-      this.shoppingListHelper.updateUser(this.updatedUser, this.userDetails, this.userForm);
-      setTimeout(() => {
-        this.isLoading = false;
-      }, 500);
     } catch (error) {
       throw new Error(error);
     }

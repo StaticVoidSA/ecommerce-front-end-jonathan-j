@@ -59,7 +59,7 @@ export class CartHelperService {
                         .then((item: CartItem) => {
                             this.cartService.addToCart(item).subscribe((success: boolean) => {
                                 if (success) {
-                                    this.notifyService.showInfo(`${title}`, `Item Added To Cart`);
+                                    this.notifyService.showSuccess(`${title}`, `Item Added To Cart`);
                                     cartCount++;
                                     this.cartService.cartCountUpdate(cartCount);
                                 } else {

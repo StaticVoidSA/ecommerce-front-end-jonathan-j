@@ -35,8 +35,7 @@ export class ProductDetailComponent implements OnInit {
     public dialog: MatDialog,
     private shopHelper: ShopHelperService,
     private cartHelper: CartHelperService,
-    private homeHelper: HomeHelperService,
-    private notifyService: NotificationService) { }
+    private homeHelper: HomeHelperService) { }
 
   ngOnInit() {
     window.addEventListener('online', () => { this.connected = true; });
@@ -88,7 +87,6 @@ export class ProductDetailComponent implements OnInit {
     try {
       this.isLoading = true;
       this.cartHelper.addToCart(title, barcode, brand, quantity, price, productID, this.cartCount);
-      this.notifyService.showInfo(`${title}`, 'Product Added To Cart');
       setTimeout(() => {
         this.isLoading = false;
       }, 500);

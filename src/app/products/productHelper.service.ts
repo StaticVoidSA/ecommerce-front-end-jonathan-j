@@ -59,7 +59,7 @@ export class ProductHelperService {
                     if (confirm('Are you sure you want to update this product?')) {
                         this.service.editProduct(product).subscribe(data => {
                             if (data) {
-                                this.notifyService.showInfo(`${product.title}`, `Product Successfully Updated`);
+                                this.notifyService.showSuccess(`${product.title}`, `Product Successfully Updated`);
                                 this.router.navigate(["/edit-products"]);
                             } else {
                                 this.notifyService.showError(`${product.title}`, `Unable To Update Product`)

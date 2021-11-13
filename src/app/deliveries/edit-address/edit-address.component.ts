@@ -77,7 +77,7 @@ export class EditAddressComponent implements OnInit {
       this.deliveriesHelper.updateAddress(this.address, this.id, this.addressID,
         this.addressNickName, this.userAddress, this.isDefault);
       setTimeout(() => {
-        this.notifyService.showInfo('', 'Address Successfully Update!');
+        this.notifyService.showSuccess('', 'Address Successfully Update!');
         this.isLoading = false;
       }, 500);
     } catch (error) {

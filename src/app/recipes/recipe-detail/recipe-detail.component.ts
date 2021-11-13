@@ -123,7 +123,7 @@ export class RecipeDetailComponent implements OnInit {
 
         this.recipeService.addIngredientItemsToCart(ingredientItems).subscribe((cartCount: number) => {
           if (cartCount > 0) {
-            this.notifyService.showInfo(``, 'Recipe Items Added To Cart');
+            this.notifyService.showSuccess(``, 'Recipe Items Added To Cart');
             this.cartCount = cartCount;
             this.cartService.cartCountUpdate(this.cartCount);
             this.isLoading = false;
@@ -170,7 +170,7 @@ export class RecipeDetailComponent implements OnInit {
           });
 
           this.recipeService.addIngredientsToFavorites(currentFavorites).subscribe((success:boolean) => {
-            !success ? this.notifyService.showError(``, 'Unable To Add Items To Favorites') : this.notifyService.showInfo('', 'Recipe Items Added To Favorites');
+            !success ? this.notifyService.showError(``, 'Unable To Add Items To Favorites') : this.notifyService.showSuccess('', 'Recipe Items Added To Favorites');
             this.isLoading = false;
           });
       }

@@ -134,7 +134,7 @@ export class ShopHelperService {
                             this.shoppingListService.addToShoppingList(list).subscribe((success: boolean) => {
                                 setTimeout(() => {
                                     if (success) {
-                                        this.notifyService.showInfo(`${productTitle}`, `Product Added To Shopping List ${list.shoppingListName}`)
+                                        this.notifyService.showSuccess(`${productTitle}`, `Product Added To Shopping List ${list.shoppingListName}`)
                                     } else {
                                         this.notifyService.showError(`${productTitle}`, `Unable To Add Item To Shopping List ${list.shoppingListName}`)
                                     }
@@ -158,7 +158,7 @@ export class ShopHelperService {
                         .then((favorite: Favorites) => {
                             this.favoriteService.addToFavorites(favorite).subscribe((success: boolean) => {
                                 if (success) {
-                                    this.notifyService.showInfo(`${title}`, `Added Item To Favorites`);
+                                    this.notifyService.showSuccess(`${title}`, `Added Item To Favorites`);
                                 } else {
                                     this.notifyService.showError(`${title}`, `Unable To Add Item To Favorites`);
                                 }
@@ -205,7 +205,7 @@ export class ShopHelperService {
                                         this.router.navigate(['/no-current-favorites']);
                                     }
                                 });
-                                this.notifyService.showInfo(`Favorite ID: ${favID}`, `Removed Item From Favorites`);
+                                this.notifyService.showSuccess(`Favorite ID: ${favID}`, `Removed Item From Favorites`);
                                 window.scrollTo(0, 0);
                             }, 100);
                         } else {

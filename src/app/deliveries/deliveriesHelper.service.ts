@@ -5,6 +5,7 @@ import { AuthRespData } from "../auth/login/auth-resp-data.model";
 import { AddAddressResponse, Address, AddressService } from "../shared/address.service";
 import { CompleteCheckoutService } from "../shared/complete-checkout.service";
 import { PaidForItemsService, PaidItems } from "../shared/paiditems.service";
+import { NotificationService } from '../notification.service';
 
 export enum SelectedChoice {
     Collection,
@@ -37,7 +38,8 @@ export class DeliveriesHelper {
     constructor(private addressService: AddressService,
         private router: Router,
         private paidService: PaidForItemsService,
-        private checkoutService: CompleteCheckoutService) { }
+        private checkoutService: CompleteCheckoutService,
+        private notifyService: NotificationService) { }
 
     public options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
 
@@ -92,15 +94,16 @@ export class DeliveriesHelper {
                                 addresses.splice(0, addresses.length);
                                 addresses.push(..._addresses);
                             });
+                            this.notifyService.showSuccess(`${newAddress.addressNickName}`, 'Address Added');
                             break;
                         case 'False':
-                            alert(`Unable To Add Address: ${newAddress.addressNickName} For User: ${user.userName}`);
+                            this.notifyService.showError(`${newAddress.addressNickName}`, `Unable To Add Address For User ${user.userName}`);
                             break;
                         case 'Exists':
-                            alert(`Address/Nickname: ${newAddress.addressNickName} Already Exists For User: ${user.userName}`);
+                            this.notifyService.showWarning(``, `Address Already Exists For User ${user.userName}`);
                             break;
                         default:
-                            alert(`Unknown Error`);
+                            this.notifyService.showError(``, `Unknown Error`);
                             break;
                     }
                 });
@@ -118,10 +121,10 @@ export class DeliveriesHelper {
 
             this.addressService.updateAddress(address).subscribe((success: boolean) => {
                 if (success) {
-                    alert(`Updated Address: ${address.addressNickName} Successfully`);
+                    this.notifyService.showSuccess(`${address.addressNickName}`, `Updated Address`)
                     this.router.navigate(['/deliveries']);
                 } else {
-                    alert(`Unable To Update Address ${address.addressNickName}`);
+                    this.notifyService.showError(`${address.addressNickName}`, 'Unable To Update Address');
                     this.router.navigate(['/deliveries']);
                 }
             });

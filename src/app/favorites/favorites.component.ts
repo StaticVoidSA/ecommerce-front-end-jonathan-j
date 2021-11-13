@@ -115,7 +115,7 @@ export class FavoritesComponent implements OnInit {
         this.isLoading = true;
         this.favoriteService.removeFromFavorites(userID, favID).subscribe((success: boolean) => {
           if (success) {
-            this.notifyService.showInfo(`Favourite ID: ${favID}`, 'Removed From Favorites')
+            this.notifyService.showSuccess(`Favourite ID: ${favID}`, 'Removed From Favorites')
             this.favorites.splice(0, this.favorites.length);
             this.favoriteService.getFavorites(this.user.userId).subscribe((data: any[]) => {
               if (!data || data.length <= 0) {
@@ -153,7 +153,7 @@ export class FavoritesComponent implements OnInit {
 
       this.cartService.addToCart(item).subscribe((success: boolean) => {
         if (success) {
-          this.notifyService.showInfo(`${title}`, 'Favorite Item Added To Cart');
+          this.notifyService.showSuccess(`${title}`, 'Favorite Item Added To Cart');
           this.cartCount++;
           this.cartService.cartCountUpdate(this.cartCount);
         } else {
