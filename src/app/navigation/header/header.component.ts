@@ -140,7 +140,6 @@ export class HeaderComponent implements OnInit {
     this.authRespData.expiresIn = null;
     this.authRespData.loggedIn = false;
     this.authRespData.token = null;
-    this.notifyService.showWarning(`Good bye ${this.authRespData.userName}`, `User Logged Out`);
     this.authRespData.userName = null;
     this.authRespData.userId = null;
     let cartCount = 0;
@@ -150,5 +149,6 @@ export class HeaderComponent implements OnInit {
     this.cartService.cartCountUpdate(cartCount);
     this.loginService.updateUserDetails(this.authRespData);
     this.authService.logout();
+    this.notifyService.showWarning(`Goodbye`, `User Logged Out`);
   }
 }
