@@ -207,7 +207,7 @@ export class CartComponent implements OnInit {
         this.isLoading = true;
         this.service.deleteCartItem(cartID, cartItemID).subscribe(result => {
           if (result) {
-            this.notifyService.showInfo('', 'Product removed from cart');
+            this.notifyService.showSuccess('', 'Product removed from cart');
             new Promise(resolve => {
               this.items.splice(0, this.items.length);
               this.service.getItems(this.user.userId).subscribe(data => {
