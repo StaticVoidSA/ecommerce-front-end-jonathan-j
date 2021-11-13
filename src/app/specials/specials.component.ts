@@ -134,7 +134,7 @@ export class SpecialsComponent implements OnInit {
         }
         this.cartService.addToCart(item).subscribe((success: boolean) => {
           if (success) {
-            this.notifyService.showInfo(`${item.title}`, `Product Added To Cart`)
+            this.notifyService.showSuccess(`${item.title}`, `Product Added To Cart`)
             this.cartCount++;
             this.cartService.cartCountUpdate(this.cartCount);
           } else {
